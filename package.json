@@ -21,7 +21,8 @@
         "sequelize"
     ],
     "author": "Team Restless Dust",
-    "contributors": [{
+    "contributors": [
+        {
             "name": "Kushagra Bhavsar",
             "email": "kushagra.8866@gmail.com",
             "url": "https://github.com/kushbhavsar",
@@ -50,5 +51,10 @@
     "bugs": {
         "url": "https://github.com/Addie27/drink-with-me/issues"
     },
-    "homepage": "https://github.com/Addie27/drink-with-me#readme"
+    "homepage": "https://github.com/Addie27/drink-with-me#readme",
+    "dependencies": {
+        "express": "^4.16.3",
+        "mysql2": "^1.5.3",
+        "sequelize": "^4.37.7"
+    }
 }
