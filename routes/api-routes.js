@@ -24,7 +24,7 @@ module.exports = function(app) {
 
     // POST route for saving a new user
     app.post("/api/login", function(req, res) {
-        console.log(req.body[0]);
+        // console.log(req.body[0]);
         // login returns user info if they submit the credentials.
         user.login(req.body[0].userName, req.body[0].passKey, ).then(function(dbuser) {
             // console.log(dbuser)
@@ -35,6 +35,7 @@ module.exports = function(app) {
 
     // GET route for retrieving all users
     app.get("/api/user", function(req, res) {
+        // console.log(req.body[0]);
         // findAll returns all entries for a table when used with no options
         user.findAll({}).then(function(dbuser) {
             // console.log(dbuser)
@@ -53,31 +54,62 @@ module.exports = function(app) {
         });
     });
 
-
-    //#endregion User Functions
-
-    //#region added by Kush
-    // var db = require("../models");
-
-    // module.exports = function(app) {
-
-    app.get("/api/all", function(req, res) {
-        db.findAll({})
-            .then(function() {
-                res.json();
-            });
-    });
-
-    app.get("/api/cocktail/:cocktail", function(req, res) {
-        db.findAll({
+    //TODO: Convert to Controller
+    app.put("/api/username", function(req, res) {
+        db.update(req.body, {
                 where: {
-                    cocktail: req.params.cocktail
+                    username: req.body.username
                 }
             })
             .then(function() {
                 res.json();
             });
     });
+    //#endregion User Functions
+
+    //#region Drink Functions
+
+    //TODO: Convert to Controller
+    //  find drink
+    app.get("/api/drink/:drink", function(req, res) {
+        db.findAll({
+                where: {
+                    drink: req.params.drink
+                }
+            })
+            .then(function() {
+                res.json();
+            });
+    });
+    //TODO: Convert to Controller
+    // add drink
+    app.post("/api/drink", function(req, res) {
+        console.log(req.body);
+        db.create({
+                drink: req.body.drink,
+                ingredients: req.body.ingredients,
+                location: req.body.location,
+            })
+            .then(function() {
+                res.json();
+            });
+    });
+    //TODO: Convert to Controller
+    // update drink
+    app.put("/api/drink", function(req, res) {
+        db.update(req.body, {
+                where: {
+                    drink: req.body.drink
+                }
+            })
+            .then(function() {
+                res.json();
+            });
+    });
+    //#endregion Drink Functions
+
+    //#region Ingredient Functions
+    //TODO: Convert to Controller
     app.get("/api/ingredients/:ingredients", function(req, res) {
         db.findAll({
                 where: {
@@ -88,17 +120,14 @@ module.exports = function(app) {
                 res.json();
             });
     });
-    // app.get("/api/username/:username", function(req, res) {
-    //     db.findAll({
-    //             where: {
-    //                 username: req.params.username
-    //             }
-    //         })
-    //         .then(function() {
-    //             res.json();
-    //         });
-    // });
+    //#endregion Ingredient Functions
 
+    //#region Review Functions
+    //#endregion Review Functions    
+
+    //#region Friend Functions
+
+    //TODO: Review and mabye convert to Controller
     // app.get("/api/friendname/:friendname", function(req, res) {
     //     db.findAll({
     //             where: {
@@ -110,53 +139,7 @@ module.exports = function(app) {
     //         });
     // });
 
-    // app.post("/api/signup", function(req, res) {
-    //     console.log(req.body);
-    //     db.create({
-    //             name: req.body.name,
-    //             email: req.body.email,
-    //             username: req.body.username,
-    //             password: req.body.password,
-    //             repassword: req.body.repassword,
-    //             birthdate: req.body.birthdate,
-    //         })
-    //         .then(function() {
-    //             res.json();
-    //         });
-    // });
-
-    // app.post("/api/login", function(req, res) {
-    //     console.log(req.body);
-    //     db.create({
-    //             username: req.body.username,
-    //             password: req.body.password,
-    //             repassword: req.body.repassword,
-    //         })
-    //         .then(function() {
-    //             res.json();
-    //         });
-    // });
-    app.post("/api/cocktail", function(req, res) {
-        console.log(req.body);
-        db.create({
-                cocktail: req.body.cocktail,
-                ingredients: req.body.ingredients,
-                location: req.body.location,
-            })
-            .then(function() {
-                res.json();
-            });
-    });
-    app.post("/api/review", function(req, res) {
-        console.log(req.body);
-        db.create({
-                review: req.body.review,
-                ratings: req.body.ratings
-            })
-            .then(function() {
-                res.json();
-            });
-    });
+    //TODO: Convert to Controller
     app.post("/api/friends", function(req, res) {
         console.log(req.body);
         db.create({
@@ -167,17 +150,28 @@ module.exports = function(app) {
                 res.json();
             });
     });
+    //#endregion Friend Functions    
 
-    app.put("/api/username", function(req, res) {
-        db.update(req.body, {
-                where: {
-                    username: req.body.username
-                }
+    //#region Vote Functions
+    //#endregion Vote Functions    
+
+    //#region Review Functions
+    //#endregion Review Functions    
+
+    //#region Review Functions
+    //TODO: Convert to Controller
+    app.post("/api/review", function(req, res) {
+        console.log(req.body);
+        db.create({
+                review: req.body.review,
+                ratings: req.body.ratings
             })
             .then(function() {
                 res.json();
             });
     });
+
+    //TODO: Convert to Controller
     app.put("/api/review", function(req, res) {
         db.update(req.body, {
                 where: {
@@ -188,19 +182,6 @@ module.exports = function(app) {
                 res.json();
             });
     });
-    app.put("/api/cocktail", function(req, res) {
-        db.update(req.body, {
-                where: {
-                    cocktail: req.body.cocktail
-                }
-            })
-            .then(function() {
-                res.json();
-            });
-    });
-
-    // };
-    //#endregion
-
+    //#endregion Review Functions    
 
 };
