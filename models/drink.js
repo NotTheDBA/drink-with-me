@@ -3,8 +3,11 @@ module.exports = function(sequelize, DataTypes) {
         drinkId: { type: DataTypes.INTEGER, autoIncrement: true, primaryKey: true },
         drinkName: {
             type: DataTypes.STRING,
-            allowNull: false,
-            unique: true
+            unique: true,
+            validate: {
+                notNull: true,
+                notEmpty: true
+            }
         },
         placeId: {
             type: DataTypes.INTEGER,

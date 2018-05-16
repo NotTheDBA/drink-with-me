@@ -3,24 +3,33 @@ module.exports = function(sequelize, DataTypes) {
         userId: { type: DataTypes.INTEGER, autoIncrement: true, primaryKey: true },
         email: {
             type: DataTypes.STRING,
-            allowNull: false,
             unique: true,
             validate: {
-                isEmail: true
+                notNull: true,
+                notEmpty: true
             }
         },
         userName: {
             type: DataTypes.STRING,
-            allowNull: false,
-            unique: true
+            unique: true,
+            validate: {
+                notNull: true,
+                notEmpty: true
+            }
         },
         displayName: {
             type: DataTypes.STRING,
-            allowNull: false
+            validate: {
+                notNull: true,
+                notEmpty: true
+            }
         },
         passKey: {
             type: DataTypes.STRING,
-            allowNull: false
+            validate: {
+                notNull: true,
+                notEmpty: true
+            }
         },
         gravatar: {
             type: DataTypes.STRING,
@@ -37,6 +46,7 @@ module.exports = function(sequelize, DataTypes) {
         //     user.passKey = bcrypt.hashSync(user.passKey, bcrypt.genSaltSync(10), null);
         //TODO: add gravatar hash
         //TODO: default username to email
+        //TODO: default diplay name to username (if username is email, truncate at the @ symbol)
     });
     // //This authenticates the password when the user logs in
     // User.prototype.validatePassKey = function(passKey) {

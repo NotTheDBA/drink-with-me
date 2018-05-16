@@ -3,11 +3,17 @@ module.exports = function(sequelize, DataTypes) {
         categoryId: { type: DataTypes.INTEGER, autoIncrement: true, primaryKey: true },
         general: {
             type: DataTypes.STRING,
-            allowNull: false
+            validate: {
+                notNull: true,
+                notEmpty: true
+            }
         },
         specific: {
             type: DataTypes.STRING,
-            allowNull: true
+            validate: {
+                notNull: true,
+                notEmpty: true
+            }
         },
         cocktailDbId: {
             type: DataTypes.INTEGER,

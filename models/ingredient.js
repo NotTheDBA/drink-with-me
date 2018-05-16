@@ -3,8 +3,11 @@ module.exports = function(sequelize, DataTypes) {
         ingredientId: { type: DataTypes.INTEGER, autoIncrement: true, primaryKey: true },
         ingredientName: {
             type: DataTypes.STRING,
-            allowNull: false,
-            unique: true
+            unique: true,
+            validate: {
+                notNull: true,
+                notEmpty: true
+            }
         },
         categoryId: {
             type: DataTypes.INTEGER,
