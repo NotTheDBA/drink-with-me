@@ -3,8 +3,11 @@ module.exports = function(sequelize, DataTypes) {
         placeId: { type: DataTypes.INTEGER, autoIncrement: true, primaryKey: true },
         name: {
             type: DataTypes.STRING,
-            allowNull: false,
-            unique: true
+            unique: true,
+            validate: {
+                notNull: true,
+                notEmpty: true
+            }
         },
         type: {
             type: DataTypes.STRING,
