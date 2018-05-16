@@ -1,6 +1,7 @@
 var db = require("../models");
 
 module.exports = {
+    //TODO:  Write functions
     //   //template
     // functionName: function(parm) {
     //     // functionName does something

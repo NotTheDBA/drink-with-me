@@ -5,7 +5,7 @@ module.exports = {
     //template
     findDrink: function(name) {
         // functionName does something
-        var $functionName = db.Drink.findAll({
+        var $findDrink = db.Drink.findAll({
                 where: {
                     drinkName: name
                 }
@@ -20,13 +20,13 @@ module.exports = {
                 return err;
             });
         // This returns a promise to the external code, so it can access our results
-        return $functionName;
+        return $findDrink;
     },
 
     addDrink: function(drink, ingredients, location) {
 
         // create takes an argument of an object for our model
-        var $create =
+        var $addDrink =
             db.Drink.create({
                 drinkName: drink.drinkName,
                 isAlcoholic: drink.isAlcoholic,
@@ -48,6 +48,6 @@ module.exports = {
             });
 
         // This returns a promise to the external code, so it can access our results
-        return $create;
+        return $addDrink;
     },
 }
