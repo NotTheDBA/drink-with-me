@@ -36,7 +36,35 @@ module.exports = {
         });
         // This returns a promise to the external code, so it can access our results
         return $findall;
+    },
+
+    findUserName: function(username) {
+
+        // functionName does something
+        var $findUserName = db.User.findOne({
+            where: {
+                userName: username
+            }
+        }).then(function(results) {
+            // return our results from the function
+            return results;
+        });
+        // This returns a promise to the external code, so it can access our results
+        return $findUserName;
+    },
+
+    login: function(username, passkey) {
+        // functionName does something
+        var $login = db.User.findOne({
+            where: {
+                userName: username,
+                passKey: passkey
+            }
+        }).then(function(results) {
+            // return our results from the function
+            return results;
+        });
+        // This returns a promise to the external code, so it can access our results
+        return $login;
     }
-
-
 }
