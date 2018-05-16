@@ -73,8 +73,18 @@ module.exports = function(app) {
     //#endregion Friend Functions    
 
     //#region Ingredient Functions
-    //TODO: // Get all ingredients
     //TODO: // Add ingredient
+    app.post("/api/model", function(req, res) {
+        console.log(req.body[0]);
+        // findAll returns all entries for a table when used with no options
+        model.addModel(req.body[0])
+            .then(function(dbResults) {
+                // We have access to the results as an argument inside of the callback function
+                res.json(dbResults);
+            });
+    });
+
+    //TODO: // Get all ingredients
     //TODO: // Retire ingredient
 
     //TODO: Convert to Controller
@@ -91,14 +101,36 @@ module.exports = function(app) {
     });
     //#endregion Ingredient Functions
 
-    //#region Part Functions
-    //TODO: // Add drink part (ingredient)
+    //#region Part (drink ingredients) Functions
+    //TODO: // Add drink part
+    app.post("/api/model", function(req, res) {
+        console.log(req.body[0]);
+        // findAll returns all entries for a table when used with no options
+        model.addModel(req.body[0])
+            .then(function(dbResults) {
+                // We have access to the results as an argument inside of the callback function
+                res.json(dbResults);
+            });
+    });
+
+
     //TODO: // update drink part
 
     //#endregion Part Functions  
 
     //#region Place Functions
     //TODO: // Add place
+    app.post("/api/model", function(req, res) {
+        console.log(req.body[0]);
+        // findAll returns all entries for a table when used with no options
+        model.addModel(req.body[0])
+            .then(function(dbResults) {
+                // We have access to the results as an argument inside of the callback function
+                res.json(dbResults);
+            });
+    });
+
+
     //TODO: // Update place
     //TODO: // Mark Closed
 
@@ -112,21 +144,28 @@ module.exports = function(app) {
 
     //TODO: //Get Reviews by location
 
-    //TODO: Convert to Controller
-    //Add Review
+    //TODO: Convert to Controller    //Add Review
     app.post("/api/review", function(req, res) {
-        console.log(req.body);
-        db.create({
-                review: req.body.review,
-                ratings: req.body.ratings
-            })
-            .then(function() {
-                res.json();
+        console.log(req.body[0]);
+        // findAll returns all entries for a table when used with no options
+        review.addReview(req.body[0])
+            .then(function(dbResults) {
+                // We have access to the results as an argument inside of the callback function
+                res.json(dbResults);
             });
     });
+    // app.post("/api/review", function(req, res) {
+    //     console.log(req.body);
+    //     db.create({
+    //             review: req.body.review,
+    //             ratings: req.body.ratings
+    //         })
+    //         .then(function() {
+    //             res.json();
+    //         });
+    // });
 
-    //TODO: Convert to Controller
-    //Edit Review
+    //TODO: Convert to Controller     //Edit Review
     app.put("/api/review", function(req, res) {
         db.update(req.body, {
                 where: {
@@ -182,7 +221,7 @@ module.exports = function(app) {
         });
     });
 
-    // //TODO: Convert to Controller
+    // //TODO: Convert to Controller  // Update Username
     // app.put("/api/username", function(req, res) {
     //     db.update(req.body, {
     //             where: {
@@ -197,7 +236,29 @@ module.exports = function(app) {
 
     //#region Vote Functions
     //TODO: // Add Upvote
+    app.post("/api/model", function(req, res) {
+        console.log(req.body[0]);
+        // findAll returns all entries for a table when used with no options
+        model.addModel(req.body[0])
+            .then(function(dbResults) {
+                // We have access to the results as an argument inside of the callback function
+                res.json(dbResults);
+            });
+    });
+
+
     //TODO: // Add Downvote
+    app.post("/api/model", function(req, res) {
+        console.log(req.body[0]);
+        // findAll returns all entries for a table when used with no options
+        model.addModel(req.body[0])
+            .then(function(dbResults) {
+                // We have access to the results as an argument inside of the callback function
+                res.json(dbResults);
+            });
+    });
+
+
     //TODO: // Remove vote
     //#endregion Vote Functions    
 
