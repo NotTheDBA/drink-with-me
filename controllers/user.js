@@ -3,9 +3,28 @@ var db = require("../models");
 module.exports = {
 
     addUser: function(user) {
-        // create takes an argument of an object describing the item we want to
-        // insert into our table. In this case we just we pass in an object with a text
-        // and complete property 
+
+        //Default username to email, truncated at the @ symbol)
+        if (typeof user.userName === "undefined") {
+            user.userName = user.email.split('@')[0];
+        }
+
+        //Default display name to username
+        if (typeof user.displayName === "undefined") {
+            user.displayName = user.userName;
+        }
+        //TODO: Gravatar: add gravatar hash
+
+        //TODO: User password encryption for creation
+        // // //Requiring bcrypt for password hashing. Using the bcrypt-nodejs version
+        // // //as the regular bcrypt module sometimes causes errors on Windows machines
+        // // var bcrypt = require("bcrypt-nodejs");
+        // // //This encrypts the password as it's being saved
+        //     //     user.passKey = bcrypt.hashSync(user.passKey, bcrypt.genSaltSync(10), null);
+
+        // });
+
+        // create takes an argument of an object for our model
         var $create =
             db.User.create({
                 email: user.email,
@@ -54,6 +73,11 @@ module.exports = {
     },
 
     login: function(username, passkey) {
+        //TODO: User password encryption for creation
+        // // //This authenticates the password when the user logs in
+        // // User.prototype.validatePassKey = function(passKey) {
+        // //     return bcrypt.compareSync(passKey, this.passKey);
+        // // };
         // functionName does something
         var $login = db.User.findOne({
             where: {
