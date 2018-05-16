@@ -13,7 +13,14 @@ var user = require("../controllers/user");
 module.exports = function(app) {
 
     //#region Category Functions
-    //TODO: // get all categories
+    //TODO: //Find all categories
+    app.get("/api/model/:model", function(req, res) {
+        model.findModel(req.params.drink)
+            .then(function(dbResults) {
+                // We have access to the results as an argument inside of the callback function
+                res.json(dbResults);
+            });
+    });
 
     //#endregion Category Functions  
 
@@ -31,15 +38,14 @@ module.exports = function(app) {
     // add drink
     app.post("/api/drink", function(req, res) {
         console.log(req.body[0]);
-        // findAll returns all entries for a table when used with no options
+        //Find all returns all entries for a table when used with no options
         drink.addDrink(req.body[0])
             .then(function(dbResults) {
                 // We have access to the results as an argument inside of the callback function
                 res.json(dbResults);
             });
     });
-    // //TODO: Convert to Controller
-    // // update drink
+    // //TODO: Convert to Controller     // update drink
     // app.put("/api/drink", function(req, res) {
     //     db.update(req.body, {
     //             where: {
@@ -50,16 +56,58 @@ module.exports = function(app) {
     //             res.json();
     //         });
     // });
+    console.log(req.body[0]);
+    //Find all returns all entries for a table when used with no options
+    model.updateModel(req.body[0])
+        .then(function(dbResults) {
+            // We have access to the results as an argument inside of the callback function
+            res.json(dbResults);
+        });
+
     //#endregion Drink Functions
 
     //#region Friend Functions
     //TODO: // Find all Friends by user
-    //TODO: // Remove Friend
-    //TODO: // Find all pending friend requests
-    //TODO: // Accept Friend
+    app.get("/api/model/:model", function(req, res) {
+        model.findModel(req.params.drink)
+            .then(function(dbResults) {
+                // We have access to the results as an argument inside of the callback function
+                res.json(dbResults);
+            });
+    });
 
-    //TODO: Convert to Controller
-    // Add Friend
+    //TODO: // Remove Friend
+    app.delete("/api/model/:id", function(req, res) {
+
+        model.Remove(req.params.id)
+            .then(function(dbResults) {
+                // We have access to the results as an argument inside of the callback function
+                res.json(dbResults);
+            });
+
+    });
+
+    //TODO: // Find all pending friend requests
+    app.get("/api/model/:model", function(req, res) {
+        model.findModel(req.params.drink)
+            .then(function(dbResults) {
+                // We have access to the results as an argument inside of the callback function
+                res.json(dbResults);
+            });
+    });
+
+    //TODO: // Accept Friend
+    app.post("/api/model", function(req, res) {
+        console.log(req.body[0]);
+        //Find all returns all entries for a table when used with no options
+        model.addModel(req.body[0])
+            .then(function(dbResults) {
+                // We have access to the results as an argument inside of the callback function
+                res.json(dbResults);
+            });
+    });
+
+    //TODO: Convert to Controller     // Add Friend
     app.post("/api/friends", function(req, res) {
         console.log(req.body);
         db.create({
@@ -76,7 +124,7 @@ module.exports = function(app) {
     //TODO: // Add ingredient
     app.post("/api/model", function(req, res) {
         console.log(req.body[0]);
-        // findAll returns all entries for a table when used with no options
+        //Find all returns all entries for a table when used with no options
         model.addModel(req.body[0])
             .then(function(dbResults) {
                 // We have access to the results as an argument inside of the callback function
@@ -84,11 +132,25 @@ module.exports = function(app) {
             });
     });
 
-    //TODO: // Get all ingredients
-    //TODO: // Retire ingredient
+    //TODO: // Find All ingredients
+    app.get("/api/model/:model", function(req, res) {
+        model.findModel(req.params.drink)
+            .then(function(dbResults) {
+                // We have access to the results as an argument inside of the callback function
+                res.json(dbResults);
+            });
+    });
 
-    //TODO: Convert to Controller
-    // Find ingredient by name
+    //TODO: // Retire ingredient
+    console.log(req.body[0]);
+    //Find all returns all entries for a table when used with no options
+    model.updateModel(req.body[0])
+        .then(function(dbResults) {
+            // We have access to the results as an argument inside of the callback function
+            res.json(dbResults);
+        });
+
+    //TODO: Convert to Controller     // Find ingredient by name
     app.get("/api/ingredients/:ingredients", function(req, res) {
         db.findAll({
                 where: {
@@ -105,7 +167,7 @@ module.exports = function(app) {
     //TODO: // Add drink part
     app.post("/api/model", function(req, res) {
         console.log(req.body[0]);
-        // findAll returns all entries for a table when used with no options
+        //Find all returns all entries for a table when used with no options
         model.addModel(req.body[0])
             .then(function(dbResults) {
                 // We have access to the results as an argument inside of the callback function
@@ -115,6 +177,13 @@ module.exports = function(app) {
 
 
     //TODO: // update drink part
+    console.log(req.body[0]);
+    //Find all returns all entries for a table when used with no options
+    model.updateModel(req.body[0])
+        .then(function(dbResults) {
+            // We have access to the results as an argument inside of the callback function
+            res.json(dbResults);
+        });
 
     //#endregion Part Functions  
 
@@ -122,7 +191,7 @@ module.exports = function(app) {
     //TODO: // Add place
     app.post("/api/model", function(req, res) {
         console.log(req.body[0]);
-        // findAll returns all entries for a table when used with no options
+        //Find all returns all entries for a table when used with no options
         model.addModel(req.body[0])
             .then(function(dbResults) {
                 // We have access to the results as an argument inside of the callback function
@@ -132,22 +201,58 @@ module.exports = function(app) {
 
 
     //TODO: // Update place
+    console.log(req.body[0]);
+    //Find all returns all entries for a table when used with no options
+    model.updateModel(req.body[0])
+        .then(function(dbResults) {
+            // We have access to the results as an argument inside of the callback function
+            res.json(dbResults);
+        });
+
     //TODO: // Mark Closed
+    console.log(req.body[0]);
+    //Find all returns all entries for a table when used with no options
+    model.updateModel(req.body[0])
+        .then(function(dbResults) {
+            // We have access to the results as an argument inside of the callback function
+            res.json(dbResults);
+        });
 
     //#endregion Place Functions  
 
     //#region Review Functions
 
-    //TODO: //Get Reviews by user
+    //TODO: //FindReviews by user
+    app.get("/api/model/:model", function(req, res) {
+        model.findModel(req.params.drink)
+            .then(function(dbResults) {
+                // We have access to the results as an argument inside of the callback function
+                res.json(dbResults);
+            });
+    });
 
-    //TODO: //Get Reviews by drink
+    //TODO: //FindReviews by drink
+    app.get("/api/model/:model", function(req, res) {
+        model.findModel(req.params.drink)
+            .then(function(dbResults) {
+                // We have access to the results as an argument inside of the callback function
+                res.json(dbResults);
+            });
+    });
 
-    //TODO: //Get Reviews by location
+    //TODO: //FindReviews by location
+    app.get("/api/model/:model", function(req, res) {
+        model.findModel(req.params.drink)
+            .then(function(dbResults) {
+                // We have access to the results as an argument inside of the callback function
+                res.json(dbResults);
+            });
+    });
 
     //TODO: Convert to Controller    //Add Review
     app.post("/api/review", function(req, res) {
         console.log(req.body[0]);
-        // findAll returns all entries for a table when used with no options
+        //Find all returns all entries for a table when used with no options
         review.addReview(req.body[0])
             .then(function(dbResults) {
                 // We have access to the results as an argument inside of the callback function
@@ -166,23 +271,30 @@ module.exports = function(app) {
     // });
 
     //TODO: Convert to Controller     //Edit Review
-    app.put("/api/review", function(req, res) {
-        db.update(req.body, {
-                where: {
-                    review: req.body.review
-                }
-            })
-            .then(function() {
-                res.json();
-            });
-    });
+    console.log(req.body[0]);
+    //Find all returns all entries for a table when used with no options
+    model.updateModel(req.body[0])
+        .then(function(dbResults) {
+            // We have access to the results as an argument inside of the callback function
+            res.json(dbResults);
+        });
+    // app.put("/api/review", function(req, res) {
+    //     db.update(req.body, {
+    //             where: {
+    //                 review: req.body.review
+    //             }
+    //         })
+    //         .then(function() {
+    //             res.json();
+    //         });
+    // });
     //#endregion Review Functions    
 
     //#region User Functions
     // POST route for saving a new user
     app.post("/api/signup", function(req, res) {
         // console.log(req.body[0]);
-        // findAll returns all entries for a table when used with no options
+        //Find all returns all entries for a table when used with no options
         user.addUser(req.body[0]).then(function(dbResults) {
             // We have access to the user as an argument inside of the callback function
             res.json(dbResults);
@@ -203,7 +315,7 @@ module.exports = function(app) {
     // GET route for retrieving all users
     app.get("/api/user", function(req, res) {
         // console.log(req.body[0]);
-        // findAll returns all entries for a table when used with no options
+        //Find all returns all entries for a table when used with no options
         user.findAll({}).then(function(dbResults) {
             // console.log(dbResults)
             // We have access to the user as an argument inside of the callback function
@@ -213,7 +325,7 @@ module.exports = function(app) {
 
     // GET route for retrieving user by username
     app.get("/api/user/:username", function(req, res) {
-        // findAll returns all entries for a table when used with no options
+        //Find all returns all entries for a table when used with no options
         user.findUserName(req.params.username).then(function(dbResults) {
             // console.log(dbResults)
             // We have access to the user as an argument inside of the callback function
@@ -222,6 +334,14 @@ module.exports = function(app) {
     });
 
     // //TODO: Convert to Controller  // Update Username
+    console.log(req.body[0]);
+    //Find all returns all entries for a table when used with no options
+    model.updateModel(req.body[0])
+        .then(function(dbResults) {
+            // We have access to the results as an argument inside of the callback function
+            res.json(dbResults);
+        });
+
     // app.put("/api/username", function(req, res) {
     //     db.update(req.body, {
     //             where: {
@@ -238,7 +358,7 @@ module.exports = function(app) {
     //TODO: // Add Upvote
     app.post("/api/model", function(req, res) {
         console.log(req.body[0]);
-        // findAll returns all entries for a table when used with no options
+        //Find all returns all entries for a table when used with no options
         model.addModel(req.body[0])
             .then(function(dbResults) {
                 // We have access to the results as an argument inside of the callback function
@@ -250,7 +370,7 @@ module.exports = function(app) {
     //TODO: // Add Downvote
     app.post("/api/model", function(req, res) {
         console.log(req.body[0]);
-        // findAll returns all entries for a table when used with no options
+        //Find all returns all entries for a table when used with no options
         model.addModel(req.body[0])
             .then(function(dbResults) {
                 // We have access to the results as an argument inside of the callback function
@@ -260,6 +380,17 @@ module.exports = function(app) {
 
 
     //TODO: // Remove vote
+    app.delete("/api/model/:id", function(req, res) {
+
+        model.Remove(req.params.id)
+            .then(function(dbResults) {
+                // We have access to the results as an argument inside of the callback function
+                res.json(dbResults);
+            });
+
+    });
     //#endregion Vote Functions    
+
+
 
 };
