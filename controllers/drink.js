@@ -49,5 +49,5 @@ module.exports = {
 
         // This returns a promise to the external code, so it can access our results
         return $addDrink;
-    },
+    }
 }
