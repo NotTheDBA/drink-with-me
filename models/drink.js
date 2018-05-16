@@ -4,8 +4,8 @@ module.exports = function(sequelize, DataTypes) {
         drinkName: {
             type: DataTypes.STRING,
             unique: true,
+            allowNull: false,
             validate: {
-                notNull: true,
                 notEmpty: true
             }
         },

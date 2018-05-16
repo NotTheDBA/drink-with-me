@@ -4,30 +4,30 @@ module.exports = function(sequelize, DataTypes) {
         email: {
             type: DataTypes.STRING,
             unique: true,
+            allowNull: false,
             validate: {
-                notNull: true,
                 notEmpty: true
             }
         },
         userName: {
             type: DataTypes.STRING,
             unique: true,
+            allowNull: false,
             validate: {
-                notNull: true,
                 notEmpty: true
             }
         },
         displayName: {
             type: DataTypes.STRING,
+            allowNull: false,
             validate: {
-                notNull: true,
                 notEmpty: true
             }
         },
         passKey: {
             type: DataTypes.STRING,
+            allowNull: false,
             validate: {
-                notNull: true,
                 notEmpty: true
             }
         },
