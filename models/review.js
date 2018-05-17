@@ -1,11 +1,7 @@
 module.exports = function(sequelize, DataTypes) {
     var Review = sequelize.define("Review", {
         reviewId: { type: DataTypes.INTEGER, autoIncrement: true, primaryKey: true },
-        drinkID: {
-            type: DataTypes.INTEGER,
-            allowNull: false
-        },
-        userID: {
+        drinkId: {
             type: DataTypes.INTEGER,
             allowNull: false
         },

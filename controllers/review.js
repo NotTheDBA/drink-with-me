@@ -2,65 +2,75 @@ var db = require("../models");
 
 module.exports = {
 
-    //TODO: Flesh out findAllByProperty
-    findAllByProperty: function(property) {
+    findAllByUser: function(userId) {
 
-        // findByProperty does something
-        var $findByProperty = db.Review.findAll({
-            where: {
-                propertyName: property
-            }
-        }).then(function(results) {
-            // return our results from the function
-            return results;
-        });
+        // findAllByUser does something
+        var $findAllByUser = db.Review.findAll({
+                where: {
+                    createdBy: userId
+                }
+            }).then(function(results) {
+                // return our results from the function
+                return results;
+            })
+            .catch(function(err) {
+                // Whenever a validation or flag fails, an error is thrown
+                // We can "catch" the error to prevent it from being "thrown", which could crash our node app
+                return err;
+            });
         // This returns a promise to the external code, so it can access our results
-        return $findByProperty;
+        return $findAllByUser;
     },
 
-    //TODO: Flesh out findAllByProperty
-    findAllByProperty: function(property) {
+    findAllByDrink: function(drinkId) {
 
-        // findByProperty does something
-        var $findByProperty = db.Review.findAll({
-            where: {
-                propertyName: property
-            }
-        }).then(function(results) {
-            // return our results from the function
-            return results;
-        });
+        // findAllByDrink does something
+        var $findAllByDrink = db.Review.findAll({
+                where: {
+                    drinkId: drinkId
+                }
+            }).then(function(results) {
+                // return our results from the function
+                return results;
+            })
+            .catch(function(err) {
+                // Whenever a validation or flag fails, an error is thrown
+                // We can "catch" the error to prevent it from being "thrown", which could crash our node app
+                return err;
+            });
         // This returns a promise to the external code, so it can access our results
-        return $findByProperty;
+        return $findAllByDrink;
     },
 
-    //TODO: Flesh out findAllByProperty
-    findAllByProperty: function(property) {
+    //TODO: Figure out how to find by related table Place
+    findAllByPlace: function(placeId) {
 
-        // findByProperty does something
-        var $findByProperty = db.Review.findAll({
-            where: {
-                propertyName: property
-            }
-        }).then(function(results) {
-            // return our results from the function
-            return results;
-        });
+        // findAllByPlace does something
+        var $findAllByPlace = db.Review.findAll({
+                where: {
+                    placeId: placeId
+                }
+            }).then(function(results) {
+                // return our results from the function
+                return results;
+            })
+            .catch(function(err) {
+                // Whenever a validation or flag fails, an error is thrown
+                // We can "catch" the error to prevent it from being "thrown", which could crash our node app
+                return err;
+            });
         // This returns a promise to the external code, so it can access our results
-        return $findByProperty;
+        return $findAllByPlace;
     },
 
-    //TODO: Flesh out add
     add: function(review) {
 
         // create takes an argument of an object for our model
         var $add =
             db.Review.create({
-                property1: review.property1,
-                property2: review.property2,
-                property3: review.property3,
-                // placeID: placeId
-                placeId: 0,
+                drinkId: review.drinkId,
+                rating: review.rating,
+                review: review.review,
                 createdBy: review.createdBy,
                 updatedBy: review.updatedBy
                     // ingredients: req.body.ingredients,

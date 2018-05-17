@@ -49,10 +49,16 @@ module.exports = {
     getAll: function() {
 
         // findAll returns all entries for a table when used with no options
-        var $findall = db.User.findAll({}).then(function(dbUser) {
-            // return our results from the function
-            return dbUser;
-        });
+        var $findall = db.User.findAll({})
+            .then(function(dbUser) {
+                // return our results from the function
+                return dbUser;
+            })
+            .catch(function(err) {
+                // Whenever a validation or flag fails, an error is thrown
+                // We can "catch" the error to prevent it from being "thrown", which could crash our node app
+                return err;
+            });
         // This returns a promise to the external code, so it can access our results
         return $findall;
     },
@@ -61,13 +67,18 @@ module.exports = {
 
         // functionName does something
         var $findUserName = db.User.findOne({
-            where: {
-                userName: username
-            }
-        }).then(function(results) {
-            // return our results from the function
-            return results;
-        });
+                where: {
+                    userName: username
+                }
+            }).then(function(results) {
+                // return our results from the function
+                return results;
+            })
+            .catch(function(err) {
+                // Whenever a validation or flag fails, an error is thrown
+                // We can "catch" the error to prevent it from being "thrown", which could crash our node app
+                return err;
+            });
         // This returns a promise to the external code, so it can access our results
         return $findUserName;
     },
@@ -80,14 +91,19 @@ module.exports = {
         // // };
         // functionName does something
         var $login = db.User.findOne({
-            where: {
-                userName: username,
-                passKey: passkey
-            }
-        }).then(function(results) {
-            // return our results from the function
-            return results;
-        });
+                where: {
+                    userName: username,
+                    passKey: passkey
+                }
+            }).then(function(results) {
+                // return our results from the function
+                return results;
+            })
+            .catch(function(err) {
+                // Whenever a validation or flag fails, an error is thrown
+                // We can "catch" the error to prevent it from being "thrown", which could crash our node app
+                return err;
+            });
         // This returns a promise to the external code, so it can access our results
         return $login;
     }

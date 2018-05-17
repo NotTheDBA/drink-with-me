@@ -16,9 +16,14 @@ module.exports = {
 
         // findAll returns all entries for a table when used with no options
         var $findall = db.Model.findAll({}).then(function(dbResults) {
-            // return our results from the function
-            return dbResults;
-        });
+                // return our results from the function
+                return dbResults;
+            })
+            .catch(function(err) {
+                // Whenever a validation or flag fails, an error is thrown
+                // We can "catch" the error to prevent it from being "thrown", which could crash our node app
+                return err;
+            });
         // This returns a promise to the external code, so it can access our results
         return $findall;
     },
@@ -27,13 +32,18 @@ module.exports = {
 
         // findByProperty does something
         var $findByProperty = db.Model.findOne({
-            where: {
-                propertyName: property
-            }
-        }).then(function(results) {
-            // return our results from the function
-            return results;
-        });
+                where: {
+                    propertyName: property
+                }
+            }).then(function(results) {
+                // return our results from the function
+                return results;
+            })
+            .catch(function(err) {
+                // Whenever a validation or flag fails, an error is thrown
+                // We can "catch" the error to prevent it from being "thrown", which could crash our node app
+                return err;
+            });
         // This returns a promise to the external code, so it can access our results
         return $findByProperty;
     },
@@ -42,13 +52,18 @@ module.exports = {
 
         // findByProperty does something
         var $findByProperty = db.Model.findAll({
-            where: {
-                propertyName: property
-            }
-        }).then(function(results) {
-            // return our results from the function
-            return results;
-        });
+                where: {
+                    propertyName: property
+                }
+            }).then(function(results) {
+                // return our results from the function
+                return results;
+            })
+            .catch(function(err) {
+                // Whenever a validation or flag fails, an error is thrown
+                // We can "catch" the error to prevent it from being "thrown", which could crash our node app
+                return err;
+            });
         // This returns a promise to the external code, so it can access our results
         return $findByProperty;
     },
@@ -61,8 +76,6 @@ module.exports = {
                 property1: model.property1,
                 property2: model.property2,
                 property3: model.property3,
-                // placeID: placeId
-                placeId: 0,
                 createdBy: model.createdBy,
                 updatedBy: model.updatedBy
                     // ingredients: req.body.ingredients,

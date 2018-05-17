@@ -31,7 +31,6 @@ module.exports = {
                 drinkName: drink.drinkName,
                 isAlcoholic: drink.isAlcoholic,
                 isCustom: drink.isCustom,
-                // placeID: placeId
                 placeId: 0,
                 createdBy: drink.createdBy,
                 updatedBy: drink.updatedBy
