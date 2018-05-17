@@ -1,11 +1,11 @@
 module.exports = function(sequelize, DataTypes) {
     var Part = sequelize.define("Part", {
         partId: { type: DataTypes.INTEGER, autoIncrement: true, primaryKey: true },
-        drinkID: {
+        drinkId: {
             type: DataTypes.INTEGER,
             allowNull: false
         },
-        ingredientID: {
+        ingredientId: {
             type: DataTypes.INTEGER,
             allowNull: false
         },
