@@ -1,7 +1,7 @@
 module.exports = function(sequelize, DataTypes) {
     var Place = sequelize.define("Place", {
         placeId: { type: DataTypes.INTEGER, autoIncrement: true, primaryKey: true },
-        name: {
+        placeName: {
             type: DataTypes.STRING,
             unique: true,
             allowNull: false,
