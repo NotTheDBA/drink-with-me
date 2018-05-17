@@ -1,0 +1,54 @@
+{
+    "name": "drink-with-me",
+    "version": "1.0.0",
+    "description": "A social cocktail/mocktail rating application.",
+    "main": "server.js",
+    "directories": {
+        "test": "test"
+    },
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "start": "node server.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/Addie27/drink-with-me.git"
+    },
+    "keywords": [
+        "cocktail",
+        "node",
+        "express",
+        "sequelize"
+    ],
+    "author": "Team Restless Dust",
+    "contributors": [{
+            "name": "Kushagra Bhavsar",
+            "email": "kushagra.8866@gmail.com",
+            "url": "https://github.com/kushbhavsar",
+            "hireable": true
+        },
+        {
+            "name": "Jonathan Dowd",
+            "email": "jdowd20@gmail.com",
+            "url": "https://github.com/Jokedo",
+            "hireable": true
+        },
+        {
+            "name": "Adeline Johnson",
+            "email": "groblewski.adeline@gmail.com",
+            "url": "https://github.com/Addie27",
+            "hireable": true
+        },
+        {
+            "name": "Randy Reitz",
+            "email": "notthedba@outlook.com",
+            "url": "https://github.com/NotTheDBA",
+            "hireable": true
+        }
+    ],
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/Addie27/drink-with-me/issues"
+    },
+    "homepage": "https://github.com/Addie27/drink-with-me#readme"
+}
