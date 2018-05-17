@@ -1,0 +1,57 @@
+body {
+    font-size: 12px; 
+}
+
+input::placeholder {
+    font-size: 10px; 
+}
+
+.input-group-text {
+    font-size: 10px; 
+    text-align: center;
+}
+
+h2, h5, h6 {
+    text-align: center;
+}
+
+.scroll {
+    height: 250px;
+    overflow: auto;
+}
+
+.table-container {
+    margin: 5px;
+  
+}
+
+img {
+    width:100px;
+    height:100px;
+    background: url(http://goo.gl/vyAs27) no-repeat scroll 0 0;
+    float: left;
+    margin-right: 5px; 
+  }
+
+.card-title {
+    padding-top: 10px; 
+}
+
+.link-box {
+    height: 100px;
+    width: 100px;
+    margin-left: 5px; 
+    float: left; 
+    text-align: center;
+    position: relative; 
+}
+
+.link-text {
+    position: absolute;
+    bottom: 50px;
+    right: 0; 
+}
+
+.card-body {
+    padding: 2px; 
+}
