@@ -1,11 +1,11 @@
 var db = require("../models");
 
 module.exports = {
-    //TODO:  Write functions
-    findAll: function() {
+
+    getAll: function() {
 
         // findAll returns all entries for a table when used with no options
-        var $findall = db.model.findAll({}).then(function(dbResults) {
+        var $findall = db.Place.findAll({}).then(function(dbResults) {
             // return our results from the function
             return dbResults;
         });
@@ -13,12 +13,12 @@ module.exports = {
         return $findall;
     },
 
-    findOneByProperty: function(property) {
+    findOneByName: function(name) {
 
         // findByProperty does something
-        var $findByProperty = db.Model.findOne({
+        var $findByProperty = db.Place.findOne({
             where: {
-                propertyName: property
+                placeName: name
             }
         }).then(function(results) {
             // return our results from the function
@@ -28,18 +28,15 @@ module.exports = {
         return $findByProperty;
     },
 
-    addModel: function(property1, property2, property3) {
-
+    add: function(place) {
         // create takes an argument of an object for our model
-        var $addModel =
-            db.Model.create({
-                property1: model.property1,
-                property2: model.property2,
-                property3: model.property3,
-                // placeID: placeId
-                placeId: 0,
-                createdBy: model.createdBy,
-                updatedBy: model.updatedBy
+        var $add =
+            db.Place.create({
+                placeName: place.placeName,
+                type: place.type,
+                isPrivate: place.isPrivate,
+                createdBy: place.createdBy,
+                updatedBy: place.updatedBy
                     // ingredients: req.body.ingredients,
                     // location: req.body.location,
             }).then(function(dbResults) {
@@ -53,6 +50,6 @@ module.exports = {
             });
 
         // This returns a promise to the external code, so it can access our results
-        return $addModel;
+        return $add;
     }
 }

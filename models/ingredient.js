@@ -11,7 +11,7 @@ module.exports = function(sequelize, DataTypes) {
         },
         categoryId: {
             type: DataTypes.INTEGER,
-            allowNull: false
+            allowNull: true //TODO: change to requires once categories are added.
         },
         isAlcoholic: {
             type: DataTypes.BOOLEAN,

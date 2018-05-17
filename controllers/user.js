@@ -46,7 +46,7 @@ module.exports = {
         return $create;
     },
 
-    findAll: function() {
+    getAll: function() {
 
         // findAll returns all entries for a table when used with no options
         var $findall = db.User.findAll({}).then(function(dbUser) {

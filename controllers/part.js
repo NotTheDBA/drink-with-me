@@ -1,22 +1,12 @@
 var db = require("../models");
 
 module.exports = {
-    //TODO:  Write functions
-    //   //template
-    // functionName: function(parm) {
-    //     // functionName does something
-    //     var $functionName = db.User.findAll({}).then(function(results) {
-    //         // return our results from the function
-    //         return results;
-    //     });
-    //     // This returns a promise to the external code, so it can access our results
-    //     return $functionName;
-    // },
 
+    //TODO: Flesh out findAllByProperty
     findAllByProperty: function(property) {
 
         // findByProperty does something
-        var $findByProperty = db.Model.findAll({
+        var $findByProperty = db.Part.findAll({
             where: {
                 propertyName: property
             }
@@ -28,18 +18,19 @@ module.exports = {
         return $findByProperty;
     },
 
-    addModel: function(property1, property2, property3) {
+    //TODO: Flesh out add
+    add: function(part) {
 
         // create takes an argument of an object for our model
-        var $addModel =
-            db.Model.create({
-                property1: model.property1,
-                property2: model.property2,
-                property3: model.property3,
+        var $add =
+            db.Part.create({
+                property1: part.property1,
+                property2: part.property2,
+                property3: part.property3,
                 // placeID: placeId
                 placeId: 0,
-                createdBy: model.createdBy,
-                updatedBy: model.updatedBy
+                createdBy: part.createdBy,
+                updatedBy: part.updatedBy
                     // ingredients: req.body.ingredients,
                     // location: req.body.location,
             }).then(function(dbResults) {
@@ -53,6 +44,6 @@ module.exports = {
             });
 
         // This returns a promise to the external code, so it can access our results
-        return $addModel;
+        return $add;
     }
 }

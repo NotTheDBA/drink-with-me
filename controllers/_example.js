@@ -12,10 +12,10 @@ module.exports = {
     //     return $functionName;
     // }
 
-    findAll: function() {
+    getAll: function() {
 
         // findAll returns all entries for a table when used with no options
-        var $findall = db.model.findAll({}).then(function(dbResults) {
+        var $findall = db.Model.findAll({}).then(function(dbResults) {
             // return our results from the function
             return dbResults;
         });
@@ -53,7 +53,7 @@ module.exports = {
         return $findByProperty;
     },
 
-    addModel: function(property1, property2, property3) {
+    add: function(property1, property2, property3) {
 
         // create takes an argument of an object for our model
         var $addModel =
@@ -78,6 +78,6 @@ module.exports = {
             });
 
         // This returns a promise to the external code, so it can access our results
-        return $addModel;
+        return $add;
     }
 }

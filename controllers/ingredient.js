@@ -1,37 +1,35 @@
 var db = require("../models");
 
 module.exports = {
-    //TODO:  Write functions
-    findAll: function() {
+    getAll: function() {
 
         // findAll returns all entries for a table when used with no options
-        var $findall = db.model.findAll({}).then(function(dbResults) {
+        var $findall = db.Ingredient.findAll({}).then(function(dbResults) {
             // return our results from the function
             return dbResults;
         });
         // This returns a promise to the external code, so it can access our results
         return $findall;
     },
+    findOneByIngredient: function(ingredient) {
 
-    findOneByProperty: function(property) {
-
-        // findByProperty does something
-        var $findByProperty = db.Model.findOne({
+        // findByIngredient does something
+        var $findByIngredient = db.Ingredient.findOne({
             where: {
-                propertyName: property
+                ingredientName: ingredient
             }
         }).then(function(results) {
             // return our results from the function
             return results;
         });
         // This returns a promise to the external code, so it can access our results
-        return $findByProperty;
+        return $findByIngredient;
     },
-
+    //TODO: Flesh out findAllByProperty
     findAllByProperty: function(property) {
 
         // findByProperty does something
-        var $findByProperty = db.Model.findAll({
+        var $findByProperty = db.Ingredient.findAll({
             where: {
                 propertyName: property
             }
@@ -42,21 +40,18 @@ module.exports = {
         // This returns a promise to the external code, so it can access our results
         return $findByProperty;
     },
-
-    addModel: function(property1, property2, property3) {
+    add: function(ingredient) {
 
         // create takes an argument of an object for our model
-        var $addModel =
-            db.Model.create({
-                property1: model.property1,
-                property2: model.property2,
-                property3: model.property3,
-                // placeID: placeId
-                placeId: 0,
-                createdBy: model.createdBy,
-                updatedBy: model.updatedBy
-                    // ingredients: req.body.ingredients,
-                    // location: req.body.location,
+        var $add =
+            db.Ingredient.create({
+                ingredientName: ingredient.ingredientName,
+                categoryId: ingredient.categoryId,
+                isAlcoholic: ingredient.isAlcoholic,
+                isCustom: ingredient.isCustom,
+                isRetired: ingredient.isRetired,
+                createdBy: ingredient.createdBy,
+                updatedBy: ingredient.updatedBy
             }).then(function(dbResults) {
                 // We have access to the new todo as an argument inside of the callback function
                 return dbResults;
@@ -68,6 +63,6 @@ module.exports = {
             });
 
         // This returns a promise to the external code, so it can access our results
-        return $addModel;
+        return $add;
     }
 }
