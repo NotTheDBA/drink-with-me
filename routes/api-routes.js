@@ -15,9 +15,36 @@ var place = require("../controllers/place");
 var user = require("../controllers/user");
 var review = require("../controllers/review");
 
+var request = require("request");
+
 // Routes
 // =============================================================
 module.exports = function(app) {
+
+    //#region CocktailDB Functions
+
+    app.get("/api/all", function(request, response) {
+        request("https://www.thecocktaildb.com/api/json/v1/1/list.php?c=list", function(res) {
+            console.log(res);
+        });
+    });
+
+    app.get("/api/drink/:drink", function(request, response) {
+        if (request.params.drink) {
+            request("https://www.thecocktaildb.com/api/json/v1/1/filter.php?c=Cocktail", function(res) {
+                console.log(res);
+
+            });
+        }
+    });
+    app.get("/api/ingredient/:ingredient", function(request, response) {
+        if (request.params.ingredient) {
+            request("https://www.thecocktaildb.com/api/json/v1/1/list.php?i=list", function(res) {
+                console.log(res);
+            });
+        }
+    });
+    //#endregion CoctailDB Functions
 
     //#region Category Functions
     //TODO: //Find all categories
@@ -411,7 +438,4 @@ module.exports = function(app) {
 
     // });
     ////#endregion Vote Functions
-
-
-
-};
+}
