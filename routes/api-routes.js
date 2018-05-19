@@ -47,7 +47,6 @@ module.exports = function(app) {
     //#endregion CoctailDB Functions
 
     //#region Category Functions
-    //TODO: //Find all categories
     app.get("/api/category/", function(req, res) {
         category.getAll({})
             .then(function(dbResults) {
@@ -56,6 +55,17 @@ module.exports = function(app) {
             });
     });
 
+    //TODO: 
+    // add category
+    app.post("/api/category", function(req, res) {
+        // console.log(req.body[0]);
+        //Find all returns all entries for a table when used with no options
+        category.add(req.body[0])
+            .then(function(dbResults) {
+                // We have access to the results as an argument inside of the callback function
+                res.json(dbResults);
+            });
+    });
     //#endregion Category Functions
 
     //#region Drink Functions

@@ -2,8 +2,6 @@
 
 module.exports = {
     up: (queryInterface, Sequelize) => {
-        queryInterface.addColumn('Categories', 'createdAt', Sequelize.DATE, { defaultValue: Sequelize.NOW });
-        queryInterface.addColumn('Categories', 'updatedAt', Sequelize.DATE, { defaultValue: Sequelize.NOW });
         /*
           Add altering commands here.
           Return a promise to correctly handle asynchronicity.
@@ -14,8 +12,6 @@ module.exports = {
     },
 
     down: (queryInterface, Sequelize) => {
-        queryInterface.removeColumn('Categories', 'createdAt');
-        queryInterface.removeColumn('Categories', 'updatedAt');
         /*
           Add reverting commands here.
           Return a promise to correctly handle asynchronicity.
@@ -23,6 +19,5 @@ module.exports = {
           Example:
           return queryInterface.dropTable('users');
         */
-        queryInterface.removeColumn('Categories', 'specific');
     }
 };

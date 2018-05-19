@@ -24,15 +24,8 @@ module.exports = {
         // create takes an argument of an object for our category
         var $add =
             db.Category.create({
-                ingredientName: category.ingredientName,
-                categoryId: category.categoryId,
-                isAlcoholic: category.isAlcoholic,
-                isCustom: category.isCustom,
-                isRetired: category.isRetired,
-                createdBy: category.createdBy,
-                updatedBy: category.updatedBy
-                    // ingredients: req.body.ingredients,
-                    // location: req.body.location,
+                general: category.general,
+                specific: category.specific
             }).then(function(dbResults) {
                 // We have access to the new todo as an argument inside of the callback function
                 return dbResults;
