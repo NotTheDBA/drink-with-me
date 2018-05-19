@@ -1,3 +1,5 @@
+
+
 var express = require('express');
 var app = express();
 var passport   = require('passport')
@@ -60,4 +62,16 @@ app.listen(5000, function(err) {
         console.log("Site is live");
     else console.log(err)
  
-});
+
+
+var PORT = process.env.PORT || 8080
+
+// Static directory
+app.use(express.static("public"));
+
+
+//app.listen(PORT, function() {
+    console.log("Listening on http://localhost:%s", PORT)
+        // });
+})
+
