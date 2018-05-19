@@ -10,10 +10,7 @@ module.exports = (sequelize, DataTypes) => {
         },
         specific: {
             type: DataTypes.STRING,
-            allowNull: false,
-            validate: {
-                notEmpty: true
-            }
+            allowNull: false
         },
         cocktailDbId: {
             type: DataTypes.INTEGER,
