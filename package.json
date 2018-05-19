@@ -8,7 +8,8 @@
     },
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
-        "start": "node server.js"
+        "dev": "sequelize db:migrate:undo && sequelize db:migrate && sequelize db:seed:undo:all && sequelize db:seed:all",
+        "start": "sequelize db:migrate && sequelize db:seed:undo:all && sequelize db:seed:all && node server.js"
     },
     "repository": {
         "type": "git",
@@ -21,7 +22,8 @@
         "sequelize"
     ],
     "author": "Team Restless Dust",
-    "contributors": [{
+    "contributors": [
+        {
             "name": "Kushagra Bhavsar",
             "email": "kushagra.8866@gmail.com",
             "url": "https://github.com/kushbhavsar",
@@ -50,5 +52,22 @@
     "bugs": {
         "url": "https://github.com/Addie27/drink-with-me/issues"
     },
-    "homepage": "https://github.com/Addie27/drink-with-me#readme"
+    "homepage": "https://github.com/Addie27/drink-with-me#readme",
+    "devDependencies": {
+        "chai": "^4.1.2",
+        "chai-http": "^4.0.0",
+        "mocha": "^5.1.1"
+    },
+    "dependencies": {
+        "express-handlebars": "^3.0.0",
+        "express-session": "^1.15.6",
+        "mysql2": "^1.5.3",
+        "passport": "^0.4.0",
+        "request": "^2.86.0",
+        "sequelize": "^4.37.8",
+        "body-parser": "^1.18.3",
+        "express": "^4.16.3",
+        "mysql": "^2.15.0",
+        "sequelize-cli": "^4.0.0"
+    }
 }
