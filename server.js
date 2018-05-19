@@ -17,11 +17,11 @@ app.use(express.static("public"));
 // Routes
 // =============================================================
 require("./routes/api-routes.js")(app);
-
+// require("./seeders/_coctail-seeds.js");
 // check models and start listening
 var db = require("./models");
-db.sequelize.sync({ force: true }).then(function() {
-    app.listen(PORT, function() {
-        console.log("Listening on http://localhost:%s", PORT)
-    });
+// db.sequelize.sync({ force: true }).then(function() {
+app.listen(PORT, function() {
+    console.log("Listening on http://localhost:%s", PORT)
+        // });
 })
