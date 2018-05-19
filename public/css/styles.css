@@ -1,5 +1,6 @@
 body {
     font-size: 12px; 
+   
 }
 
 input::placeholder {
@@ -48,10 +49,12 @@ img {
 
 .link-text {
     position: absolute;
-    bottom: 50px;
+    bottom: 40px;
     right: 0; 
 }
 
 .card-body {
     padding: 2px; 
 }
+
+
