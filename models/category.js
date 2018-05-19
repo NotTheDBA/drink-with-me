@@ -1,6 +1,6 @@
-module.exports = function(sequelize, DataTypes) {
-    var Category = sequelize.define("Category", {
-        categoryId: { type: DataTypes.INTEGER, autoIncrement: true, primaryKey: true },
+'use strict';
+module.exports = (sequelize, DataTypes) => {
+    var Category = sequelize.define('Category', {
         general: {
             type: DataTypes.STRING,
             allowNull: false,
@@ -10,15 +10,15 @@ module.exports = function(sequelize, DataTypes) {
         },
         specific: {
             type: DataTypes.STRING,
-            allowNull: false,
-            validate: {
-                notEmpty: true
-            }
+            allowNull: false
         },
         cocktailDbId: {
             type: DataTypes.INTEGER,
             allowNull: true
         }
-    });
+    }, {});
+    Category.associate = function(models) {
+        // associations can be defined here
+    };
     return Category;
-}
+};
