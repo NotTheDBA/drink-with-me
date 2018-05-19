@@ -49,12 +49,12 @@ models.sequelize.sync().then(function() {
 
 app.get('/', function(req, res) {
  
-    res.send('Welcome to Passport with Sequelize');
+    res.send('Welcome to Drink With Me');
  
 });
  
  
-app.listen(5000, function(err) {
+app.listen(7000, function(err) {
  
     if (!err)
         console.log("Site is live");
