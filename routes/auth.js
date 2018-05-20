@@ -3,24 +3,22 @@ var authController = require('../controllers/authcontroller.js');
 module.exports = function(app, passport) {
 
     app.get('/signup', authController.signup);
-    // app.get('/new-user-signup', authController.signup);
     app.get('/signin', authController.signin);
     app.get('/dashboard', isLoggedIn, authController.dashboard);
     app.get('/logout', authController.logout);
 
+    // POST route for saving a new user
     app.post('/signup', passport.authenticate('local-signup', {
         successRedirect: '/dashboard',
         failureRedirect: '/signup'
     }));
 
     app.post('/signin', passport.authenticate('local-signin', {
-            successRedirect: '/dashboard',
+        successRedirect: '/dashboard',
+        failureRedirect: '/signin'
+    }));
 
-            failureRedirect: '/signin'
-        }
-
-    ));
-
+    // POST route for logging in a user
     app.post('/login',
         passport.authenticate('local'),
         function(req, res) {
@@ -41,26 +39,6 @@ module.exports = function(app, passport) {
     }
 
     //#region User Functions
-    // // POST route for saving a new user
-    // app.post("/api/signup", function(req, res) {
-    //     // console.log(req.body[0]);
-    //     //Find all returns all entries for a table when used with no options
-    //     user.addUser(req.body[0]).then(function(dbResults) {
-    //         // We have access to the user as an argument inside of the callback function
-    //         res.json(dbResults);
-    //     });
-    // });
-
-    // // POST route for saving a new user
-    // app.post("/api/login", function(req, res) {
-    //     // console.log(req.body[0]);
-    //     // login returns user info if they submit the credentials.
-    //     user.login(req.body[0].userName, req.body[0].passKey, ).then(function(dbResults) {
-    //         // console.log(dbResults)
-    //         // We have access to the user as an argument inside of the callback function
-    //         res.json(dbResults);
-    //     });
-    // });
 
     //     // GET route for retrieving all users
     //     app.get("/api/user", function(req, res) {
@@ -83,20 +61,6 @@ module.exports = function(app, passport) {
     //     });
     // });
 
-    //   app.post("/api/signup", function (req, res) {
-    //     console.log(req.body);
-    //     db.create({
-    //       name: req.body.name,
-    //       email: req.body.email,
-    //       username: req.body.username,
-    //       password: req.body.password,
-    //       repassword: req.body.repassword,
-    //       birthdate: req.body.birthdate,
-    //     })
-    //       .then(function () {
-    //         res.json();
-    //       });
-    //   });
     //   app.post("/api/login", function (req, res) {
     //     console.log(req.body);
     //     db.create({
