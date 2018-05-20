@@ -33,7 +33,7 @@ var models = require("./models");
 //Routes
 var authRoute = require('./routes/auth.js')(app, passport);
 require('./routes/html-routes.js')(app);
-require('./routes/api-routes.js')(app);
+require('./routes/api-routes.js')(app, passport);
 
 
 //load passport strategies
@@ -41,18 +41,18 @@ require('./config/passport/passport.js')(passport, models.user);
 
 var PORT = process.env.PORT || 8080
 
-//Sync Database
-models.sequelize.sync({ force: true }).then(function() {
+// //Sync Database
+// models.sequelize.sync({ force: true }).then(function() {
 
-    console.log('Nice! Database looks fine')
+//     console.log('Nice! Database looks fine')
 
-    console.log("Listening on http://localhost:%s", PORT)
+//     console.log("Listening on http://localhost:%s", PORT)
 
-}).catch(function(err) {
+// }).catch(function(err) {
 
-    console.log(err, "Something went wrong with the Database Update!")
+//     console.log(err, "Something went wrong with the Database Update!")
 
-});
+// });
 
 
 app.listen(8080, function(err) {
