@@ -18,81 +18,7 @@ var review = require("../controllers/review");
 // var app = express();
 // var request = require("request");
 
-
 module.exports = function(app) {
-
-    //   app.get("/api/all", function (request, response) {
-    //     request("https://www.thecocktaildb.com/api/json/v1/1/list.php?c=list", function (res) {
-    //       console.log(res);
-    //     });
-    //   });
-
-    //   app.get("/api/drink/:drink", function (request, response) {
-    //     if (request.params.drink){
-    //     request("https://www.thecocktaildb.com/api/json/v1/1/filter.php?c=Cocktail", function (res) {
-    //         console.log(res);
-
-    //       });
-    //     }
-    //   });
-    //   app.get("/api/ingredient/:ingredient", function (request, response) {
-    //     if (request.params.ingredient){
-    //     request("https://www.thecocktaildb.com/api/json/v1/1/list.php?i=list", function (res) {
-    //         console.log(res);
-    //       });
-    //     }
-    //   });
-
-
-    //   app.post("/api/drink", function (req, res) {
-    //     console.log(req.body);
-    //     db.create({
-    //       drink: req.body.drink,
-    //       ingredient: req.body.ingredient,
-    //       location: req.body.location,
-    //     })
-    //       .then(function () {
-    //         res.json();
-    //       });
-    //   });
-    //   app.post("/api/review", function (req, res) {
-    //     console.log(req.body);
-    //     db.create({
-    //       review: req.body.review,
-    //       ratings: req.body.ratings
-    //     })
-    //       .then(function () {
-    //         res.json();
-    //       });
-    //   });
-    //   app.post("/api/friend", function (req, res) {
-    //     console.log(req.body);
-    //     db.create({
-    //       username: req.body.username,
-
-    //     })
-    //       .then(function () {
-    //         res.json();
-    //       });
-    //   });
-
-
-    //   app.put("/api/review", function (req, res) {
-    //     db.update(req.body,
-    //       {
-    //         where: {
-    //           review: req.body.review
-    //         }
-    //     });
-    // })
-    //     app.get("/api/ingredient/:ingredient", function(request, response) {
-    //         if (request.params.ingredient) {
-    //             request("https://www.thecocktaildb.com/api/json/v1/1/list.php?i=list", function(res) {
-    //                 console.log(res);
-    //             });
-    //         }
-    //     });
-    //     //#endregion CoctailDB Functions
 
     //#region Category Functions
     app.get("/api/category/", function(req, res) {
@@ -445,6 +371,81 @@ module.exports = function(app) {
 
     // });
     ////#endregion Vote Functions
+
+
+    //   app.get("/api/all", function (request, response) {
+    //     request("https://www.thecocktaildb.com/api/json/v1/1/list.php?c=list", function (res) {
+    //       console.log(res);
+    //     });
+    //   });
+
+    //   app.get("/api/drink/:drink", function (request, response) {
+    //     if (request.params.drink){
+    //     request("https://www.thecocktaildb.com/api/json/v1/1/filter.php?c=Cocktail", function (res) {
+    //         console.log(res);
+
+    //       });
+    //     }
+    //   });
+    //   app.get("/api/ingredient/:ingredient", function (request, response) {
+    //     if (request.params.ingredient){
+    //     request("https://www.thecocktaildb.com/api/json/v1/1/list.php?i=list", function (res) {
+    //         console.log(res);
+    //       });
+    //     }
+    //   });
+
+
+    //   app.post("/api/drink", function (req, res) {
+    //     console.log(req.body);
+    //     db.create({
+    //       drink: req.body.drink,
+    //       ingredient: req.body.ingredient,
+    //       location: req.body.location,
+    //     })
+    //       .then(function () {
+    //         res.json();
+    //       });
+    //   });
+    //   app.post("/api/review", function (req, res) {
+    //     console.log(req.body);
+    //     db.create({
+    //       review: req.body.review,
+    //       ratings: req.body.ratings
+    //     })
+    //       .then(function () {
+    //         res.json();
+    //       });
+    //   });
+    //   app.post("/api/friend", function (req, res) {
+    //     console.log(req.body);
+    //     db.create({
+    //       username: req.body.username,
+
+    //     })
+    //       .then(function () {
+    //         res.json();
+    //       });
+    //   });
+
+
+    //   app.put("/api/review", function (req, res) {
+    //     db.update(req.body,
+    //       {
+    //         where: {
+    //           review: req.body.review
+    //         }
+    //     });
+    // })
+    //     app.get("/api/ingredient/:ingredient", function(request, response) {
+    //         if (request.params.ingredient) {
+    //             request("https://www.thecocktaildb.com/api/json/v1/1/list.php?i=list", function(res) {
+    //                 console.log(res);
+    //             });
+    //         }
+    //     });
+    //     //#endregion CoctailDB Functions
+
 }
 
 // module.exports = app
