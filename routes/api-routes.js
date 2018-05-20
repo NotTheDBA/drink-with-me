@@ -1,6 +1,7 @@
 // *********************************************************************************
 // api-routes.js - this file offers a set of routes for displaying and saving data to the db
 // *********************************************************************************
+var authController = require('../controllers/authcontroller.js');
 
 // Requiring our model controllers
 // TODO: Figure out how we can use an index.js like sequelize does for models...
@@ -18,7 +19,8 @@ var review = require("../controllers/review");
 // var app = express();
 // var request = require("request");
 
-module.exports = function(app) {
+
+module.exports = function(app, passport) {
 
     //#region Category Functions
     app.get("/api/category/", function(req, res) {
@@ -29,7 +31,7 @@ module.exports = function(app) {
             });
     });
 
-    //TODO: 
+    //TODO:
     // add category
     app.post("/api/category", function(req, res) {
         // console.log(req.body[0]);
@@ -228,17 +230,16 @@ module.exports = function(app) {
     });
 
     // Add place
-    app.post("/api/place", function(req, res) {
-        // console.log(req.body[0]);
-        console.log(req.body);
-
-        //Find all returns all entries for a table when used with no options
-        place.add(req.body[0])
-            .then(function(dbResults) {
-                // We have access to the results as an argument inside of the callback function
-                res.json(dbResults);
-            });
-    });
+    app.post("/api/place",
+        function(req, res) {
+            // console.log(req.user.id);
+            //Find all returns all entries for a table when used with no options
+            place.add(req.body, req.user)
+                .then(function(dbResults) {
+                    // We have access to the results as an argument inside of the callback function
+                    res.json(dbResults);
+                });
+        });
 
 
     // //TODO: // Update place
