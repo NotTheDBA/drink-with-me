@@ -39,6 +39,7 @@ module.exports = {
     },
 
     add: function(place) {
+        console.log(place);
         // create takes an argument of an object for our model
         var $add =
             db.Place.create({
