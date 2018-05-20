@@ -2,8 +2,9 @@ var exports = module.exports = {}
 
 exports.signup = function(req, res) {
 
-    console.log(req.body)
-    res.render('signup');
+    // console.log(req.body)
+    // res.render('signup');
+    res.render('new-user-signup');
 
 }
 
