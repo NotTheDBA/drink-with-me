@@ -1,21 +1,21 @@
 {
     "development": {
-        "username": "[username]",
-        "password": "[password]",
+        "username": "root",
+        "password": "password",
         "database": "drinkWithMeDB",
         "host": "127.0.0.1",
         "dialect": "mysql"
     },
     "test": {
-        "username": "[username]",
-        "password": "[password]",
+        "username": "root",
+        "password": "password",
         "database": "drinkWithMeDB",
         "host": "127.0.0.1",
         "dialect": "mysql"
     },
     "production": {
-        "username": "[username]",
-        "password": "[password]",
+        "username": "root",
+        "password": "password",
         "database": "drinkWithMeDB",
         "host": "127.0.0.1",
         "dialect": "mysql"
