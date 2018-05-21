@@ -8,7 +8,7 @@ module.exports = {
         res.render('add-review');
     },
 
-    // //TODO:  Probably don't need to get all Reviews...  but mayby sample 5-10?
+    // Probably don't need to get all Reviews...  but mayby sample 5-10?
     // getAll: function() {
     //     var $getAll = db.Review.findAll({}).then(function(dbResults) {
 

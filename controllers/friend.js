@@ -30,9 +30,12 @@ module.exports = {
 
                 where: {
                     userId: userId
-                }
+                },
+                include: [
+                    { model: user }
+                ]
             }).then(function(results) {
-
+                console.log(results)
                 return results;
             })
             .catch(function(err) {
@@ -44,13 +47,14 @@ module.exports = {
     },
 
     //TODO: //Confirm whether friend userID or friendName needs to be saved
-    add: function(friend, user) {
+    add: function(friendId, userId) {
 
         var $add =
             db.Friend.create({
-                friendName: friend.friendName,
-                createdBy: user.id,
-                updatedBy: user.id
+                userId: userId,
+                friendId: friendId,
+                createdBy: userId,
+                updatedBy: userId
 
             }).then(function(dbResults) {
                 return dbResults;

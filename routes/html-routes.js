@@ -15,6 +15,11 @@ module.exports = function(app) {
         res.redirect('/dashboard');
     });
 
+    app.get('/testlink', function(req, res) {
+        res.render('testlinks');
+    });
+
+
     app.get('/drink/add', function(req, res) {
         res.render('add-drink');
     });
@@ -47,10 +52,9 @@ module.exports = function(app) {
             });
     });
 
-    //TODO:  Test and verify url 
-    //Get All friend
-    app.get("/friend/", function(req, res) {
-        friend.findAllByUser()
+    //Get All friends
+    app.get("/friends", function(req, res) {
+        friend.findAllByUser(req.user.id)
             .then(function(dbResults) {
                 var hbsObject = {
                     friend: dbResults
