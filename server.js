@@ -89,16 +89,16 @@ app.listen(8080, function(err) {
 // require('./routes/api-routes.js')(app);
 
 // var authRoute = require('./routes/auth.js')(app, passport);
-// //Sync Database
-// models.sequelize.sync().then(function() {
+//Sync Database
+models.sequelize.sync().then(function() {
 
-//     console.log('Nice! Database looks fine')
+    console.log('Nice! Database looks fine')
 
-// }).catch(function(err) {
+}).catch(function(err) {
 
-//     console.log(err, "Something went wrong with the Database Update!")
+    console.log(err, "Something went wrong with the Database Update!")
 
-// });
+});
 
 // app.get('/', function(req, res) {
 //     res.send('Welcome to Passport with Sequelize');
