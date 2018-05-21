@@ -3,10 +3,10 @@ var db = require("../models");
 module.exports = {
 
 
-    newPlace: function(req, res) {
-        // console.log(req.user);
-        res.render('add-place');
-    },
+    // newPlace: function(req, res) {
+    //     // console.log(req.user);
+    //     res.render('add-place');
+    // },
 
     getAll: function() {
 
