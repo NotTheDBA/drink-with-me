@@ -24,12 +24,12 @@ module.exports = {
     //     return $getAll;
     // },
     //Find all user's friends
-    findAllByUser: function(user) {
+    findAllByUser: function(userId) {
 
         var $findAllByUser = db.Friend.findAll({
 
                 where: {
-                    userID: user.id
+                    userId: userId
                 }
             }).then(function(results) {
 

@@ -230,11 +230,11 @@ module.exports = function(app, passport) {
     });
 
     // Add place
-    app.post("/api/place",
+    app.post("/api/place/",
         function(req, res) {
             // console.log(req.user.id);
             //Find all returns all entries for a table when used with no options
-            place.add(req.body, req.user)
+            place.add(req.body, req.user.id)
                 .then(function(dbResults) {
                     // We have access to the results as an argument inside of the callback function
                     res.json(dbResults);

@@ -8,19 +8,19 @@ module.exports = {
         res.render('add-review');
     },
 
-    //TODO:  Probably don't need to get all Reviews...  but mayby sample 5-10?
-    getAll: function() {
-        var $findall = db.review.findAll({}).then(function(dbResults) {
+    // //TODO:  Probably don't need to get all Reviews...  but mayby sample 5-10?
+    // getAll: function() {
+    //     var $getAll = db.Review.findAll({}).then(function(dbResults) {
 
-                return dbResults;
-            })
-            .catch(function(err) {
+    //             return dbResults;
+    //         })
+    //         .catch(function(err) {
 
-                return err;
-            });
+    //             return err;
+    //         });
 
-        return $findall;
-    },
+    //     return $getAll;
+    // },
     // //Probably won't find by review
     // findReview: function(review) {
 
