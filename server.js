@@ -12,8 +12,8 @@ app.use(bodyParser.json());
 
 // For Passport
 app.use(session({
-    secret: PASSPORT_SECRET || 'keyboard cat',
-    // secret: 'keyboard cat',
+    // secret: PASSPORT_SECRET || 'keyboard cat',
+    secret: 'keyboard cat',
     resave: true,
     saveUninitialized: true
 })); // session secret
