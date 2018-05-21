@@ -51,6 +51,8 @@ app.listen(8080, function(err) {
 
 });
 
+module.exports = app
+
 // var express = require('express');
 // var app = express();
 // // var passport = require('passport')
