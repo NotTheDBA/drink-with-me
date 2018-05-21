@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <title>New User Sign-Up</title>
+<head></head>
+<title>Drink Reviews</title>
 </head>
 
 <body>
@@ -19,15 +19,17 @@
         <div class="card w-100">
             <div class="card-body">
                 <form class="form-inline">
-                    <input class="form-control mr-sm-2" type="search" placeholder="search by email to add friend" aria-label="Search">
+                    <input class="form-control mr-sm-2" type="search" placeholder="search for drink" aria-label="Search">
                 </form>
                 <h6 class="card-title" id="user-name">User Name</h6>
-                <img href="#" class="profile-image" id="user-image">
+                <img href="#" class="profile-image">
                 <div class="link-box">
                     <div class="link-text">
                         <a href="/user-profile">MY PROFILE</a>
                         <br/>
                         <a href="/reviews">DRINKS</a>
+                        <br/>
+                        <a href="/find-add-friend">FRIENDS</a>
                     </div>
                 </div>
             </div>
@@ -38,30 +40,39 @@
             <table class="table table-striped">
                 <thead>
                     <tr>
-                        <th scope="col"></th>
-                        <th scope="col"></th>
-                        <th scope="col"></th>
+                        <th scope="col" id="drink-image"></th>
+                        <th scope="col">Drink Name</th>
+                        <th scope="col">Place</th>
+                        <th scope="col">Average Rating</th>
+                        <th scope="col">Reviews</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        {{#each friends}}
+                        {{#each reviews}}  
                         <td scope="col">
-                            <img href=( {{friendImage}}) class="friend-image">
+                            <img href=({{drinkImage}}) class="friend-image">
                         </td>
                         <td scope="col">
-                            ({{friendName}})
+                            <a href=({{drinkName}})> ({{drinkName}})</a>
+                        <td scope="col">
+                            ({{placeDrinks}})
+                        </td>
                         </td>
                         <td scope="col">
-                            <a href=({{friendProfile}}) class="btn btn-secondary btn-sm active" role="button" aria-pressed="true">View</a>
+                           ({{drinksAvgRating}}) 
                         </td>
-                        {{/each}}
+                        <td scope="col">
+                           ({{drinksReviews}}) 
+                        </td>
                     </tr>
+
                 </tbody>
             </table>
         </div>
 
     </div>
+
 </body>
 
 </html>
