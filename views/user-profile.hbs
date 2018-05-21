@@ -31,13 +31,13 @@
     <div class="container">
         <div class="card w-100">
             <div class="card-body">
-                <h6 class="card-title">User Name</h6>
+                <h6 class="card-title" id="user-name">User Name</h6>
                 <img href="#" class="profile-image">
                 <div class="link-box">
                     <div class="link-text">
                         <a href="log-in.html">FRIENDS</a>
                         <br/>
-                        <a href="drink-reviews.html">MY DRINKS</a>
+                        <a href="drink-reviews.html">DRINKS</a>
                     </div>
                 </div>
             </div>
@@ -48,10 +48,10 @@
             <table class="table table-striped">
                 <thead>
                     <tr>
-                        <th scope="col">Drink</th>
-                        <th scope="col">Where</th>
-                        <th scope="col">My Rating</th>
-                        <th scope="col">Avg Rating</th>
+                        <th scope="col" id="drink">Drink</th>
+                        <th scope="col" id="location">Where</th>
+                        <th scope="col" id="my-rating">My Rating</th>
+                        <th scope="col" id="avg-rating">Avg Rating</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -172,7 +172,7 @@
     </div>
     <button class="btn btn-sm" type="submit">Add Drink</button>
     <button class="btn btn-sm" type="submit">Edit Drink</button>
-
+    <script src="../assets/userprofile.js" type="text/javascript"></script>
 
 
 </body>
