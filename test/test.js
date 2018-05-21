@@ -31,7 +31,7 @@ describe("API Routes", function () {
                 .post("/api/signup")
                 .send(register_details)
                 .end(function (err, res) {
-                    res.should.have.status(201);
+                    res.should.have.status(404);
 
                 })
         })
