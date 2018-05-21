@@ -2,6 +2,12 @@ var db = require("../models");
 
 module.exports = {
 
+
+    newPlace: function(req, res) {
+        // console.log(req.user);
+        res.render('add-place');
+    },
+
     getAll: function() {
 
         // findAll returns all entries for a table when used with no options
@@ -38,15 +44,17 @@ module.exports = {
         return $findByProperty;
     },
 
-    add: function(place) {
+    add: function(place, user) {
+        // console.log(place);
+        // console.log(req.user);
         // create takes an argument of an object for our model
         var $add =
             db.Place.create({
                 placeName: place.placeName,
                 type: place.type,
                 isPrivate: place.isPrivate,
-                createdBy: place.createdBy,
-                updatedBy: place.updatedBy
+                createdBy: user.id,
+                updatedBy: user.id
                     // ingredients: req.body.ingredients,
                     // location: req.body.location,
             }).then(function(dbResults) {
