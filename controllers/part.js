@@ -21,9 +21,8 @@ module.exports = {
         // This returns a promise to the external code, so it can access our results
         return $findAllByDrink;
     },
-
+    //Adds new ingredient "part" to drink.
     add: function(part) {
-
         // create takes an argument of an object for our model
         var $add =
             db.Part.create({

@@ -35,7 +35,7 @@ module.exports = {
         // This returns a promise to the external code, so it can access our results
         return $findByIngredient;
     },
-    //TODO: Flesh out findAllByProperty
+    //TODO: Flesh out findAllByProperty: Category
     findAllByProperty: function(property) {
 
         // findByProperty does something
