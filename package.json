@@ -22,8 +22,7 @@
         "sequelize"
     ],
     "author": "Team Restless Dust",
-    "contributors": [
-        {
+    "contributors": [{
             "name": "Kushagra Bhavsar",
             "email": "kushagra.8866@gmail.com",
             "url": "https://github.com/kushbhavsar",
@@ -56,8 +55,7 @@
     "devDependencies": {
         "chai": "^4.1.2",
         "chai-http": "^4.0.0",
-        "mocha": "^5.1.1",
-        "sequelize-cli": "^4.0.0"
+        "mocha": "^5.1.1"
     },
     "dependencies": {
         "bcrypt-nodejs": "0.0.3",
@@ -71,6 +69,7 @@
         "passport": "^0.4.0",
         "passport-local": "^1.0.0",
         "request": "^2.86.0",
-        "sequelize": "^4.37.8"
+        "sequelize": "^4.37.8",
+        "sequelize-cli": "^4.0.0"
     }
 }
