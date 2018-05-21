@@ -1,8 +1,8 @@
 var exports = module.exports = {}
 
 exports.signup = function(req, res) {
-    // res.render('signup');
-    res.render('new-user-signup');
+    res.render('signup');
+    // res.render('new-user-signup');
 }
 
 exports.signin = function(req, res) {
