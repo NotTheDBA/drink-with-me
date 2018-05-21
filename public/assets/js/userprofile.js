@@ -24,7 +24,7 @@ $(document).ready(function () {
             rating.val(data.rating);
             avgRating.val(data.avgRating);
         
-            updating = true;
+            updateData = true;
           }
         });
       }
