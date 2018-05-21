@@ -22,7 +22,8 @@
         "sequelize"
     ],
     "author": "Team Restless Dust",
-    "contributors": [{
+    "contributors": [
+        {
             "name": "Kushagra Bhavsar",
             "email": "kushagra.8866@gmail.com",
             "url": "https://github.com/kushbhavsar",
