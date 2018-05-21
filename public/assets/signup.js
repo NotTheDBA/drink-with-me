@@ -8,7 +8,17 @@ $(document).ready(function () {
             repassword: $("#password-confirm").val().trim(),
         };
         console.log(newUser);
+        $.ajax("/api/signup", {
+            type: "POST",
+            data: newUser
+        }).then(function () {
+            console.log("Added new user: " + newUser);
+        });
+    });
+});
 
+$(document).ready(function () {
+    $("div").focusout(function () {
         function Validate() {
             // validate username
             if ($('#username').value == "") {
@@ -52,12 +62,5 @@ $(document).ready(function () {
                 return false;
             }
         }
-
-        $.ajax("/api/signup", {
-            type: "POST",
-            data: newUser
-        }).then(function () {
-            console.log("Added new user: " + newUser);
-        });
     });
 });
