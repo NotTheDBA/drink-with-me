@@ -6,7 +6,21 @@
 </head>
 
 <body>
-    TODO: Add input fields
+    TODO: Fix fields for Ingredients
+    <form id="place" name="place" method="post" action="/api/place">
+
+        <label for="placeName">Name the place:</label>
+        <input class="text" name="placeName" type="text" />
+
+        <label for="type">What type of place is it?</label>
+        <input name="type" type="text" />
+
+        <label for="isPrivate">Is this private property?</label>
+        <input name="isPrivate" type="text" />
+
+        <input class="btn" type="submit" value="Submit" />
+    </form>
+
 </body>
 
 </html>
