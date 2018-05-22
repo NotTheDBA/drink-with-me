@@ -1,5 +1,5 @@
 <div class="container">
-    <form class="form-horizontal" role="form" id="signup" onsubmit="Validate();" method="POST" action="/signup" name="signup">
+    <form class="form-horizontal" role="form" id="signup"  method="POST" action="/signup" name="signup">
         <div class="row">
             <div class="col-md-3"></div>
             <div class="col-md-6">
@@ -29,7 +29,9 @@
                         <div class="input-group-addon" style="width: 2.6rem">
                             <i class="fa fa-user"></i>
                         </div>
+                        <div class="uname">
                         <input type="text" name="username" class="form-control" id="username" placeholder="John Doe" required autofocus>
+                        </div>
                         <div id="name_error"></div>
                     </div>
                 </div>
@@ -133,4 +135,5 @@
             </div>
         </div>
     </form>
+
 </div>
