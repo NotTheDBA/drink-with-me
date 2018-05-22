@@ -16,57 +16,70 @@ $(document).ready(function () {
         });
     });
 
+    var regularExpression = /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{6,16}$/;
+    var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+
     $("#new-user-firstname").blur(function () {
-        //  function Validate() {
-        // validate username
-        // if ($('#username').value == "") {
-        //     $('#username').style.border = "1px solid red";
-        //     $('#username').style.color = "red";
-        //     $('#name_error').textContent = "Username is required";
-        //     $('#username').focus();
-        //     return false;
-        // }
+
         if ($("#new-user-firstname").val().length === 0) {
-            console.log("nothing in there");
-        
-            $('#firstname_error').append('<div class="red">Name is Required</div>');
+            $('#firstname_error').append('<div class="red">*Required Field</div>');
+            $("#new-user-firstname").focus();
+        } else {
+            $('#first_error').append('');
         }
     });
+    $("#new-user-lastname").blur(function () {
 
-    // validate username
-    // if ($('#new-user-firstname').val().length < 3) {
-    //     $('#new-user-firstname').style.border = "1px solid red";
-    //     $('##new-user-firstname').style.color = "red";
-    //     $('#name_error').textContent = "Username must be at least 3 characters";
-    //     $('##new-user-firstname').focus();
-    //     return false;
-    // }
-    // // validate email
-    // if ($("#email").value == "") {
-    //     $("#email").style.border = "1px solid red";
-    //     $("#email").style.color = "red";
-    //     $('#email_error').textContent = "Email is required";
-    //     $("#email").focus();
-    //     return false;
-    // }
-    // // validate password
-    // if ($("#password").value == "") {
-    //     $("#password").style.border = "1px solid red";
-    //     $("#password").style.color = "red";
-    //     $("#password-confirm").style.border = "1px solid red";
-    //     $('#password_error').textContent = "Password is required";
-    //     $("#password").focus();
-    //     return false;
-    // }
-    // // check if the two passwords match
-    // if ($("#password").value != $("#password-confirm").value) {
-    //     $("#password").style.border = "1px solid red";
-    //     $("#password-confirm").style.color = "red";
-    //     $("#password-confirm").style.border = "1px solid red";
-    //     $('#password_error').innerHTML = "The two passwords do not match";
-    //     return false;
-    // }
+        if ($("#new-user-lastname").val().length === 0) {
+            $('#lastname_error').append('<div class="red">*Required Field</div>');
+            $("#new-user-lastname").focus();
+        } else {
+            $('#lastname_error').remove('<div class="red"> *Required field </div>');
+        }
+    });
+    $("#new-user-email").blur(function () {
 
-    // console.log("test");
+        if ($("#new-user-email").val().length === 0) {
+            $('#email_error').append('<div class="red">*Required Field</div>');
+            $("#new-user-email").focus();
+        } else if ($("#new-user-email").val() != mailformat) {
+            $('#email_error').append('<div class="red">*Invalid Email</div>');
+            $("#new-user-email").focus();
+         }else {
+            $('#email_error').remove('<div class="red"> *Required field </div>');
+        }
+    });
+    $("#new-user-password").blur(function () {
+
+        if ($("#new-user-password").val().length === 0) {
+            $('#password_error').append('<div class="red">*Required Field</div>');
+            $("#new-user-password").focus();
+        } else if ($("#new-user-password").val() != regularExpression) {
+            $('#password_error').append('<div class="red">password must between 6-16 char and contain a number,special character and uppercase letter </div>');
+            $("#new-user-password").focus();
+        } else {
+            $('#password_error').remove('<div class="red"> *Required field </div>');
+        }
+    });
+    $("#password-confirm").blur(function () {
+
+        if ($("#password-confirm").val().length === 0) {
+            $('#repassword_error').append('<div class="red">*Required Field</div>');
+            $("#password-confirm").focus();
+        } else {
+            $('#repassword_error').remove('<div class="red"> *Required field </div>');
+        }
+        if ($("#new-user-password").val() != $("#password-confirm").val()) {
+            $('#repassword_error').append('<div class="red"> *Password not match </div>');
+            $("#password-confirm").focus();
+        }
+        else {
+            $('#repassword_error').remove('<div class="red"> *Password not match </div>');
+        }
+
+    });
+
+
+
 
 });
