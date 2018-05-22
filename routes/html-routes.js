@@ -46,7 +46,7 @@ module.exports = function(app) {
         drink.getAll()
             .then(function(dbResults) {
                 var hbsObject = {
-                    places: dbResults
+                    drinks: dbResults
                 };
                 res.render("drinks", hbsObject);
             });
