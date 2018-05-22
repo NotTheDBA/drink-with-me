@@ -14,5 +14,9 @@ module.exports = function(sequelize, DataTypes) {
             defaultValue: false
         }
     });
+
+    // Friend.belongsToMany(User);
+
+    // Project.belongsToMany(User, { as: 'Workers', through: 'worker_tasks', foreignKey: 'projectId' })
     return Friend;
 }
