@@ -30,7 +30,17 @@ Object.keys(db).forEach(modelName => {
     }
 });
 
+// db.User.belongsToMany(db.User, { through: 'Friend' });
+// db.Friend.belongsToMany(db.User, { through: 'Friend' });
+// db.Ingredient.belongsTo(db.Category);
+
+
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;
+
+
+// db.Member.belongsToMany(db.Opportunity, {through: 'MemberOpportunity'});
+// db.Opportunity.belongsToMany(db.Member, {through: 'MemberOpportunity'});
+
 
 module.exports = db;
