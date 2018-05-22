@@ -3,10 +3,10 @@ var db = require("../models");
 module.exports = {
 
 
-    newPlace: function(req, res) {
-        // console.log(req.user);
-        res.render('add-place');
-    },
+    // newPlace: function(req, res) {
+    //     // console.log(req.user);
+    //     res.render('add-place');
+    // },
 
     getAll: function() {
 
@@ -44,19 +44,17 @@ module.exports = {
         return $findByProperty;
     },
 
-    add: function(place, user) {
+    add: function(place, userId) {
         // console.log(place);
-        // console.log(req.user);
+        console.log(userId);
         // create takes an argument of an object for our model
         var $add =
             db.Place.create({
                 placeName: place.placeName,
                 type: place.type,
                 isPrivate: place.isPrivate,
-                createdBy: user.id,
-                updatedBy: user.id
-                    // ingredients: req.body.ingredients,
-                    // location: req.body.location,
+                createdBy: userId,
+                updatedBy: userId
             }).then(function(dbResults) {
                 // We have access to the new todo as an argument inside of the callback function
                 return dbResults;
