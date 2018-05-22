@@ -35,13 +35,13 @@ module.exports = {
         // This returns a promise to the external code, so it can access our results
         return $findByIngredient;
     },
-    //TODO: Flesh out findAllByProperty
-    findAllByProperty: function(property) {
+    //TODO: Flesh out findAllByCategory
+    findAllByCategory: function(Category) {
 
-        // findByProperty does something
-        var $findByProperty = db.Ingredient.findAll({
+        // findByCategory does something
+        var $findByCategory = db.Ingredient.findAll({
                 where: {
-                    propertyName: property
+                    categoryName: Category
                 }
             }).then(function(results) {
                 // return our results from the function
@@ -53,7 +53,7 @@ module.exports = {
                 return err;
             });
         // This returns a promise to the external code, so it can access our results
-        return $findByProperty;
+        return $findByCategory;
     },
     add: function(ingredient) {
 
