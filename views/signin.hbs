@@ -2,25 +2,16 @@
 <html>
 
 <head>
-    <title></title>
+    <title>Drink-With-Me</title>
 </head>
 
 <body>
-    Won't you come Drink With Me?
-    <form id="signin" name="signin" method="post" action="signin">
-        <label for="email">Email Address</label>
-        <input class="text" name="email" type="text" />
-        <label for="password">Password</label>
-        <input name="password" type="password" />
-        <input class="btn" type="submit" value="Sign In" />
-    </form>
-
     <div class="container">
-        <form class="form-horizontal" role="form" method="POST" action="/register">
+        <form class="form-horizontal" role="form"  id="signin" name="signin" method="post" action="signin">
             <div class="row">
                 <div class="col-md-3"></div>
                 <div class="col-md-6">
-                    <h2>Drink With Me!</h2>
+                    <h2>Won't you come Drink With Me?</h2>
                     <h5>User Log-In</h5>
                     <hr>
                 </div>
@@ -28,7 +19,7 @@
 
             <div class="row">
                 <div class="col-md-3 field-label-responsive">
-                    <label for="name">Name</label>
+                    <label for="email">Email</label>
                 </div>
                 <div class="col-md-6">
                     <div class="form-group">
@@ -36,7 +27,7 @@
                             <div class="input-group-addon" style="width: 2.6rem">
                                 <i class="fa fa-user"></i>
                             </div>
-                            <input type="text" name="user-name" class="form-control" id="name" placeholder="John Doe" required autofocus>
+                            <input type="text" name="email" class="form-control" id="email"required autofocus>
                         </div>
                     </div>
                 </div>
@@ -58,7 +49,7 @@
                             <div class="input-group-addon" style="width: 2.6rem">
                                 <i class="fa fa-key"></i>
                             </div>
-                            <input type="password" name="user-password" class="form-control" id="password" placeholder="Password" required>
+                            <input type="password" name="password" class="form-control" id="password"required>
                         </div>
                     </div>
                 </div>
@@ -74,9 +65,19 @@
                 <div class="col-md-3"></div>
                 <div class="col-md-6">
                     <button type="submit" id="submit" class="btn btn-success">
-                        <i class="fa fa-user-plus"></i>Submit</button>
+                        <i class="fa fa-user-plus"></i>Sign In</button>
                 </div>
             </div>
+             <div class="row">
+            <div class="col-md-3">
+
+            </div>
+            <div class="col-md-6">
+                <p>Not a member?
+                    <a href="/new-user-signup">SIGN UP</a>
+                </p>
+            </div>
+        </div>
 
         </form>
     </div>

@@ -20,6 +20,8 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session()); // persistent login sessions
 
+// Static directory
+app.use(express.static("public"));
 
 //For Handlebars
 app.set('views', './views')
@@ -39,16 +41,6 @@ require('./routes/api-routes.js')(app, passport);
 //load passport strategies
 require('./config/passport/passport.js')(passport, models.user);
 
-//Sync Database
-models.sequelize.sync().then(function() {
-
-    console.log('Nice! Database looks fine')
-
-}).catch(function(err) {
-
-    console.log(err, "Something went wrong with the Database Update!")
-
-});
 
 var PORT = process.env.PORT || 8080
 
@@ -59,5 +51,17 @@ app.listen(PORT, function(err) {
         console.log("Listening on http://localhost:%s", PORT)
 
     else console.log(err)
+
+});
+
+//Sync Database
+models.sequelize.sync().then(function() {
+
+    console.log('Nice! Database looks fine')
+    console.log("Listening on http://localhost:%s", PORT)
+
+}).catch(function(err) {
+
+    console.log(err, "Something went wrong with the Database Update!")
 
 });
