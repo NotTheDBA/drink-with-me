@@ -31,9 +31,7 @@ module.exports = {
                 where: {
                     userId: userId
                 },
-                include: [
-                    { model: user }
-                ]
+                include: ['user']
             }).then(function(results) {
                 console.log(results)
                 return results;
