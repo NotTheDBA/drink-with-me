@@ -9,6 +9,7 @@ var authController = require('../controllers/authcontroller.js');
 
 var category = require("../controllers/category");
 var drink = require("../controllers/drink");
+var friend = require("../controllers/friend");
 var ingredient = require("../controllers/ingredient");
 var part = require("../controllers/part");
 var place = require("../controllers/place");
@@ -31,8 +32,7 @@ module.exports = function(app, passport) {
             });
     });
 
-    //TODO:
-    // add category
+    //TODO: // add category
     app.post("/api/category", function(req, res) {
         // console.log(req.body[0]);
         //Find all returns all entries for a table when used with no options
@@ -113,7 +113,7 @@ module.exports = function(app, passport) {
     app.post("/api/friend", function(req, res) {
         // console.log(req.body[0]);
         //Find all returns all entries for a table when used with no options
-        friend.add(req.body[0])
+        friend.add(req.body.friendId, req.user.id)
             .then(function(dbResults) {
                 // We have access to the results as an argument inside of the callback function
                 res.json(dbResults);
@@ -230,11 +230,11 @@ module.exports = function(app, passport) {
     });
 
     // Add place
-    app.post("/api/place",
+    app.post("/api/place/",
         function(req, res) {
             // console.log(req.user.id);
             //Find all returns all entries for a table when used with no options
-            place.add(req.body, req.user)
+            place.add(req.body, req.user.id)
                 .then(function(dbResults) {
                     // We have access to the results as an argument inside of the callback function
                     res.json(dbResults);

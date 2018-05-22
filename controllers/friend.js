@@ -2,51 +2,85 @@ var db = require("../models");
 
 module.exports = {
 
-    //TODO: Flesh out findAllByProperty
-    findAllByProperty: function(property) {
 
-        // findByProperty does something
-        var $findByProperty = db.Friend.findAll({
+    newFriend: function(req, res) {
+
+        res.render('add-friend');
+    },
+
+    //TODO: //Find By Username
+    //TODO: //Find By Email
+    // getAll: function() {
+
+    //     var $getAll = db.friend.findAll({}).then(function(dbResults) {
+
+    //             return dbResults;
+    //         })
+    //         .catch(function(err) {
+
+    //             return err;
+    //         });
+
+    //     return $getAll;
+    // },
+    //Find all user's friends
+    findAllByUser: function(userId) {
+
+        var $findAllByUser = db.Friend.findAll({
+
                 where: {
-                    propertyName: property
-                }
+                    userId: userId
+                },
+                include: [
+                    { model: user }
+                ]
             }).then(function(results) {
-                // return our results from the function
+                console.log(results)
                 return results;
             })
             .catch(function(err) {
-                // Whenever a validation or flag fails, an error is thrown
-                // We can "catch" the error to prevent it from being "thrown", which could crash our node app
+
                 return err;
             });
-        // This returns a promise to the external code, so it can access our results
-        return $findByProperty;
+
+        return $findAllByUser;
     },
 
-    //TODO: Flesh out add
-    add: function(friend) {
+    //TODO: //Confirm whether friend userID or friendName needs to be saved
+    add: function(friendId, userId) {
 
-        // create takes an argument of an object for our model
         var $add =
-            db.Friends.create({
-                property1: friend.property1,
-                property2: friend.property2,
-                property3: friend.property3,
-                createdBy: friend.createdBy,
-                updatedBy: friend.updatedBy
-                    // ingredients: req.body.ingredients,
-                    // location: req.body.location,
+            db.Friend.create({
+                userId: userId,
+                friendId: friendId,
+                createdBy: userId,
+                updatedBy: userId
+
             }).then(function(dbResults) {
-                // We have access to the new todo as an argument inside of the callback function
                 return dbResults;
             })
             .catch(function(err) {
-                // Whenever a validation or flag fails, an error is thrown
-                // We can "catch" the error to prevent it from being "thrown", which could crash our node app
+
                 return err;
             });
-
-        // This returns a promise to the external code, so it can access our results
         return $add;
+    },
+    //TODO:  Remove or approve friend
+    edit: function(friend, user) {
+
+        var $edit =
+            db.friend.update({
+                friendName: friend.friendName,
+                //approved:
+                updatedBy: user.id
+
+            }).then(function(dbResults) {
+                return dbResults;
+            })
+            .catch(function(err) {
+
+                return err;
+            });
+        return $edit;
     }
 }
