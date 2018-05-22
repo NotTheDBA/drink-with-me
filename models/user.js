@@ -58,16 +58,10 @@ module.exports = function(sequelize, Sequelize) {
         });
 
         User.associate = function(models) {
-            // User.belongsToMany(User, { through: 'userFriends' }, { as: "CollectionItem" })
 
             User.belongsToMany(User, { as: 'friend', foreignKey: 'userId', through: 'Friends' });
             User.belongsToMany(User, { as: 'user', foreignKey: 'friendId', through: 'Friends' });
 
-            // User.hasMany(models.Friend)
-
-            // User.belongsToMany(models.Friend, { as: 'friend' })
-            // User.belongsTo(models.Friend, { as: 'friend' })
-            // associations can be defined here
         };
 
 
