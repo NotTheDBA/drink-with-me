@@ -33,11 +33,12 @@
                 <form class="form-inline">
                     <input class="form-control mr-sm-2" type="search" placeholder="search for drink" aria-label="Search">
                 </form>
-                <h6 class="card-title" id="user-name">User Name</h6>
-                <img src="#" class="profile-image">
+                <h6 class="card-title" id="user-name">{{user.firstname}} {{user.lastname}}</h6>
+                <img src="https://www.gravatar.com/avatar/{{user.gravatar}}?d=https://www.publicdomainpictures.net/pictures/130000/nahled/seamless-cocktails.jpg"
+                    class="profile-image">
                 <div class="link-box">
                     <div class="link-text">
-                        <a href="/user-profile">MY PROFILE</a>
+                        <a href="/dashboard">MY PROFILE</a>
                         <br/>
                         <a href="/drinks">MY DRINKS</a>
                         <br/>
