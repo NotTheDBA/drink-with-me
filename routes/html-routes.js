@@ -6,7 +6,6 @@ var friend = require("../controllers/friend");
 var ingredient = require("../controllers/ingredient");
 // var part = require("../controllers/part");
 var place = require("../controllers/place");
-// var user = require("../controllers/user");
 var review = require("../controllers/review");
 
 

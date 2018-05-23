@@ -29,12 +29,24 @@ module.exports = function(passport, user) {
                 } else {
                     var userPassword = generateHash(password);
 
+                    //Default username to email, truncated at the @ symbol)
+                    if (typeof req.body.userName === "undefined") {
+                        req.body.userName = email.split('@')[0];
+                    }
+
+                    //Default display name to username
+                    if (typeof req.body.displayName === "undefined") {
+                        req.body.displayName = req.body.userName;
+                    }
+                    //TODO: Gravatar: add gravatar hash
+
                     var data = {
                         email: email,
                         password: userPassword,
                         firstname: req.body.firstname,
                         lastname: req.body.lastname,
-                        username: email,
+                        username: req.body.username,
+                        // displayname: req.body.displayname,
                         gravatar: email
                     };
 

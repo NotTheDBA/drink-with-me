@@ -17,8 +17,12 @@ exports.signin = function(req, res) {
 }
 
 exports.dashboard = function(req, res) {
-    // res.render('dashboard');
-    res.render('user-profile');
+
+    var hbsObject = {
+        user: req.user
+    };
+    res.render('user-profile', hbsObject);
+
 }
 
 exports.logout = function(req, res) {

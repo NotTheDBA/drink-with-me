@@ -10,10 +10,15 @@ var exphbs = require('express-handlebars')
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
+if (process.env.PASSPORT_SECRET) {
+    var secret = process.env.PASSPORT_SECRET
+} else {
+    var secret = 'keyboard cat'
+}
 // For Passport
 app.use(session({
-    // secret: PASSPORT_SECRET || 'keyboard cat',
-    secret: 'keyboard cat',
+    secret: secret,
+    // secret: 'keyboard cat',
     resave: true,
     saveUninitialized: true
 })); // session secret
@@ -56,6 +61,7 @@ app.listen(PORT, function(err) {
 
 //Sync Database
 models.sequelize.sync({ force: true }).then(function() {
+    // models.sequelize.sync().then(function() {
 
     console.log('Nice! Database looks fine')
     console.log("Listening on http://localhost:%s", PORT)
