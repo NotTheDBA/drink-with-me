@@ -68,8 +68,9 @@ h6 {
 
 .link-text {
     position: absolute;
-    bottom: 40px;
+    bottom: 15px;
     right: 0;
+    font-size: 19px;
 }
 
 .card-body {
@@ -80,6 +81,12 @@ h6 {
 td {
     align-content: center;
 }
+
+.form-inline{
+    float: right;
+
+}
+
 
 button {
     border: 1px solid black !important;
