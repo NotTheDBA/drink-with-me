@@ -1,8 +1,9 @@
 
 body {
     font-size: 12px;
-
+   
 }
+
 
 input::placeholder {
     font-size: 10px;
