@@ -61,8 +61,8 @@
                     </tr>
                 </thead>
                 <tbody>
+                    {{#each reviews}}
                     <tr>
-                        {{#each reviews}}
                         <td scope="col">
                             <img src=({{drinkImage}}) class="friend-image">
                         </td>
@@ -79,6 +79,7 @@
                             ({{drinksReviews}})
                         </td>
                     </tr>
+                    {{/each}}
 
                 </tbody>
             </table>
