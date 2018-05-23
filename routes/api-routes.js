@@ -120,17 +120,17 @@ module.exports = function(app, passport) {
             });
     });
 
-    //TODO: Convert to Controller   // Add Friend
-    app.post("/api/friend", function(req, res) {
-        // console.log(req.body);
-        db.create({
-                friendname: req.body.friendname,
+    // //TODO: Convert to Controller   // Add Friend
+    // app.post("/api/friend", function(req, res) {
+    //     // console.log(req.body);
+    //     db.create({
+    //             friendname: req.body.friendname,
 
-            })
-            .then(function() {
-                res.json();
-            });
-    });
+    //         })
+    //         .then(function() {
+    //             res.json();
+    //         });
+    // });
     //#endregion Friend Functions
 
     //#region Ingredient Functions

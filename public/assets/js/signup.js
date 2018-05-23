@@ -1,5 +1,5 @@
-$(document).ready(function () {
-    $("#submit").on("click", function (event) {
+$(document).ready(function() {
+    $("#submit").on("click", function(event) {
         event.preventDefault();
         var newUser = {
             username: $("#username").val().trim(),
@@ -11,15 +11,16 @@ $(document).ready(function () {
         $.ajax("/api/signup", {
             type: "POST",
             data: newUser
-        }).then(function () {
+        }).then(function() {
             console.log("Added new user: " + newUser);
         });
     });
 
-    var regularExpression = /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{6,16}$/;
+    // var regularExpression = /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{6,16}$/;
+    var regularExpression = /^{4,16}$/;
     var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
 
-    $("#new-user-firstname").blur(function () {
+    $("#new-user-firstname").blur(function() {
 
         if ($("#new-user-firstname").val().length === 0) {
             $('#firstname_error').append('<div class="red">*Required Field</div>');
@@ -28,7 +29,7 @@ $(document).ready(function () {
             $('#first_error').append('');
         }
     });
-    $("#new-user-lastname").blur(function () {
+    $("#new-user-lastname").blur(function() {
 
         if ($("#new-user-lastname").val().length === 0) {
             $('#lastname_error').append('<div class="red">*Required Field</div>');
@@ -37,7 +38,7 @@ $(document).ready(function () {
             $('#lastname_error').remove('<div class="red"> *Required field </div>');
         }
     });
-    $("#new-user-email").blur(function () {
+    $("#new-user-email").blur(function() {
 
         if ($("#new-user-email").val().length === 0) {
             $('#email_error').append('<div class="red">*Required Field</div>');
@@ -45,11 +46,11 @@ $(document).ready(function () {
         } else if ($("#new-user-email").val() != mailformat) {
             $('#email_error').append('<div class="red">*Invalid Email</div>');
             $("#new-user-email").focus();
-         }else {
+        } else {
             $('#email_error').remove('<div class="red"> *Required field </div>');
         }
     });
-    $("#new-user-password").blur(function () {
+    $("#new-user-password").blur(function() {
 
         if ($("#new-user-password").val().length === 0) {
             $('#password_error').append('<div class="red">*Required Field</div>');
@@ -61,7 +62,7 @@ $(document).ready(function () {
             $('#password_error').remove('<div class="red"> *Required field </div>');
         }
     });
-    $("#password-confirm").blur(function () {
+    $("#password-confirm").blur(function() {
 
         if ($("#password-confirm").val().length === 0) {
             $('#repassword_error').append('<div class="red">*Required Field</div>');
@@ -72,8 +73,7 @@ $(document).ready(function () {
         if ($("#new-user-password").val() != $("#password-confirm").val()) {
             $('#repassword_error').append('<div class="red"> *Password not match </div>');
             $("#password-confirm").focus();
-        }
-        else {
+        } else {
             $('#repassword_error').remove('<div class="red"> *Password not match </div>');
         }
 
