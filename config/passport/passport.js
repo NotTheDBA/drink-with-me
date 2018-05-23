@@ -36,13 +36,27 @@ module.exports = function(passport, user) {
                 } else {
                     var userPassword = generateHash(password);
 
+                    //Default username to email, truncated at the @ symbol)
+                    if (typeof req.body.userName === "undefined") {
+                        req.body.userName = email.split('@')[0];
+                    }
+
+                    //Default display name to username
+                    if (typeof req.body.displayName === "undefined") {
+                        req.body.displayName = req.body.userName;
+                    }
+                    //TODO: Gravatar: add gravatar hash
+                    var md5 = require("blueimp-md5");
+                    // md5( strtolower( trim( emailAddress ) ) );
+
                     var data = {
                         email: email,
                         password: userPassword,
                         firstname: req.body.firstname,
                         lastname: req.body.lastname,
-                        username: email,
-                        gravatar: email
+                        username: req.body.username,
+                        // displayname: req.body.displayname,
+                        gravatar: md5(email.trim().toLowerCase())
                     };
 
                     User.create(data).then(function(newUser, created) {
@@ -57,8 +71,7 @@ module.exports = function(passport, user) {
                     });
                 }
             });
-        }
-    ));
+        }));
 
     //serialize
     passport.serializeUser(function(user, done) {

@@ -18,15 +18,14 @@ module.exports = function(sequelize, Sequelize) {
                 notEmpty: true
             },
 
-            //         displayName: {
-            //             type: Sequelize.STRING,
-            //             notEmpty: true
-            //         },
+            displayname: {
+                type: Sequelize.STRING,
+                notEmpty: true
+            },
 
             username: {
-                type: Sequelize.STRING
-                    //             ,
-                    //             notEmpty: true
+                type: Sequelize.STRING,
+                notEmpty: true
             },
 
             gravatar: {
@@ -57,9 +56,13 @@ module.exports = function(sequelize, Sequelize) {
 
         });
 
-        // User.associate = function(models) {
-        //     // associations can be defined here
-        // };
+        User.associate = function(models) {
+
+            User.belongsToMany(User, { as: 'isFriend', foreignKey: 'userId', through: 'Friend' });
+            User.belongsToMany(User, { as: 'isUser', foreignKey: 'friendId', through: 'Friend' });
+
+        };
+
 
         return User;
 
