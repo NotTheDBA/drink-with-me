@@ -23,14 +23,21 @@
     {{!-- //TODO: Fix fields for Ingredients --}}
     <form id="place" name="place" method="post" action="/api/place">
 
-        <label for="placeName">Name the place:</label>
-        <input class="text" name="placeName" type="text" />
+        <label for="ingredientName">What is the ingredient?</label>
+        <input class="text" name="ingredientName" type="text" />
 
-        <label for="type">What type of place is it?</label>
-        <input name="type" type="text" />
+        <!-- //TODO: This should be a drop-down - assume you will have a handlebars help for "categories" with "categories.general", "categories.specific" and "categories.id"
+        -->
+        <label for="categoryId">What kind of ingredient?</label>
+        <input name="categoryId" type="dropdown" />
 
-        <label for="isPrivate">Is this private property?</label>
-        <input name="isPrivate" type="text" />
+        <label for="isAlcoholic">Is it alcoholic?</label>
+        {{!-- //TODO: This needs to be a checkbox - true/false --}}
+        <input class="text" name="isAlcoholic" type="checkbox" />
+
+        <label for="isCustom">Is it custom made?</label>
+        {{!-- //TODO: This needs to be a checkbox - true/false --}}
+        <input class="text" name="isCustom" type="checkbox" />
 
         <input class="btn" type="submit" value="Submit" />
     </form>
