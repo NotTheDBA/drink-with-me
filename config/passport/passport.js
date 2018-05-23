@@ -1,5 +1,12 @@
+
+
+
+
 //load bcrypt
 var bCrypt = require('bcrypt-nodejs');
+var md5 = require("blueimp-md5");
+
+
 
 module.exports = function(passport, user) {
 
@@ -134,6 +141,42 @@ module.exports = function(passport, user) {
 
 
         }
+
+        
+        // (function($)
+        // {
+        //     $.gravatar = function(email, overrides)
+        //     {
+        //         var options = $.extend({
+        //             // Defaults are not hardcoded here in case gravatar changes them on their end.
+        //             // integer size: between 1 and 512, default 80 (in pixels)
+        //             size: '',
+        //             // rating: g (default), pg, r, x
+        //             rating: '',
+        //             // url to define a default image (can also be one of: identicon, monsterid, wavatar)
+        //             image: '',
+        //             // secure
+        //             secure: true,
+        //             // support css on img element
+        //             classes: ''
+        //         }, overrides);
+
+        //         var baseUrl = options.secure ? 'https://secure.gravatar.com/avatar/' : 'http://www.gravatar.com/avatar/';
+
+        //         return $('<img src="' + baseUrl +
+        //             hex_md5(email) +
+        //             '.jpg?' +
+        //             (options.size ? 's=' + options.size + '&' : '') +
+        //             (options.rating ? 'r=' + options.rating + '&' : '') +
+        //             (options.image ? 'd=' + encodeURIComponent(options.image) : '') +
+        //             '"' +
+        //             (options.classes ? ' class="' + options.classes + '"' : '') +
+        //             ' />').bind('error', function()
+        //             {
+        //                 $(this).remove();
+        //             });
+        //     };
+        // })(jQuery)
 
     ));
 
