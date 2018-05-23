@@ -1,7 +1,7 @@
 {
     "development": {
         "username": "root",
-        "password": "password",
+        "password": "Hellmysql0386",
         "database": "drinkWithMeDB",
         "host": "localhost",
         "dialect": "mysql"
