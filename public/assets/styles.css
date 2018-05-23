@@ -7,6 +7,7 @@ body {
     background-size: cover;
 }
 
+
 input::placeholder {
     font-size: 10px;
 }
