@@ -1,7 +1,10 @@
 
 body {
     font-size: 12px;
-   
+    background: rgb(247, 243, 237) url(/assets/images/background.jpg);
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
 }
 
 
@@ -14,7 +17,7 @@ input::placeholder {
     text-align: center;
 }
 
-h2,
+h2, 
 h5,
 h6 {
     text-align: center;
@@ -27,7 +30,8 @@ h6 {
 
 .table-container {
     margin: 5px;
-
+    background:rgb(240, 213, 157);
+    padding: 10px;
 }
 
 .profile-image {
@@ -67,7 +71,8 @@ h6 {
 }
 
 .card-body {
-    padding: 2px;
+    padding: 5px;
+    background: rgb(240, 213, 157);
 }
 
 td {
@@ -78,5 +83,30 @@ button {
     border: 1px solid black !important;
     border-radius: 2cm !important;
     float: left; 
+    background: burlywood;
 }
   
+.neon {
+    font-family: neon;
+  color: #FB4264;
+  font-size: 5vw;
+  line-height: 5vw;
+  text-shadow: 0 0 3vw #F40A35;
+}
+.neon {
+    animation: neon 1s ease infinite;
+    -moz-animation: neon 1s ease infinite;
+    -webkit-animation: neon 1s ease infinite;
+  }
+  
+  @keyframes neon {
+    0%,
+    100% {
+      text-shadow: 0 0 1vw #FA1C16, 0 0 3vw #FA1C16, 0 0 10vw #FA1C16, 0 0 10vw #FA1C16, 0 0 .4vw #FED128, .5vw .5vw .1vw #806914;
+      color: #FED128;
+    }
+    50% {
+      text-shadow: 0 0 .5vw #800E0B, 0 0 1.5vw #800E0B, 0 0 5vw #800E0B, 0 0 5vw #800E0B, 0 0 .2vw #800E0B, .5vw .5vw .1vw #40340A;
+      color: #806914;
+    }
+}
