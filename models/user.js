@@ -18,10 +18,10 @@ module.exports = function(sequelize, Sequelize) {
                 notEmpty: true
             },
 
-            displayname: {
-                type: Sequelize.STRING,
-                notEmpty: true
-            },
+            // displayname: {
+            //     type: Sequelize.STRING,
+            //     notEmpty: true
+            // },
 
             username: {
                 type: Sequelize.STRING,

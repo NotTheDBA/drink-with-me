@@ -44,9 +44,11 @@ module.exports = {
         var $findAllByUser = db.Review.findAll({
                 where: {
                     createdBy: userId
-                }
+                },
+                include: ['drink']
             }).then(function(results) {
-                // return our results from the function
+                console.log(results)
+                    // return our results from the function
                 return results;
             })
             .catch(function(err) {
@@ -64,7 +66,8 @@ module.exports = {
         var $findAllByDrink = db.Review.findAll({
                 where: {
                     drinkId: drinkId
-                }
+                },
+                include: ['drink']
             }).then(function(results) {
                 // return our results from the function
                 return results;
@@ -123,9 +126,11 @@ module.exports = {
         var $findAllByPlace = db.Review.findAll({
                 where: {
                     placeId: placeId
-                }
+                },
+                include: ['drink']
             }).then(function(results) {
                 // return our results from the function
+                console.log(results)
                 return results;
             })
             .catch(function(err) {
