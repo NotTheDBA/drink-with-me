@@ -47,24 +47,13 @@ module.exports = function(app, passport) {
 
     //#region Drink Functions
 
-    //  find drink
-    app.get("/api/drink/:drink", function(req, res) {
-        drink.findDrink(req.params.drink)
-            .then(function(dbResults) {
-                // We have access to the results as an argument inside of the callback function
-                res.json(dbResults);
-            });
-    });
 
     // add drink
     app.post("/api/drink", function(req, res) {
-        // console.log(req.body[0]);
-        //Find all returns all entries for a table when used with no options
-        drink.addDrink(req.body[0])
+        drink.add(req.body, req.ingredients, req.location, req.user)
             .then(function(dbResults) {
-                // We have access to the results as an argument inside of the callback function
-                // res.json(dbResults);
-                res.redirect('/api/drink/' + dbResults.drinkName);
+                console.log(dbResults);
+                res.redirect('/drink/' + encodeURIComponent(dbResults.drinkName));
             });
     });
 
@@ -143,7 +132,8 @@ module.exports = function(app, passport) {
         ingredient.add(req.body[0])
             .then(function(dbResults) {
                 // We have access to the results as an argument inside of the callback function
-                res.json(dbResults);
+                // res.json(dbResults);
+                res.redirect('/drink/' + encodeURIComponent(dbResults.ignredientName));
             });
     });
 
@@ -197,7 +187,8 @@ module.exports = function(app, passport) {
                 // We have access to the results as an argument inside of the callback function
                 // res.json(dbResults);
 
-                res.redirect('/part');
+                // res.redirect('/part');
+                res.redirect('/drink/' + encodeURIComponent(dbResults.drinkId));
             });
     });
 
@@ -237,7 +228,7 @@ module.exports = function(app, passport) {
 
     // //TODO: // Update place
     // app.put("/api/place", function(req, res) {
-    //     // //TODO: Convert to Controller  // Update Username
+    //    
     //     console.log(req.body[0]);
     //     //Find all returns all entries for a table when used with no options
     //     place.update(req.body[0])
@@ -249,7 +240,7 @@ module.exports = function(app, passport) {
 
     // //TODO: // Mark Closed
     // app.put("/api/place", function(req, res) {
-    //     // //TODO: Convert to Controller  // Update Username
+    //    
     //     console.log(req.body[0]);
     //     //Find all returns all entries for a table when used with no options
     //     place.update(req.body[0])
@@ -310,7 +301,8 @@ module.exports = function(app, passport) {
         review.add(req.body[0])
             .then(function(dbResults) {
                 // We have access to the results as an argument inside of the callback function
-                res.json(dbResults);
+                // res.json(dbResults);
+                res.redirect('/drink/' + encodeURIComponent(dbResults.reviewId));
             });
     });
 
