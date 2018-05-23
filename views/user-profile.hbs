@@ -34,10 +34,10 @@
                 <img href="#" class="profile-image">
 
                 <button class="btn btn-sm" type="submit" href="/friends">Friends</button>
-           
+
                 <button class="btn btn-sm" type="submit" href="/review">Drinks</button>
-        
-                
+
+
             </div>
         </div>
     </div>
@@ -74,10 +74,19 @@
         </div>
 
     </div>
-    <button class="btn btn-sm" type="submit" href="/add-drink">Add Drink</button>
-    <button class="btn btn-sm" type="submit" href="/add-place">Add Place</button>
-    <button class="btn btn-sm" type="submit" href="/add-review">Add Review</button>
+    <form class="form-horizontal" method="GET" action="/add-drink">
+        <button class="btn btn-sm" type="submit">Add Drink</button>
+    </form>
+    <form class="form-horizontal" method="GET" action="/add-place">
+        <button class="btn btn-sm" type="submit">Add Place</button>
+    </form>
+    <form class="form-horizontal" method="GET" action="/add-review">
+        <button class="btn btn-sm" type="submit">Add Review</button>
+    </form>
+    <form class="form-horizontal" method="GET" action="/logout">
+        <button class="btn btn-sm" type="submit">Logout</button>
 
+    </form>
 
 
 </body>
