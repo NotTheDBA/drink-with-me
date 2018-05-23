@@ -34,12 +34,12 @@
                     </tr>
                 </thead>
                 <tbody>
+                    {{#each ingredients}}
                     <tr>
-                        {{#each ingredients}}
                         <th scope="row">{{ingredientName}}</th>
                         <td>{{ingredientId}}</td>
-                        {{/each}}
                     </tr>
+                    {{/each}}
                 </tbody>
             </table>
         </div>

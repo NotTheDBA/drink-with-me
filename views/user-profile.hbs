@@ -14,7 +14,7 @@
         crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
-        
+
     <title>My Profile</title>
 </head>
 
@@ -56,8 +56,8 @@
                     </tr>
                 </thead>
                 <tbody>
+                    {{#each drinks}}
                     <tr>
-                        {{#each drinks}}
                         <th scope="row"> ({{drinksName}})</th>
                         <td> ({{drinksLocation}})</td>
                         <td>
@@ -70,8 +70,8 @@
                                 ({{drinksAvgRating}})
                             </div>
                         </td>
-                        {{/each}}
                     </tr>
+                    {{/each}}
                 </tbody>
             </table>
         </div>

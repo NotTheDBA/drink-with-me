@@ -68,8 +68,8 @@
                     </tr>
                 </thead>
                 <tbody>
+                    {{#each friends}}
                     <tr>
-                        {{#each friends}}
                         <td scope="col">
                             <img src=( {{gravatar}}) class="friend-image">
                         </td>
@@ -81,8 +81,8 @@
                                 <a class="btn btn-secondary btn-sm active" role="button" aria-pressed="true">View</a>
                             </form>
                         </td>
-                        {{/each}}
                     </tr>
+                    {{/each}}
                 </tbody>
             </table>
         </div>
