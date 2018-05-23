@@ -31,12 +31,12 @@
                     </tr>
                 </thead>
                 <tbody>
+                    {{#each drinks}}
                     <tr>
-                        {{#each drinks}}
                         <th scope="row">{{drinkName}}</th>
                         <td>{{drinkId}}</td>
-                        {{/each}}
                     </tr>
+                    {{/each}}
                 </tbody>
             </table>
         </div>
