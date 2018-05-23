@@ -39,6 +39,8 @@ module.exports = function(passport, user) {
                         req.body.displayName = req.body.userName;
                     }
                     //TODO: Gravatar: add gravatar hash
+                    var md5 = require("blueimp-md5");
+                    // md5( strtolower( trim( emailAddress ) ) );
 
                     var data = {
                         email: email,
@@ -47,7 +49,7 @@ module.exports = function(passport, user) {
                         lastname: req.body.lastname,
                         username: req.body.username,
                         // displayname: req.body.displayname,
-                        gravatar: email
+                        gravatar: md5(email.trim().toLowerCase())
                     };
 
                     User.create(data).then(function(newUser, created) {
@@ -62,8 +64,7 @@ module.exports = function(passport, user) {
                     });
                 }
             });
-        }
-    ));
+        }));
 
     //serialize
     passport.serializeUser(function(user, done) {
