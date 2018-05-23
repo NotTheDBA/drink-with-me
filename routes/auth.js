@@ -24,7 +24,7 @@ module.exports = function(app, passport) {
         function(req, res) {
             // If this function gets called, authentication was successful.
             // `req.user` contains the authenticated user.
-            res.redirect('/users/' + req.user.username);
+            res.redirect('/user/' + req.user.username);
         });
 
 
