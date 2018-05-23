@@ -23,6 +23,29 @@
     {{!-- //TODO: Needs header pulled in from another page --}}
     <header></header>
     {{!-- //TODO: Add Dsiplay fields --}}
+
+    <div class="table-container border">
+        <div class="scroll">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col" id="location">Ingredient</th>
+                        <th scope="col" id="drinks"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        {{#each ingredients}}
+                        <th scope="row">{{ingredientName}}</th>
+                        <td>{{ingredientId}}</td>
+                        {{/each}}
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+
 </body>
 
 </html>
