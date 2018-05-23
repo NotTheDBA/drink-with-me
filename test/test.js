@@ -25,30 +25,30 @@ var login_details = {
 //Log in page
 describe("API Routes", function () {
     //6
-    describe("POST /api/signup", function () {
-        it("should take the input from the email, password, and age certification and send to the database", function () {
-            chai.request(app)
-                .post("/api/signup")
-                .send(register_details)
-                .end(function (err, res) {
-                    res.should.have.status(404);
+    // describe("POST /api/signup", function () {
+    //     it("should take the input from the email, password, and age certification and send to the database", function () {
+    //         chai.request(app)
+    //             .post("/api/signup")
+    //             .send(register_details)
+    //             .end(function (err, res) {
+    //                 res.should.have.status(404);
 
-                })
-        })
-    });
+    //             })
+    //     })
+    // });
 
-    //7
-    describe("POST /api/login", function () {
-        it("should login", function () {
-            chai.request(app)
-                .post("/api/login")
-                .send(login_details)
-                .end(function (err, res) {
-                    res.should.have.status(200);
+    // //7
+    // describe("POST /api/login", function () {
+    //     it("should login", function () {
+    //         chai.request(app)
+    //             .post("/api/login")
+    //             .send(login_details)
+    //             .end(function (err, res) {
+    //                 res.should.have.status(200);
 
-                })
-        })
-    });
+    //             })
+    //     })
+    // });
     //4
     describe("GET /api/username/:username", function () {
         it("should get the username and information", function () {
