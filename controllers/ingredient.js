@@ -58,13 +58,16 @@ module.exports = {
     add: function(ingredient) {
 
         // create takes an argument of an object for our model
+        var isAlcoholic = (ingredient.isAlcoholic === "on");
+        var isCustom = (ingredient.isCustom === "on");
+        var isRetired = (ingredient.isRetired === "on");
         var $add =
             db.Ingredient.create({
                 ingredientName: ingredient.ingredientName,
                 categoryId: ingredient.categoryId,
-                isAlcoholic: ingredient.isAlcoholic,
-                isCustom: ingredient.isCustom,
-                isRetired: ingredient.isRetired,
+                isAlcoholic: isAlcoholic,
+                isCustom: isCustom,
+                isRetired: isRetired,
                 createdBy: ingredient.createdBy,
                 updatedBy: ingredient.updatedBy
             }).then(function(dbResults) {

@@ -14,7 +14,7 @@
         crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
-    <title>New User Sign-Up</title>
+    <title>Friends</title>
 </head>
 
 <body>
@@ -45,6 +45,17 @@
             </div>
         </div>
     </div>
+    {{!-- //TODO: create search function for friend --}} Lookup friend: (TBD) {{!-- //TODO: hide this until it can be populated
+    by a found friend --}}
+    <form id="place" name="place" method="post" action="/api/friend">
+
+        <!-- //TODO: This should display the found friend info - assume a handlebars object "friends" with firstname, lastname, email, and id; form should only show the last initial and a partially hidden email address..
+        -->Friend Name here:
+
+        <input class="hidden" name="friendId" type="text" value="this will be handlebars friend.id" />
+
+        <input class="btn" type="submit" value="Add Friend">
+    </form>
     <div class="table-container-fluid border">
         <div class="scroll">
             <table class="table table-striped">

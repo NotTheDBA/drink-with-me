@@ -55,12 +55,12 @@
                     </tr>
                 </thead>
                 <tbody>
+                    {{#each places}}
                     <tr>
-                        {{#each places}}
-                        <th scope="row">({{placeName}})</th>
-                        <td>({{locationDrinks}})</td>
-                        {{/each}}
+                        <th scope="row">{{placeName}}</th>
+                        <td>{{locationDrinks}}</td>
                     </tr>
+                    {{/each}}
                 </tbody>
             </table>
         </div>

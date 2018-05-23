@@ -14,34 +14,25 @@
         crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
-    <title>Add Ingredients</title>
+    <title>Add Place</title>
 </head>
 
 <body>
-    {{!-- //TODO: Needs header pulled in from another page --}}
-    <header></header>
-    {{!-- //TODO: Fix fields for Ingredients --}}
-    <form id="place" name="place" method="post" action="/api/ingredient">
 
-        <label for="ingredientName">What is the ingredient?</label>
-        <input class="text" name="ingredientName" type="text" />
+    {{!-- //TODO: Fix fields for Drink ingredients --}}
+    <form id="place" name="place" method="post" action="/api/part">
 
-        <!-- //TODO: This should be a drop-down - assume you will have a handlebars help for "categories" with "categories.general", "categories.specific" and "categories.id"
-        -->
-        <label for="categoryId">What kind of ingredient?</label>
-        <input name="categoryId" type="dropdown" />
+        <!-- //TODO: This should display the found Drink info - assume a handlebars object "drinks" with drinkname, location, and id.
+        -->Drink Name here:
 
-        <label for="isAlcoholic">Is it alcoholic?</label>
-        {{!-- //TODO: This needs to be a checkbox - true/false --}}
-        <input class="text" name="isAlcoholic" type="checkbox" />
+        <input name="drinkId" type="hidden" value="this will be handlebars drink.id" /> {{!-- //TODO: This needs to search the cocktaildb for ingredients and add them to an array... the array can then
+        be displayed as a list. --}}
+        <form class="form-inline">
+            <input class="form-control mr-sm-2" type="search" placeholder="search for ingredient" aria-label="Search" id="find-ingredient">
+        </form>
 
-        <label for="isCustom">Is it custom made?</label>
-        {{!-- //TODO: This needs to be a checkbox - true/false --}}
-        <input class="text" name="isCustom" type="checkbox" />
-
-        <input class="btn" type="submit" value="Submit" />
+        <input class="btn" type="submit" value="Add to drink" />
     </form>
-
 </body>
 
 </html>
