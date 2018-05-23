@@ -56,17 +56,17 @@
         <input class="text" name="drinkName" type="text" />
 
         <label for="placeId">Where did you find it?</label>
-        <!-- //TODO: This should be a drop-down - assume you will have a list of {{places}} with {{places.placeName and places.id}}
+        <!-- //TODO: This should be a drop-down - assume you will have a handlebars help for "places" with "places.placeName" and "places.id"
         -->
         <input class="text" name="placeId" type="text" />
 
         <label for="isAlcoholic">Is it alcoholic?</label>
         {{!-- //TODO: This needs to be a checkbox - true/false --}}
-        <input class="text" name="isAlcoholic" type="text" />
+        <input class="text" name="isAlcoholic" type="checkbox" />
 
-        <label for="isCustom">Is it alcoholic?</label>
+        <label for="isCustom">Is it custom made?</label>
         {{!-- //TODO: This needs to be a checkbox - true/false --}}
-        <input class="text" name="isAlcoholic" type="text" />
+        <input class="text" name="isCustom" type="checkbox" />
 
         <input class="btn" type="submit" value="Submit" />
     </form>
