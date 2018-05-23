@@ -1,4 +1,5 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
@@ -13,12 +14,37 @@
         crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
-    <title>Add Friend</title>
+    <title>New User Sign-Up</title>
 </head>
 
 <body>
-    {{!-- //TODO: Needs header pulled in from another page --}}
-    <header></header>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3"></div>
+            <div class="col-md-6">
+                <h2 class="neon">Drink With Me!</h2>
+                <hr>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="card w-100">
+            <div class="card-body">
+                <form class="form-inline">
+                    <input class="form-control mr-sm-2" type="search" placeholder="search by email to add friend" aria-label="Search">
+                </form>
+                <h6 class="card-title" id="user-name">User Name</h6>
+                <img href="#" class="profile-image" id="user-image">
+                <div class="link-box">
+                    <div class="link-text">
+                        <a href="/user-profile">MY PROFILE</a>
+                        <br/>
+                        <a href="/reviews">DRINKS</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     {{!-- //TODO: create search function for friend --}} Lookup friend: (TBD) {{!-- //TODO: hide this until it can be populated
     by a found friend --}}
     <form id="place" name="place" method="post" action="/api/friend">

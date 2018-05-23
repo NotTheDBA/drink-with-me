@@ -37,13 +37,21 @@ module.exports = {
     },
 
     add: function(drink, ingredients, location, user) {
+        // console.log(ingredients)
+        // console.log(location)
+        console.log(drink)
+        console.log(drink.drinkName)
+        console.log(drink.isAlcoholic)
+        console.log(drink.isAlcoholic === "on")
+        var isAlcoholic = (drink.isAlcoholic === "on");
+        var isCustom = (drink.isCustom === "on");
 
         // create takes an argument of an object for our model
         var $add =
             db.Drink.create({
                 drinkName: drink.drinkName,
-                isAlcoholic: drink.isAlcoholic,
-                isCustom: drink.isCustom,
+                isAlcoholic: isAlcoholic,
+                isCustom: isCustom,
                 placeId: 0,
                 createdBy: user.id,
                 updatedBy: user.id
@@ -54,10 +62,23 @@ module.exports = {
                 return dbResults;
             })
             .catch(function(err) {
-
-                return err;
+                console.log(err);
             });
 
+        // //if we get here, there was an error - maybe a dupe drink?
+        // db.Drink.findOne({
+        //         where: {
+        //             drinkName: drink.drinkName
+        //         }
+        //     }).then(function(dbResults) {
+        //         // We have access to the new todo as an argument inside of the callback function
+        //         return dbResults;
+        //     })
+        //     .catch(function(err) {
+        //         // Whenever a validation or flag fails, an error is thrown
+        //         // We can "catch" the error to prevent it from being "thrown", which could crash our node app
+        //         return err;
+        //     });
         // This returns a promise to the external code, so it can access our results
         return $add;
     },
