@@ -54,7 +54,8 @@ module.exports = function(app) {
     app.get("/drink/:drink", function(req, res) {
         drink.findDrink(req.params.drink)
             .then(function(dbResults) {
-                // console.log(dbResults)
+                console.log("drink")
+                console.log(dbResults)
                 var hbsObject = {
                     drinks: dbResults
                 };
@@ -107,12 +108,16 @@ module.exports = function(app) {
                 res.render("show-place", hbsObject);
             });
     });
+
+
     //Get All review
-    app.get("/review/", function(req, res) {
+    app.get("/review", function(req, res) {
+        // console.log("fired")
         review.findAllByUser(req.user.id)
             .then(function(dbResults) {
+                console.log(dbResults)
                 var hbsObject = {
-                    review: dbResults
+                    reviews: dbResults
                 };
                 res.render("reviews", hbsObject);
             });
