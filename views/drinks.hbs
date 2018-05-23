@@ -20,7 +20,29 @@
 <body>
     {{!-- //TODO: Needs header pulled in from another page --}}
     <header></header>
-    {{!-- //TODO: Add Dsiplay fields --}} {{#each drinks}} ({{drinkName}}) ({{drinkId}}) {{/each}}
+
+    <div class="table-container border">
+        <div class="scroll">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col" id="location">Location</th>
+                        <th scope="col" id="drinks">Drinks</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        {{#each drinks}}
+                        <th scope="row">{{drinkName}}</th>
+                        <td>{{drinkId}}</td>
+                        {{/each}}
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+
 </body>
 
 </html>
