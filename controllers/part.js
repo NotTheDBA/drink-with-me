@@ -24,11 +24,12 @@ module.exports = {
     //Adds new ingredient "part" to drink.
     add: function(part) {
         // create takes an argument of an object for our model
+        var isOptional = (part.isOptional === "on");
         var $add =
             db.Part.create({
                 drinkId: part.drinkId,
                 ingredientId: part.ingredientId,
-                isOptional: part.isOptional
+                isOptional: isOptional
             }).then(function(dbResults) {
                 // We have access to the new todo as an argument inside of the callback function
                 return dbResults;

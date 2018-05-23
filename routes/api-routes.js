@@ -298,7 +298,7 @@ module.exports = function(app, passport) {
     app.post("/api/review", function(req, res) {
         // console.log(req.body[0]);
         //Find all returns all entries for a table when used with no options
-        review.add(req.body[0])
+        review.add(req.body, req.user)
             .then(function(dbResults) {
                 // We have access to the results as an argument inside of the callback function
                 // res.json(dbResults);

@@ -19,7 +19,7 @@ module.exports = {
 
     findDrink: function(drink) {
 
-        var $findDrink = db.Drink.findOne({
+        var $findDrink = db.Drink.findAll({
                 where: {
                     drinkName: drink
                 }
@@ -39,10 +39,10 @@ module.exports = {
     add: function(drink, ingredients, location, user) {
         // console.log(ingredients)
         // console.log(location)
-        console.log(drink)
-        console.log(drink.drinkName)
-        console.log(drink.isAlcoholic)
-        console.log(drink.isAlcoholic === "on")
+        // console.log(drink)
+        // console.log(drink.drinkName)
+        // console.log(drink.isAlcoholic)
+        // console.log(drink.isAlcoholic === "on")
         var isAlcoholic = (drink.isAlcoholic === "on");
         var isCustom = (drink.isCustom === "on");
 

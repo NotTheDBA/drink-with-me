@@ -49,12 +49,12 @@
         </div>
 
         {{!-- //TODO: Fix fields for Reviews --}}
-        <form id="place" name="place" method="post" action="/api/review">
+        <form id="review" name="review" method="post" action="/api/review">
 
             <!-- //TODO: This should display the found Drink info - assume a handlebars object "drinks" with drinkname, location, and id.
         -->Drink Name here:
-
-            <input class="hidden" name="friendId" type="text" value="this will be handlebars drink.id" /> {{!-- //TODO: This needs to be a selectable rating scale 1 to 5 stars, numeric values will need to post back
+            <!-- /TODO: this will hold the handlebars drink.id -->
+            <input name="drinkId" type="hidden" value=1 /> {{!-- //TODO: This needs to be a selectable rating scale 1 to 5 stars, numeric values will need to post back
             --}}
             <label for="rating">Rating</label>
             <input class="text" name="rating" type="text" /> {{!-- //TODO: This needs to be larger text box - maybe with min length of 25 and max length of 500 characters
