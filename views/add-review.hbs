@@ -22,47 +22,46 @@
         <div class="row">
             <div class="col-md-3"></div>
             <div class="col-md-6">
-                <h2>Drink With Me!</h2>
+                <h2 class="neon">Drink With Me!</h2>
                 <hr>
             </div>
         </div>
-    </div>
-    <div class="container">
-        <div class="card w-100">
-            <div class="card-body">
-                <form class="form-inline">
-                    <input class="form-control mr-sm-2" type="search" placeholder="search for drink" aria-label="Search">
-                </form>
-                <h6 class="card-title" id="user-name">{{user.firstname}} {{user.lastname}}</h6>
-                <img src="https://www.gravatar.com/avatar/{{user.gravatar}}?d=https://www.publicdomainpictures.net/pictures/130000/nahled/seamless-cocktails.jpg"
-                    class="profile-image">
-                <div class="link-box">
-                    <div class="link-text">
-                        <a href="/dashboard">MY PROFILE</a>
-                        <br/>
-                        <a href="/drink">MY DRINKS</a>
-                        <br/>
-                        <a href="/friends">FRIENDS</a>
+        <div class="container">
+            <div class="card w-100">
+                <div class="card-body">
+                    <form class="form-inline">
+                        <input class="form-control mr-sm-2" type="search" placeholder="search for drink" aria-label="Search">
+                    </form>
+                    <h6 class="card-title" id="user-name">{{user.firstname}} {{user.lastname}}</h6>
+                    <img src="https://www.gravatar.com/avatar/{{user.gravatar}}?d=https://www.publicdomainpictures.net/pictures/130000/nahled/seamless-cocktails.jpg"
+                        class="profile-image">
+                    <div class="link-box">
+                        <div class="link-text">
+                            <a href="/dashboard">MY PROFILE</a>
+                            <br/>
+                            <a href="/drink">MY DRINKS</a>
+                            <br/>
+                            <a href="/friends">FRIENDS</a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
 
-    TODO: Fix fields for Reviews
-    <form id="place" name="place" method="post" action="/api/place">
+        TODO: Fix fields for Reviews
+        <form id="place" name="place" method="post" action="/api/place">
 
-        <label for="placeName">Name the place:</label>
-        <input class="text" name="placeName" type="text" />
+            <label for="placeName">Name the place:</label>
+            <input class="text" name="placeName" type="text" />
 
-        <label for="type">What type of place is it?</label>
-        <input name="type" type="text" />
+            <label for="type">What type of place is it?</label>
+            <input name="type" type="text" />
 
-        <label for="isPrivate">Is this private property?</label>
-        <input name="isPrivate" type="text" />
+            <label for="isPrivate">Is this private property?</label>
+            <input name="isPrivate" type="text" />
 
-        <input class="btn" type="submit" value="Submit" />
-    </form>
+            <input class="btn" type="submit" value="Submit" />
+        </form>
 </body>
 
 </html>

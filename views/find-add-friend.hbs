@@ -14,7 +14,7 @@
         crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
-    <title>Places</title>
+    <title>New User Sign-Up</title>
 </head>
 
 <body>
@@ -30,35 +30,43 @@
     <div class="container">
         <div class="card w-100">
             <div class="card-body">
-                <h6 class="card-title" id="user-name">{{user.firstname}} {{user.lastname}}</h6>
-                <img src="https://www.gravatar.com/avatar/{{user.gravatar}}?d=https://www.publicdomainpictures.net/pictures/130000/nahled/seamless-cocktails.jpg"
-                    class="profile-image">
+                <form class="form-inline">
+                    <input class="form-control mr-sm-2" type="search" placeholder="search by email to add friend" aria-label="Search">
+                </form>
+                <h6 class="card-title" id="user-name">User Name</h6>
+                <img href="#" class="profile-image" id="user-image">
                 <div class="link-box">
                     <div class="link-text">
-                        <a href="/dashboard">Profile</a>
+                        <a href="/user-profile">MY PROFILE</a>
                         <br/>
-                        <a href="/find-add-friends">Friends</a>
-                        <br/>
-                        <a href="/reviews">Drinks</a>
+                        <a href="/reviews">DRINKS</a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <div class="table-container border">
+    <div class="table-container-fluid border">
         <div class="scroll">
             <table class="table table-striped">
                 <thead>
                     <tr>
-                        <th scope="col" id="location">Location</th>
-                        <th scope="col" id="drinks">Drinks</th>
+                        <th scope="col"></th>
+                        <th scope="col"></th>
+                        <th scope="col"></th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        {{#each places}}
-                        <th scope="row">({{placeName}})</th>
-                        <td>({{locationDrinks}})</td>
+                        {{#each friends}}
+                        <td scope="col">
+                            <img href=( {{friendImage}}) class="friend-image">
+                        </td>
+                        <td scope="col">
+                            ({{friendName}})
+                        </td>
+                        <td scope="col">
+                            <a href=({{friendProfile}}) class="btn btn-secondary btn-sm active" role="button" aria-pressed="true">View</a>
+                        </td>
                         {{/each}}
                     </tr>
                 </tbody>
@@ -66,10 +74,6 @@
         </div>
 
     </div>
-    <form class="form-horizontal" method="GET" action="/drink/add">
-        <button class="btn btn-sm" type="submit">Add Drink</button>
-    </form>
-    <form class="form-horizontal" method="GET" action="/place/add">
-        <button class="btn btn-sm" type="submit">Add Place</button>
-    </form>
 </body>
+
+</html>
