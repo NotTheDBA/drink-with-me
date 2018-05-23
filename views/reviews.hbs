@@ -65,20 +65,22 @@
                 <tbody>
                     {{#each reviews}}
                     <tr>
+                        <!--
                         <td scope="col">
                             <img src=({{drinkImage}}) class="friend-image">
-                        </td>
+                        </td> -->
                         <td scope="col">
-                            <a href=({{drinkName}})> ({{drinkName}})</a>
+                            {{drinkId}}
+                            <a href={{drinkName}}> {{drinkName}}</a>
                             <td scope="col">
-                                ({{placeDrinks}})
+                                {{placeDrinks}}
                             </td>
                         </td>
                         <td scope="col">
-                            ({{drinksAvgRating}})
+                            {{drinksAvgRating}}
                         </td>
                         <td scope="col">
-                            ({{drinksReviews}})
+                            {{drinksReviews}}
                         </td>
                     </tr>
                     {{/each}}

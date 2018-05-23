@@ -48,11 +48,12 @@ module.exports = {
         // console.log(place);
         console.log(userId);
         // create takes an argument of an object for our model
+        var isPrivate = (place.isPrivate === "on");
         var $add =
             db.Place.create({
                 placeName: place.placeName,
                 type: place.type,
-                isPrivate: place.isPrivate,
+                isPrivate: isPrivate,
                 createdBy: userId,
                 updatedBy: userId
             }).then(function(dbResults) {
