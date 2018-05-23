@@ -60,6 +60,7 @@
     },
     "dependencies": {
         "bcrypt-nodejs": "0.0.3",
+        "blueimp-md5": "^2.10.0",
         "body-parser": "^1.18.3",
         "dotenv": "^5.0.1",
         "express": "^4.16.3",
