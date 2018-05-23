@@ -39,7 +39,8 @@ module.exports = function(app, passport) {
         category.add(req.body[0])
             .then(function(dbResults) {
                 // We have access to the results as an argument inside of the callback function
-                res.json(dbResults);
+                // res.json(dbResults);
+                res.redirect('/category');
             });
     });
     //#endregion Category Functions
@@ -62,7 +63,8 @@ module.exports = function(app, passport) {
         drink.addDrink(req.body[0])
             .then(function(dbResults) {
                 // We have access to the results as an argument inside of the callback function
-                res.json(dbResults);
+                // res.json(dbResults);
+                res.redirect('/api/drink/' + dbResults.drinkName);
             });
     });
 
@@ -120,17 +122,17 @@ module.exports = function(app, passport) {
             });
     });
 
-    //TODO: Convert to Controller   // Add Friend
-    app.post("/api/friend", function(req, res) {
-        // console.log(req.body);
-        db.create({
-                friendname: req.body.friendname,
+    // //TODO: Convert to Controller   // Add Friend
+    // app.post("/api/friend", function(req, res) {
+    //     // console.log(req.body);
+    //     db.create({
+    //             friendname: req.body.friendname,
 
-            })
-            .then(function() {
-                res.json();
-            });
-    });
+    //         })
+    //         .then(function() {
+    //             res.json();
+    //         });
+    // });
     //#endregion Friend Functions
 
     //#region Ingredient Functions
@@ -193,7 +195,9 @@ module.exports = function(app, passport) {
         part.add(req.body[0])
             .then(function(dbResults) {
                 // We have access to the results as an argument inside of the callback function
-                res.json(dbResults);
+                // res.json(dbResults);
+
+                res.redirect('/part');
             });
     });
 
@@ -217,27 +221,16 @@ module.exports = function(app, passport) {
             .then(function(dbResults) {
                 // We have access to the results as an argument inside of the callback function
                 res.json(dbResults);
-            });
-    });
 
-    //Get Place by name
-    app.get("/api/place/:name", function(req, res) {
-        place.findOneByName(req.params.name)
-            .then(function(dbResults) {
-                // We have access to the results as an argument inside of the callback function
-                res.json(dbResults);
             });
     });
 
     // Add place
     app.post("/api/place/",
         function(req, res) {
-            // console.log(req.user.id);
-            //Find all returns all entries for a table when used with no options
             place.add(req.body, req.user.id)
                 .then(function(dbResults) {
-                    // We have access to the results as an argument inside of the callback function
-                    res.json(dbResults);
+                    res.redirect('/place/' + encodeURIComponent(dbResults.placeName));
                 });
         });
 

@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-     <meta charset="UTF-8">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
@@ -30,13 +30,14 @@
     <div class="container">
         <div class="card w-100">
             <div class="card-body">
-                <h6 class="card-title" id="user-name">User Name</h6>
-                <img href="#" class="profile-image">
+                <h6 class="card-title" id="user-name">{{places.placeName}}</h6>
                 <div class="link-box">
                     <div class="link-text">
-                        <a href="/find-add-friends">FRIENDS</a>
+                        <a href="/dashboard">Profile</a>
                         <br/>
-                        <a href="/reviews">DRINKS</a>
+                        <a href="/find-add-friends">Friends</a>
+                        <br/>
+                        <a href="/reviews">Drinks</a>
                     </div>
                 </div>
             </div>
@@ -47,23 +48,24 @@
             <table class="table table-striped">
                 <thead>
                     <tr>
-                        <th scope="col" id="place">Place</th>
                         <th scope="col" id="drinks">Drinks</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                     {{#each places}}  
-                        <th scope="row">({{placeName}})</th>
+                        {{#each places}}
                         <td>({{placeDrinks}})</td>
                         {{/each}}
-                    </tr>                   
+                    </tr>
                 </tbody>
             </table>
         </div>
 
     </div>
-    <button class="btn btn-sm" type="submit" id="addDrink" >Add Drink</button>
-   
+    <form class="form-horizontal" method="GET" action="/drink/add">
+        <button class="btn btn-sm" type="submit">Add Drink</button>
+    </form>
+    <form class="form-horizontal" method="GET" action="/place/add">
+        <button class="btn btn-sm" type="submit">Add Place</button>
+    </form>
 </body>
-

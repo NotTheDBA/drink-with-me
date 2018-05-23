@@ -6,7 +6,6 @@ var friend = require("../controllers/friend");
 var ingredient = require("../controllers/ingredient");
 // var part = require("../controllers/part");
 var place = require("../controllers/place");
-// var user = require("../controllers/user");
 var review = require("../controllers/review");
 
 
@@ -85,6 +84,18 @@ module.exports = function(app) {
             });
     });
 
+    //Get Place by name
+    app.get("/place/:name", function(req, res) {
+        console.log(req.params.name)
+        console.log(unescape(decodeURIComponent(req.params.name)))
+        place.findOneByName(req.params.name)
+            .then(function(dbResults) {
+                var hbsObject = {
+                    places: dbResults
+                };
+                res.render("show-place", hbsObject);
+            });
+    });
     //Get All review
     app.get("/review/", function(req, res) {
         review.findAllByUser(req.user.id)

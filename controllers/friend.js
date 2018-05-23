@@ -31,9 +31,7 @@ module.exports = {
                 where: {
                     userId: userId
                 },
-                include: [
-                    { model: user }
-                ]
+                include: ['user']
             }).then(function(results) {
                 console.log(results)
                 return results;
@@ -48,13 +46,16 @@ module.exports = {
 
     //TODO: //Confirm whether friend userID or friendName needs to be saved
     add: function(friendId, userId) {
-
+        console.log(friendId);
         var $add =
             db.Friend.create({
                 userId: userId,
                 friendId: friendId,
                 createdBy: userId,
                 updatedBy: userId
+                    // db.user.addFriend({
+                    //     userId: userId,
+                    //     friendId: friendId
 
             }).then(function(dbResults) {
                 return dbResults;

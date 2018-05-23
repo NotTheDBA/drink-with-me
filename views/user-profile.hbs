@@ -31,14 +31,16 @@
     <div class="container">
         <div class="card w-100">
             <div class="card-body">
-                <h6 class="card-title" id="user-name">User Name</h6>
-                <img href="#" class="profile-image">
-
-                <button class="btn btn-sm" type="submit" href="/friends">Friends</button>
-           
-                <button class="btn btn-sm" type="submit" href="/review">Drinks</button>
-        
-                
+                <h6 class="card-title" id="user-name">{{user.firstname}} {{user.lastname}}</h6>
+                <img src="https://www.gravatar.com/avatar/{{user.gravatar}}?d=https://www.publicdomainpictures.net/pictures/130000/nahled/seamless-cocktails.jpg"
+                    class="profile-image">
+                <div class="link-box">
+                    <div class="link-text">
+                        <a href="/reviews">DRINKS</a>
+                        <br/>
+                        <a href="/find-add-friend">FRIENDS</a>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -75,11 +77,22 @@
         </div>
 
     </div>
-    <button class="btn btn-sm" type="submit" href="/add-drink">Add Drink</button>
-    <button class="btn btn-sm" type="submit" href="/add-place">Add Place</button>
-    <button class="btn btn-sm" type="submit" href="/add-review">Add Review</button>
+    <form class="form-horizontal" method="GET" action="/drink/add">
+        <button class="btn btn-sm" type="submit">Add Drink</button>
+    </form>
+    <form class="form-horizontal" method="GET" action="/place/add">
+        <button class="btn btn-sm" type="submit">Add Place</button>
+    </form>
+    <form class="form-horizontal" method="GET" action="/review/add">
+        <button class="btn btn-sm" type="submit">Add Review</button>
+    </form>
+    <form class="form-horizontal" method="GET" action="/logout">
+        <button class="btn btn-sm" type="submit">Logout</button>
+    </form>
+    <form class="form-horizontal" method="GET" action="/testlink">
+        <button class="btn btn-sm" type="submit">Tests</button>
 
-
+    </form>
 
 </body>
 
