@@ -1,7 +1,7 @@
 {
     "development": {
         "username": "root",
-        "password": "Sp@c3ghost",
+        "password": "password",
         "database": "drinkWithMeDB",
         "host": "localhost",
         "dialect": "mysql"
