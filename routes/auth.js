@@ -51,61 +51,6 @@ module.exports = function(app, passport) {
     //         });
     //     });
 
-    // // GET route for retrieving user by username
-    // app.get("/api/user/:username", function(req, res) {
-    //     //Find all returns all entries for a table when used with no options
-    //     user.findUserName(req.params.username).then(function(dbResults) {
-    //         // console.log(dbResults)
-    //         // We have access to the user as an argument inside of the callback function
-    //         res.json(dbResults);
-    //     });
-    // });
 
-    //   app.post("/api/login", function (req, res) {
-    //     console.log(req.body);
-    //     db.create({
-    //       username: req.body.username,
-    //       password: req.body.password,
-    //       repassword: req.body.repassword,
-    //     })
-    //       .then(function () {
-    //         res.json();
-    //       });
-    //   });
-    //     // app.put("/api/username", function(req, res) {
-    //     //     db.update(req.body, {
-    //     //             where: {
-    //     //                 username: req.body.username
-    //     //             }
-    //     //         })
-    //     //         .then(function() {
-    //     //             res.json();
-    //     //         });
-    //     // });
-
-
-    //   app.get("/api/username/:username", function (request, response) {
-    //     db.findAll({
-    //       where: {
-    //         username: req.params.username
-    //       }
-    //     })
-    //       .then(function () {
-    //         res.json();
-    //       });
-    //   });
-    //   app.get("/api/username/:friend", function (req, res) {
-    //     db.findAll({
-    //       where: {
-    //         username: req.params.username
-    //       }
-    //     })
-    //       .then(function () {
-    //         res.json();
-    //       });
-    //   });
-
-
-    //#endregion User Functions
 
 }

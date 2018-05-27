@@ -14,8 +14,7 @@
         crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
-
-    <title>My Profile</title>
+    <title>{{#if isFriend}}Friend{{/if}}{{#unless isFriend}}My Profile{{/unless}}</title>
 </head>
 
 <body>
@@ -32,8 +31,7 @@
         {{>user/header}}
     </div>
     <div class="container">
-        {{#if drinks}} {{>user/drinks}} {{/if}} {{#unless friends}} {{>user/drinks}} {{/unless}} {{#if friends}} {{>user/friends}}
-        {{/if}}
+        {{#if drinks}} {{>user/drinks}} {{/if}} {{#if showFriends}} {{>user/friends}} {{/if}}
     </div>
 
     <div class="container">

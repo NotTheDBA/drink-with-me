@@ -13,7 +13,7 @@ var friend = require("../controllers/friend");
 var ingredient = require("../controllers/ingredient");
 var part = require("../controllers/part");
 var place = require("../controllers/place");
-// var user = require("../controllers/user");
+var user = require("../controllers/user");
 var review = require("../controllers/review");
 
 // var express = require('express');
@@ -71,27 +71,29 @@ module.exports = function(app, passport) {
     //#endregion Drink Functions
 
     //#region Friend Functions
-    //TODO: // Find all Friends by user
-    app.get("/api/friend/:user", function(req, res) {
-        friend.findOneByUser(req.params.drink)
-            .then(function(dbResults) {
-                // We have access to the results as an argument inside of the callback function
-                res.json(dbResults);
-            });
-    });
+    // //TODO: // Find all Friends by user
+    // app.get("/api/friend/:user", function(req, res) {
+    //     friend.findAllByUser(req.params.user)
+    //         .then(function(dbResults) {
+    //             // We have access to the results as an argument inside of the callback function
+    //             res.json(dbResults);
+    //         });
+    // });
 
     //TODO: // Find all Friends
     app.get("/api/friend/", function(req, res) {
         friend.findAllByUser(req.user.id)
             .then(function(dbResults) {
                 // We have access to the results as an argument inside of the callback function
-                res.json(dbResults);
-
-                // var hbsObject = {
-                //     user: req.user,
-                //     friends: dbResults
-                // };
+                // res.json(dbResults);
+                // console.log(dbResults)
+                var hbsObject = {
+                    user: req.user,
+                    friends: dbResults,
+                    showFriends: true
+                };
                 // res.render('user-profile', hbsObject, { friends: true });
+                res.render('user-profile', hbsObject);
 
             });
     });
@@ -107,14 +109,31 @@ module.exports = function(app, passport) {
 
     });
 
-    //TODO: // Find all pending friend requests
-    app.get("/api/friend/:friend", function(req, res) {
-        friend.findAllPendingByUser(req.params.drink)
-            .then(function(dbResults) {
-                // We have access to the results as an argument inside of the callback function
-                res.json(dbResults);
-            });
+
+    // GET route for retrieving user by username
+    app.get("/api/user/:id", function(req, res) {
+        //Find all returns all entries for a table when used with no options
+        user.findById(req.params.id).then(function(dbResults) {
+            console.log(dbResults)
+                // We have access to the user as an argument inside of the callback function
+                // res.json(dbResults);
+
+            var hbsObject = {
+                user: dbResults,
+                isFriend: true
+            };
+            res.render('user-profile', hbsObject);
+        });
     });
+
+    // //TODO: // Find all pending friend requests
+    // app.get("/api/friend/:friend", function(req, res) {
+    //     friend.findAllPendingByUser(req.params.drink)
+    //         .then(function(dbResults) {
+    //             // We have access to the results as an argument inside of the callback function
+    //             res.json(dbResults);
+    //         });
+    // });
 
     //TODO: // Accept Friend
     app.post("/api/friend", function(req, res) {
