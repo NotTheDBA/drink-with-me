@@ -1,57 +1,36 @@
-# drink-with-me
+# Drink With Me
+#### A social craft cocktail review application
 
-- - - 
-# Setup
-* Edit the file config/config.json and change the UserName and Password in the development configurations to be a valid login for your mySQL server.
-* Run the file .setup/DB/schema.sql on your mySQL server.
+With the rise in popularity of craft cocktails, every bar and restaurant has their own fancy cocktail lists - which ones are good, which ones are a waste of good alcohol?
 
-https://shielded-springs-87968.herokuapp.com/ | https://git.heroku.com/shielded-springs-87968.git
+#### Team:
+* Kushagra Bhavsar
+* Jonathan Dowd
+* Adeline Johnson
+* Randy Reitz
 
-- - - 
-# Example execution (retrieve and show)
+## Project Intent
 
-## View
+Drink With Me is a sample project built from concept to presentation in a 2-week sprint with a team of 4 developers.
 
-/views/show-place.hbs - uses handlebars, action="/place"
+The project concept was to create a social review and rating application to find where the best mixed drinks are made.
 
-## Routing
-/routes/html-routes.js - defines app.get("/place/",...), which calls place.getAll(), then constructs a handlebars data object and renders "show-place".
+A demo of the application is hosted <a href="https://shielded-springs-87968.herokuapp.com/">here</a>.
 
-## Controller
-/controllers/place.js - defines getAll: function() which then calls db.Place.findAll
+## Technology Used
+* HTML5 / CSS
+* JavaScript / jQuery
+* MySQL
+* Node.js
+* Handlebars.js
+* Sequelize.js
+* Passport.js
+* Gravatar
+* Heroku
 
-## Model
-/models/place.js - defines the model hierarchy managed by Sequelize.
 
-# Notes
-
-Note that this uses the {{#each places}} handlebars syntax, and uses .hbs extensions for the file names instead of .handlebars.  This should also be modified to use layouts and partials.
-
-I think we can use this syntax for the profile by adding multiple data objects to the app.get routes call and passing them all to the render. 
-
-- - - 
-# Example execution (post back)
-
-## View
-/views/add-place.hbs - uses handlebars, action="/api/place" Notice we don't need to write any jQuery for the form submit!
-
-## Routing
-/routes/api-routes.js - defines app.post("/api/place",...), which calls place.add(req.body, req.user)
-
-## Controller
-/controllers/place.js - defines add: function(place, user) - place and user are passed in from req.body and req.user in the Routing.   This function calls db.Place.create
-
-## Model
-/models/place.js - defines the model hierarchy managed by Sequelize.
-
-# Notes
-
-### !! Important !!
-
-Do not use `node server` to start the program!  
-
-Use `npm start` or `npm start dev` instead; This is necessary to update the database and apply seeds to pre-populate some table data (just drink categories, right now...).
-
-Please note that the models and controllers should mostly be created.   The controllers and routing are largely done, but may need to be modified to pass the req.user for some calls.
-
-Forms will need to be built and styled.
+## Setup
+* Switch to the `config` folder in the project directory and edit the file `config.json`.  Set the username and password for the MySQL environment you will be creating the database on.
+* Switch to the `.setup/DB` folder in the project directory and execute the file `schema.sql` in MySQL create the database for the application, `drinkWithMeDB`.
+* From a terminal window, run `npm install`
+* Launch by running `npm start`
