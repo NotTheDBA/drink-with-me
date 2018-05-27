@@ -80,6 +80,22 @@ module.exports = function(app, passport) {
             });
     });
 
+    //TODO: // Find all Friends
+    app.get("/api/friend/", function(req, res) {
+        friend.findAllByUser(req.user.id)
+            .then(function(dbResults) {
+                // We have access to the results as an argument inside of the callback function
+                res.json(dbResults);
+
+                // var hbsObject = {
+                //     user: req.user,
+                //     friends: dbResults
+                // };
+                // res.render('user-profile', hbsObject, { friends: true });
+
+            });
+    });
+
     //TODO: // Remove Friend
     app.delete("/api/friend/:id", function(req, res) {
 
