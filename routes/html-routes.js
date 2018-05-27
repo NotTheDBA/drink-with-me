@@ -103,7 +103,8 @@ module.exports = function(app) {
         place.findOneByName(req.params.name)
             .then(function(dbResults) {
                 var hbsObject = {
-                    places: dbResults
+                    places: dbResults,
+                    drinks: dbResults2
                 };
                 res.render("show-place", hbsObject);
             });

@@ -30,6 +30,9 @@
     <div class="container">
         <div class="card w-100">
             <div class="card-body">
+
+
+
                 <h6 class="card-title" id="user-name">{{places.placeName}}</h6>
                 <div class="link-box">
                     <div class="link-text">
@@ -52,11 +55,22 @@
                     </tr>
                 </thead>
                 <tbody>
-                    {{#each places}}
+
+
+
+
+                    {{#each drinks}}
                     <tr>
-                        <td>({{placeDrinks}})</td>
+                        <td>({{drinkName}})</td>
+                        <td>({{myRating}})</td>
+                        <td>({{avgRating}})</td>
+                        <link id=({{drinkId}})>Click to view</link>
                     </tr>
                     {{/each}}
+
+
+
+
                 </tbody>
             </table>
         </div>
