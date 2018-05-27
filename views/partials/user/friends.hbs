@@ -1,16 +1,6 @@
 <div class="card w-100">
     <div class="card-body">
-        {{!-- //TODO: create search function for friend --}} Lookup friend: (TBD) {{!-- //TODO: hide this until it can be populated
-        by a found friend --}}
-        <form id="place" name="place" method="post" action="/api/friend">
 
-            <!-- //TODO: This should display the found friend info - assume a handlebars object "friends" with firstname, lastname, email, and id; form should only show the last initial and a partially hidden email address..
-        -->Friend Name here:
-
-            <input class="hidden" name="friendId" type="text" value="this will be handlebars friend.id" />
-
-            <input class="btn" type="submit" value="Add Friend">
-        </form>
         <div class="table-container-fluid border">
             <div class="scroll">
                 <table class="table table-striped">
@@ -25,14 +15,17 @@
                         {{#each friends}}
                         <tr>
                             <td scope="col">
-                                <img src=( {{gravatar}}) class="friend-image">
+                                <img src="https://www.gravatar.com/avatar/{{gravatar}}?d=wavatar" class="friend-image">
                             </td>
                             <td scope="col">
-                                ({{friendName}})
+                                {{firstname}}
                             </td>
                             <td scope="col">
-                                <form class="form-horizontal" method="GET" action="/user/({{friendProfile}})">
-                                    <a class="btn btn-secondary btn-sm active" role="button" aria-pressed="true">View</a>
+                                {{lastname}}
+                            </td>
+                            <td scope="col">
+                                <form class="form-horizontal" method="GET" action="/api/user/{{id}}">
+                                    <input type="submit" class="btn btn-secondary btn-sm active" role="button" aria-pressed="true" value="View">
                                 </form>
                             </td>
                         </tr>
