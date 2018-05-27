@@ -29,71 +29,32 @@
         </div>
     </div>
     <div class="container">
-        <div class="card w-100">
-            <div class="card-body">
-                <h6 class="card-title" id="user-name">{{user.firstname}} {{user.lastname}}</h6>
-                <img src="https://www.gravatar.com/avatar/{{user.gravatar}}?d=https://www.publicdomainpictures.net/pictures/130000/nahled/seamless-cocktails.jpg"
-                    class="profile-image">
-                <div class="link-box">
-                    <div class="link-text">
-                        <a href="/review">DRINKS</a>
-                        <br/>
-                        <a href="/friend/add">FRIENDS</a>
-                    </div>
-                </div>
-            </div>
-        </div>
+        {{>user/header}}
     </div>
-    <div class="table-container border">
-        <div class="scroll">
-            <table class="table table-striped">
-                <thead>
-                    <tr>
-                        <th scope="col" id="drink">Drink</th>
-                        <th scope="col" id="location">Where</th>
-                        <th scope="col" id="my-rating">My Rating</th>
-                        <th scope="col" id="avg-rating">Avg Rating</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {{#each drinks}}
-                    <tr>
-                        <th scope="row"> ({{drinksName}})</th>
-                        <td> ({{drinksLocation}})</td>
-                        <td>
-                            <div class="rating">
-                                ({{drinksMyRating}})
-                            </div>
-                        </td>
-                        <td>
-                            <div class="rating">
-                                ({{drinksAvgRating}})
-                            </div>
-                        </td>
-                    </tr>
-                    {{/each}}
-                </tbody>
-            </table>
-        </div>
+    <div class="container">
+        {{#if drinks}} {{>user/drinks}} {{/if}} {{#unless friends}} {{>user/drinks}} {{/unless}} {{#if friends}} {{>user/friends}}
+        {{/if}}
+    </div>
+
+    <div class="container">
+        <form class="form-horizontal" method="GET" action="/drink/add">
+            <button class="btn btn-sm" type="submit">Add Drink</button>
+        </form>
+        <form class="form-horizontal" method="GET" action="/place/add">
+            <button class="btn btn-sm" type="submit">Add Place</button>
+        </form>
+        <form class="form-horizontal" method="GET" action="/review/add">
+            <button class="btn btn-sm" type="submit">Add Review</button>
+        </form>
+        <form class="form-horizontal" method="GET" action="/logout">
+            <button class="btn btn-sm" type="submit">Logout</button>
+        </form>
+        <form class="form-horizontal" method="GET" action="/testlink">
+            <button class="btn btn-sm" type="submit">Tests</button>
+
+        </form>
 
     </div>
-    <form class="form-horizontal" method="GET" action="/drink/add">
-        <button class="btn btn-sm" type="submit">Add Drink</button>
-    </form>
-    <form class="form-horizontal" method="GET" action="/place/add">
-        <button class="btn btn-sm" type="submit">Add Place</button>
-    </form>
-    <form class="form-horizontal" method="GET" action="/review/add">
-        <button class="btn btn-sm" type="submit">Add Review</button>
-    </form>
-    <form class="form-horizontal" method="GET" action="/logout">
-        <button class="btn btn-sm" type="submit">Logout</button>
-    </form>
-    <form class="form-horizontal" method="GET" action="/testlink">
-        <button class="btn btn-sm" type="submit">Tests</button>
-
-    </form>
-
 </body>
 
 </html>
