@@ -4,7 +4,7 @@
 var authController = require('../controllers/authcontroller.js');
 
 // Requiring our model controllers
-// TODO: Figure out how we can use an index.js like sequelize does for models...
+// TBD: Figure out how we can use an index.js like sequelize does for models...
 // var control = require("../controllers");
 
 var category = require("../controllers/category");
@@ -13,7 +13,7 @@ var friend = require("../controllers/friend");
 var ingredient = require("../controllers/ingredient");
 var part = require("../controllers/part");
 var place = require("../controllers/place");
-// var user = require("../controllers/user");
+var user = require("../controllers/user");
 var review = require("../controllers/review");
 
 // var express = require('express');
@@ -23,6 +23,33 @@ var review = require("../controllers/review");
 
 module.exports = function(app, passport) {
 //1
+
+    //TODO:  Incoporate these into the front end
+    //   app.get("/api/all", function (request, response) {
+    //     request("https://www.thecocktaildb.com/api/json/v1/1/list.php?c=list", function (res) {
+    //       console.log(res);
+    //     });
+    //   });
+
+    //   app.get("/api/drink/:drink", function (request, response) {
+    //     if (request.params.drink){
+    //     request("https://www.thecocktaildb.com/api/json/v1/1/filter.php?c=Cocktail", function (res) {
+    //         console.log(res);
+
+    //       });
+    //     }
+    //   });
+    //   app.get("/api/ingredient/:ingredient", function (request, response) {
+    //     if (request.params.ingredient){
+    //     request("https://www.thecocktaildb.com/api/json/v1/1/list.php?i=list", function (res) {
+    //         console.log(res);
+    //       });
+    //     }
+    //   });
+
+
+
+
     //#region Category Functions
     app.get("/api/category/", function(req, res) {
         category.getAll({})
@@ -56,19 +83,18 @@ module.exports = function(app, passport) {
             });
     });
 //4
+
+
     // add drink
     app.post("/api/drink", function(req, res) {
-        // console.log(req.body[0]);
-        //Find all returns all entries for a table when used with no options
-        drink.addDrink(req.body[0])
+        drink.add(req.body, req.ingredients, req.location, req.user)
             .then(function(dbResults) {
-                // We have access to the results as an argument inside of the callback function
-                // res.json(dbResults);
-                res.redirect('/api/drink/' + dbResults.drinkName);
+                console.log(dbResults);
+                res.redirect('/drink/' + encodeURIComponent(dbResults.drinkName));
             });
     });
 
-    //     //TODO: update drink
+    //     //TBD: update drink
     //    app.put("/api/drink", function(req, res) {
     //         console.log(req.body[0]);
     //         //Find all returns all entries for a table when used with no options
@@ -82,12 +108,26 @@ module.exports = function(app, passport) {
     //#endregion Drink Functions
 //5
     //#region Friend Functions
-    //TODO: // Find all Friends by user
-    app.get("/api/friend/:user", function(req, res) {
-        friend.findOneByUser(req.params.drink)
+    // app.get("/api/friend/:user", function(req, res) {
+    //     friend.findAllByUser(req.params.user)
+    //         .then(function(dbResults) {
+    //             // We have access to the results as an argument inside of the callback function
+    //             res.json(dbResults);
+    //         });
+    // });
+
+    // Find all Friends by user
+    app.get("/api/friend/", function(req, res) {
+        friend.findAllByUser(req.user.id)
             .then(function(dbResults) {
-                // We have access to the results as an argument inside of the callback function
-                res.json(dbResults);
+                var hbsObject = {
+                    user: req.user,
+                    friends: dbResults,
+                    showFriends: true
+                };
+                // res.render('user-profile', hbsObject, { friends: true });
+                res.render('user-profile', hbsObject);
+
             });
     });
 //6
@@ -112,6 +152,34 @@ module.exports = function(app, passport) {
     });
 //8
     //TODO: // Accept Friend
+
+
+    // GET route for retrieving user by username
+    app.get("/api/user/:id", function(req, res) {
+        //Find all returns all entries for a table when used with no options
+        user.findById(req.params.id).then(function(dbResults) {
+            // console.log(dbResults)
+            // We have access to the user as an argument inside of the callback function
+            // res.json(dbResults);
+
+            var hbsObject = {
+                user: dbResults,
+                isFriend: true
+            };
+            res.render('user-profile', hbsObject);
+        });
+    });
+
+    //TBD: // Find all pending friend requests
+    // app.get("/api/friend/:friend", function(req, res) {
+    //     friend.findAllPendingByUser(req.params.drink)
+    //         .then(function(dbResults) {
+    //             // We have access to the results as an argument inside of the callback function
+    //             res.json(dbResults);
+    //         });
+    // });
+
+    //TBD: // Accept Friend
     app.post("/api/friend", function(req, res) {
         // console.log(req.body[0]);
         //Find all returns all entries for a table when used with no options
@@ -122,7 +190,7 @@ module.exports = function(app, passport) {
             });
     });
 
-    // //TODO: Convert to Controller   // Add Friend
+    //TODO:   // Add Friend - Convert to Controller 
     // app.post("/api/friend", function(req, res) {
     //     // console.log(req.body);
     //     db.create({
@@ -143,7 +211,8 @@ module.exports = function(app, passport) {
         ingredient.add(req.body[0])
             .then(function(dbResults) {
                 // We have access to the results as an argument inside of the callback function
-                res.json(dbResults);
+                // res.json(dbResults);
+                res.redirect('/drink/' + encodeURIComponent(dbResults.ignredientName));
             });
     });
 //10
@@ -166,7 +235,7 @@ module.exports = function(app, passport) {
     });
 
 
-    // //TODO: // Retire ingredient
+    //TBD: // Retire ingredient
     // app.put("/api/ingredient", function(req, res) {
     //     console.log(req.body[0]);
     //     //Find all returns all entries for a table when used with no options
@@ -190,14 +259,14 @@ module.exports = function(app, passport) {
     });
 //13    // Add drink part
     app.post("/api/part", function(req, res) {
-        // console.log(req.body[0]);
         //Find all returns all entries for a table when used with no options
         part.add(req.body[0])
             .then(function(dbResults) {
                 // We have access to the results as an argument inside of the callback function
                 // res.json(dbResults);
 
-                res.redirect('/part');
+                // res.redirect('/part');
+                res.redirect('/drink/' + encodeURIComponent(dbResults.drinkId));
             });
     });
 
@@ -235,9 +304,9 @@ module.exports = function(app, passport) {
         });
 
 
-    // //TODO: // Update place
+    // //TBD: // Update place
     // app.put("/api/place", function(req, res) {
-    //     // //TODO: Convert to Controller  // Update Username
+    //    
     //     console.log(req.body[0]);
     //     //Find all returns all entries for a table when used with no options
     //     place.update(req.body[0])
@@ -247,9 +316,9 @@ module.exports = function(app, passport) {
     //         });
     // });
 
-    // //TODO: // Mark Closed
+    // //TBD: // Mark Closed
     // app.put("/api/place", function(req, res) {
-    //     // //TODO: Convert to Controller  // Update Username
+    //    
     //     console.log(req.body[0]);
     //     //Find all returns all entries for a table when used with no options
     //     place.update(req.body[0])
@@ -307,14 +376,15 @@ module.exports = function(app, passport) {
     app.post("/api/review", function(req, res) {
         // console.log(req.body[0]);
         //Find all returns all entries for a table when used with no options
-        review.add(req.body[0])
+        review.add(req.body, req.user)
             .then(function(dbResults) {
                 // We have access to the results as an argument inside of the callback function
-                res.json(dbResults);
+                // res.json(dbResults);
+                res.redirect('/drink/' + encodeURIComponent(dbResults.reviewId));
             });
     });
 
-    // //TODO: //Edit Review
+    //TODO: //Edit Review
     // app.put("/api/review", function(req, res) {
     //     db.update(req.body, {
     //             where: {
@@ -329,7 +399,7 @@ module.exports = function(app, passport) {
 
 
     ////#region Vote Functions
-    // //TODO: // Add Upvote
+    // //TBD: // Add Upvote
     // app.post("/api/upvote", function(req, res) {
     //     console.log(req.body[0]);
     //     //Find all returns all entries for a table when used with no options
@@ -341,7 +411,7 @@ module.exports = function(app, passport) {
     // });
 
 
-    // //TODO: // Add Downvote
+    // //TBD: // Add Downvote
     // app.post("/api/downvote", function(req, res) {
     //     console.log(req.body[0]);
     //     //Find all returns all entries for a table when used with no options
@@ -353,7 +423,7 @@ module.exports = function(app, passport) {
     // });
 
 
-    // //TODO: // Remove vote
+    // //TBD: // Remove vote
     // app.delete("/api/vote/:id", function(req, res) {
 
     //     vote.Remove(req.params.id)
@@ -365,29 +435,6 @@ module.exports = function(app, passport) {
 
     // });
     ////#endregion Vote Functions
-
-
-    //   app.get("/api/all", function (request, response) {
-    //     request("https://www.thecocktaildb.com/api/json/v1/1/list.php?c=list", function (res) {
-    //       console.log(res);
-    //     });
-    //   });
-
-    //   app.get("/api/drink/:drink", function (request, response) {
-    //     if (request.params.drink){
-    //     request("https://www.thecocktaildb.com/api/json/v1/1/filter.php?c=Cocktail", function (res) {
-    //         console.log(res);
-
-    //       });
-    //     }
-    //   });
-    //   app.get("/api/ingredient/:ingredient", function (request, response) {
-    //     if (request.params.ingredient){
-    //     request("https://www.thecocktaildb.com/api/json/v1/1/list.php?i=list", function (res) {
-    //         console.log(res);
-    //       });
-    //     }
-    //   });
 
 
     //   app.post("/api/drink", function (req, res) {

@@ -1,47 +1,21 @@
-<!DOCTYPE html>
-<html>
+ {{!-- //TODO: Fix fields for Ingredients --}}
+<form id="place" name="place" method="post" action="/api/ingredient">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-        crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="/assets/styles.css">
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-        crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-        crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-        crossorigin="anonymous"></script>
-    <title>Add Ingredients</title>
-</head>
+    <label for="ingredientName">What is the ingredient?</label>
+    <input class="text" name="ingredientName" type="text" />
 
-<body>
-    {{!-- //TODO: Needs header pulled in from another page --}}
-    <header></header>
-    {{!-- //TODO: Fix fields for Ingredients --}}
-    <form id="place" name="place" method="post" action="/api/place">
-
-        <label for="ingredientName">What is the ingredient?</label>
-        <input class="text" name="ingredientName" type="text" />
-
-        <!-- //TODO: This should be a drop-down - assume you will have a handlebars help for "categories" with "categories.general", "categories.specific" and "categories.id"
+    <!-- //TODO: This should be a drop-down - assume you will have a handlebars help for "categories" with "categories.general", "categories.specific" and "categories.id"
         -->
-        <label for="categoryId">What kind of ingredient?</label>
-        <input name="categoryId" type="dropdown" />
+    <label for="categoryId">What kind of ingredient?</label>
+    <input name="categoryId" type="dropdown" />
 
-        <label for="isAlcoholic">Is it alcoholic?</label>
-        {{!-- //TODO: This needs to be a checkbox - true/false --}}
-        <input class="text" name="isAlcoholic" type="checkbox" />
+    <label for="isAlcoholic">Is it alcoholic?</label>
+    {{!-- //TODO: This needs to be a checkbox - true/false --}}
+    <input class="text" name="isAlcoholic" type="checkbox" />
 
-        <label for="isCustom">Is it custom made?</label>
-        {{!-- //TODO: This needs to be a checkbox - true/false --}}
-        <input class="text" name="isCustom" type="checkbox" />
+    <label for="isCustom">Is it custom made?</label>
+    {{!-- //TODO: This needs to be a checkbox - true/false --}}
+    <input class="text" name="isCustom" type="checkbox" />
 
-        <input class="btn" type="submit" value="Submit" />
-    </form>
-
-</body>
-
-</html>
+    <input class="btn" type="submit" value="Submit" />
+</form>

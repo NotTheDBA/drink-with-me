@@ -1,0 +1,14 @@
+ {{!-- //TODO: Fix fields for Drink ingredients --}}
+<form id="place" name="place" method="post" action="/api/part">
+
+    <!-- //TODO: This should display the found Drink info - assume a handlebars object "drinks" with drinkname, location, and id.
+        -->Drink Name here:
+
+    <input name="drinkId" type="hidden" value="this will be handlebars drink.id" /> {{!-- //TODO: This needs to search the cocktaildb for ingredients and add them to an array... the array can then be
+    displayed as a list. --}}
+    <form class="form-inline">
+        <input class="form-control mr-sm-2" type="search" placeholder="search for ingredient" aria-label="Search" id="find-ingredient">
+    </form>
+
+    <input class="btn" type="submit" value="Add to drink" />
+</form>

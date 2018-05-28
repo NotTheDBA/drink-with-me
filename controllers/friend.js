@@ -8,11 +8,11 @@ module.exports = {
         res.render('add-friend');
     },
 
-    //TODO: //Find By Username
+    //TBD: //Find By Username
     //TODO: //Find By Email
     // getAll: function() {
 
-    //     var $getAll = db.friend.findAll({}).then(function(dbResults) {
+    //     var $getAll = db.Friend.findAll({}).then(function(dbResults) {
 
     //             return dbResults;
     //         })
@@ -26,15 +26,17 @@ module.exports = {
     //Find all user's friends
     findAllByUser: function(userId) {
 
-        var $findAllByUser = db.Friend.findAll({
-
-                where: {
-                    userId: userId
-                },
-                include: ['user']
-            }).then(function(results) {
-                console.log(results)
-                return results;
+        var $findAllByUser = db.user.findAll(
+                // {
+                //     include: [{
+                //         model: db.Friend,
+                //         through: { 
+                //             where: { userId: userId }
+                //         }
+                //     }]
+                // }
+            ).then(function(dbResults) {
+                return dbResults;
             })
             .catch(function(err) {
 
@@ -44,7 +46,7 @@ module.exports = {
         return $findAllByUser;
     },
 
-    //TODO: //Confirm whether friend userID or friendName needs to be saved
+    //TBD: //Confirm whether friend userID or friendName needs to be saved
     add: function(friendId, userId) {
         console.log(friendId);
         var $add =
@@ -66,11 +68,11 @@ module.exports = {
             });
         return $add;
     },
-    //TODO:  Remove or approve friend
+    //TBD:  Remove or approve friend
     edit: function(friend, user) {
 
         var $edit =
-            db.friend.update({
+            db.Friend.update({
                 friendName: friend.friendName,
                 //approved:
                 updatedBy: user.id
