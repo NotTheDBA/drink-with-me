@@ -30,7 +30,9 @@
             </div>
         </header>
         <div class="container">
-            {{>user/header}}
+            <div>{{#if place}} {{>headers/place}}{{/if}}</div>
+            <div>{{#if drink}} {{>headers/drink}}{{/if}}</div>
+            <div>{{#if other}} {{>headers/other}}{{/if}}</div>
         </div>
         <div class="container">
             {{{ body }}}

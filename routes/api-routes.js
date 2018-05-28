@@ -73,14 +73,20 @@ module.exports = function(app, passport) {
 
     //#region Drink Functions
 
-
     // add drink
     app.post("/api/drink", function(req, res) {
-        drink.add(req.body, req.ingredients, req.location, req.user)
-            .then(function(dbResults) {
-                console.log(dbResults);
-                res.redirect('/drink/' + encodeURIComponent(dbResults.drinkName));
-            });
+        //TODO:  Continue to scatter this pattern through the site...
+        if (typeof req.user == "undefined") {
+            res.redirect('/signin');
+        } else {
+            console.log("moving on anyway...")
+            drink.add(req.body, req.ingredients, req.location, req.user)
+                .then(function(dbResults) {
+                    console.log(dbResults);
+                    res.redirect('/drink/' + encodeURIComponent(dbResults.drinkName));
+                });
+
+        }
     });
 
     //     //TBD: update drink
@@ -278,6 +284,7 @@ module.exports = function(app, passport) {
         function(req, res) {
             place.add(req.body, req.user.id)
                 .then(function(dbResults) {
+                    console.log(dbResults.placeName)
                     res.redirect('/place/' + encodeURIComponent(dbResults.placeName));
                 });
         });
