@@ -1,62 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
+ {{!-- //TODO: create search function for friend --}} Lookup friend: (TBD) {{!-- //TODO: hide this until it can be populated
+by a found friend --}}
+<form id="place" name="place" method="post" action="/api/friend">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-        crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="/assets/styles.css">
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-        crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-        crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-        crossorigin="anonymous"></script>
-    <title>New User Sign-Up</title>
-</head>
-
-<body>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-3"></div>
-            <div class="col-md-6">
-                <h2 class="neon">Drink With Me!</h2>
-                <hr>
-            </div>
-        </div>
-    </div>
-    <div class="container">
-        <div class="card w-100">
-            <div class="card-body">
-                <form class="form-inline">
-                    <input class="form-control mr-sm-2" type="search" placeholder="search by email to add friend" aria-label="Search">
-                </form>
-                <h6 class="card-title" id="user-name">User Name</h6>
-                <img href="#" class="profile-image" id="user-image">
-                <div class="link-box">
-                    <div class="link-text">
-                        <a href="/user-profile">MY PROFILE</a>
-                        <br/>
-                        <a href="/reviews">DRINKS</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    {{!-- //TODO: create search function for friend --}} Lookup friend: (TBD) {{!-- //TODO: hide this until it can be populated
-    by a found friend --}}
-    <form id="place" name="place" method="post" action="/api/friend">
-
-        <!-- //TODO: This should display the found friend info - assume a handlebars object "friends" with firstname, lastname, email, and id; form should only show the last initial and a partially hidden email address..
+    <!-- //TODO: This should display the found friend info - assume a handlebars object "friends" with firstname, lastname, email, and id; form should only show the last initial and a partially hidden email address..
         -->Friend Name here:
 
-        <input class="hidden" name="friendId" type="text" value="this will be handlebars friend.id" />
+    <input class="hidden" name="friendId" type="text" value="this will be handlebars friend.id" />
 
-        <input class="btn" type="submit" value="Add Friend">
-    </form>
-
-</body>
-
-</html>
+    <input class="btn" type="submit" value="Add Friend">
+</form>
