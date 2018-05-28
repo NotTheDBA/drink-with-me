@@ -102,11 +102,30 @@ module.exports = function(app) {
             friend.findAllByUser(req.user.id)
                 .then(function(dbResults) {
                     var hbsObject = {
-                        friend: dbResults
+                        user: req.user,
+                        friends: dbResults,
+                        showFriends: true
                     };
-                    res.render("friends", hbsObject);
+                    res.render('user-profile', hbsObject);
                 });
         }
+    });
+
+
+    // GET route for retrieving user by username
+    app.get("/friends/:id", function(req, res) {
+        //Find all returns all entries for a table when used with no options
+        friend.findById(req.params.id).then(function(dbResults) {
+            // console.log(dbResults)
+            // We have access to the user as an argument inside of the callback function
+            // res.json(dbResults);
+            var hbsObject = {
+                user: dbResults[0],
+                layout: "main",
+                isFriend: true
+            };
+            res.render('user-profile', hbsObject);
+        });
     });
 
     //Get All ingredients
@@ -178,5 +197,6 @@ module.exports = function(app) {
                 });
         }
     });
+
 
 }

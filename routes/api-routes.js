@@ -111,20 +111,41 @@ module.exports = function(app, passport) {
     //         });
     // });
 
-    // Find all Friends by user
-    app.get("/api/friend/", function(req, res) {
-        friend.findAllByUser(req.user.id)
-            .then(function(dbResults) {
-                var hbsObject = {
-                    user: req.user,
-                    friends: dbResults,
-                    showFriends: true
-                };
-                // res.render('user-profile', hbsObject, { friends: true });
-                res.render('user-profile', hbsObject);
-
+    // Find specific friend
+    app.post("/api/friend/", function(req, res) {
+        // console.log(req.body.email)
+        friend.findByEmail(req.body.email)
+            .then(function(user) {
+                // console.log(user)
+                console.log(user[0].id)
+                    // res.json(user);
+                    // console.log(found)
+                    // console.log(found.id)
+                    // var hbsObject = {
+                    //     user: dbResults
+                    // };
+                    // console.log(hbsObject)
+                res.redirect('/friends/' + encodeURIComponent(user[0].id));
             });
     });
+
+
+    // GET route for retrieving user by username
+    app.get("/friends/:id", function(req, res) {
+        //Find all returns all entries for a table when used with no options
+        friend.findById(req.params.id).then(function(dbResults) {
+            // console.log(dbResults)
+            // We have access to the user as an argument inside of the callback function
+            // res.json(dbResults);
+            var hbsObject = {
+                user: dbResults,
+                layout: "main",
+                isFriend: true
+            };
+            res.render('user-profile', hbsObject);
+        });
+    });
+
 
     //TBD: // Remove Friend
     app.delete("/api/friend/:id", function(req, res) {
@@ -138,21 +159,6 @@ module.exports = function(app, passport) {
     });
 
 
-    // GET route for retrieving user by username
-    app.get("/api/user/:id", function(req, res) {
-        //Find all returns all entries for a table when used with no options
-        user.findById(req.params.id).then(function(dbResults) {
-            // console.log(dbResults)
-            // We have access to the user as an argument inside of the callback function
-            // res.json(dbResults);
-
-            var hbsObject = {
-                user: dbResults,
-                isFriend: true
-            };
-            res.render('user-profile', hbsObject);
-        });
-    });
 
     //TBD: // Find all pending friend requests
     // app.get("/api/friend/:friend", function(req, res) {
@@ -164,7 +170,7 @@ module.exports = function(app, passport) {
     // });
 
     //TBD: // Accept Friend
-    app.post("/api/friend", function(req, res) {
+    app.put("/api/friend", function(req, res) {
         // console.log(req.body[0]);
         //Find all returns all entries for a table when used with no options
         friend.add(req.body.friendId, req.user.id)

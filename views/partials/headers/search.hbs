@@ -1,0 +1,11 @@
+ {{#if isFriend}}
+<form class="form-inline" id="place" name="place" method="post" action="/api/friend">
+    <input class="form-control mr-sm-2" type="search" name="email" placeholder="friends@email.val" aria-label="Search">
+    <input class="btn" type="submit" value="Find Friend">
+</form>
+{{/if}}
+
+<!-- -->
+{{#if isMe}}
+<input class="form-control mr-sm-2" type="search" placeholder="search for thing" aria-label="Search"> {{/if}}
+</form>

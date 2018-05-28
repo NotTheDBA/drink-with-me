@@ -8,23 +8,16 @@
                         <tr>
                             <th scope="col"></th>
                             <th scope="col"></th>
-                            <th scope="col"></th>
                         </tr>
                     </thead>
                     <tbody>
                         {{#each friends}}
                         <tr>
                             <td scope="col">
-                                <img src="https://www.gravatar.com/avatar/{{gravatar}}?d=wavatar" class="friend-image">
+                                <img src="https://www.gravatar.com/avatar/{{gravatar}}?d=wavatar" class="friend-image"> {{firstname}} {{lastname}}
                             </td>
                             <td scope="col">
-                                {{firstname}}
-                            </td>
-                            <td scope="col">
-                                {{lastname}}
-                            </td>
-                            <td scope="col">
-                                <form class="form-horizontal" method="GET" action="/api/user/{{id}}">
+                                <form class="form-horizontal" method="GET" action="/friends/{{id}}">
                                     <input type="submit" class="btn btn-secondary btn-sm active" role="button" aria-pressed="true" value="View">
                                 </form>
                             </td>
