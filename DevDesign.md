@@ -1,7 +1,7 @@
-| https://git.heroku.com/shielded-springs-87968.git
 
-- - - 
-# Example execution (retrieve and show)
+
+# Example execution
+### (retrieve and show)
 
 ## View
 
@@ -48,3 +48,6 @@ Use `npm start` or `npm start dev` instead; This is necessary to update the data
 Please note that the models and controllers should mostly be created.   The controllers and routing are largely done, but may need to be modified to pass the req.user for some calls.
 
 Forms will need to be built and styled.
+
+- - - 
+[Read Me](ReadMe.md)

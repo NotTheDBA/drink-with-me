@@ -1,3 +1,4 @@
+# Application Flow
     /root
         if logged in, dashboard
         if not logged in, sign-in
@@ -26,3 +27,6 @@
         /reviews
             /add-review
             
+
+- - - 
+[Read Me](ReadMe.md)
