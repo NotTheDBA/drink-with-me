@@ -30,6 +30,9 @@
     <div class="container">
         <div class="card w-100">
             <div class="card-body">
+
+
+
                 <h6 class="card-title" id="user-name">{{places.placeName}}</h6>
                 <div class="link-box">
                     <div class="link-text">
@@ -43,7 +46,7 @@
             </div>
         </div>
     </div>
-    <div class="table-container border">
+    <div class="table-container-fluid border">
         <div class="scroll">
             <table class="table table-striped">
                 <thead>
@@ -52,11 +55,22 @@
                     </tr>
                 </thead>
                 <tbody>
+
+
+
+
+                    {{#each drinks}}
                     <tr>
-                        {{#each places}}
-                        <td>({{placeDrinks}})</td>
-                        {{/each}}
+                        <td>({{drinkName}})</td>
+                        <td>({{myRating}})</td>
+                        <td>({{avgRating}})</td>
+                        <link id=({{drinkId}})>Click to view</link>
                     </tr>
+                    {{/each}}
+
+
+
+
                 </tbody>
             </table>
         </div>

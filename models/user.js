@@ -1,111 +1,72 @@
 module.exports = function(sequelize, Sequelize) {
 
-        var User = sequelize.define('user', {
+    var User = sequelize.define('user', {
 
-            id: {
-                autoIncrement: true,
-                primaryKey: true,
-                type: Sequelize.INTEGER
-            },
+        id: {
+            autoIncrement: true,
+            primaryKey: true,
+            type: Sequelize.INTEGER
+        },
 
-            firstname: {
-                type: Sequelize.STRING,
-                notEmpty: true
-            },
+        firstname: {
+            type: Sequelize.STRING,
+            notEmpty: true
+        },
 
-            lastname: {
-                type: Sequelize.STRING,
-                notEmpty: true
-            },
+        lastname: {
+            type: Sequelize.STRING,
+            notEmpty: true
+        },
 
-            displayname: {
-                type: Sequelize.STRING,
-                notEmpty: true
-            },
+        // displayname: {
+        //     type: Sequelize.STRING,
+        //     notEmpty: true
+        // },
 
-            username: {
-                type: Sequelize.STRING,
-                notEmpty: true
-            },
+        username: {
+            type: Sequelize.STRING,
+            notEmpty: true
+        },
 
-            gravatar: {
-                type: Sequelize.STRING
-            },
+        gravatar: {
+            type: Sequelize.STRING
+        },
 
-            email: {
-                type: Sequelize.STRING,
-                validate: {
-                    isEmail: true
-                }
-            },
-
-            password: {
-                type: Sequelize.STRING,
-                allowNull: false
-            },
-
-            last_login: {
-                type: Sequelize.DATE
-            },
-
-            status: {
-                type: Sequelize.ENUM('active', 'inactive'),
-                defaultValue: 'active'
+        email: {
+            type: Sequelize.STRING,
+            validate: {
+                isEmail: true
             }
+        },
+
+        password: {
+            type: Sequelize.STRING,
+            allowNull: false
+        },
+
+        last_login: {
+            type: Sequelize.DATE
+        },
+
+        status: {
+            type: Sequelize.ENUM('active', 'inactive'),
+            defaultValue: 'active'
+        }
 
 
-        });
+    });
 
-        User.associate = function(models) {
+    User.associate = function(models) {
 
-            User.belongsToMany(User, { as: 'isFriend', foreignKey: 'userId', through: 'Friend' });
-            User.belongsToMany(User, { as: 'isUser', foreignKey: 'friendId', through: 'Friend' });
-
-        };
+        User.hasMany(models.Friend)
 
 
-        return User;
+        //         // User.belongsToMany(User, );
+        //         // User.belongsToMany(User, { as: 'isUser', foreignKey: 'friendId', through: 'Friend' });
 
-    }
-    // module.exports = function(sequelize, DataTypes) {
-    //     var User = sequelize.define("User", {
-    //         userId: { type: DataTypes.INTEGER, autoIncrement: true, primaryKey: true },
-    //         email: {
-    //             type: DataTypes.STRING,
-    //             unique: true,
-    //             allowNull: false,
-    //             validate: {
-    //                 notEmpty: true
-    //             }
-    //         },
-    //         userName: {
-    //             type: DataTypes.STRING,
-    //             unique: true,
-    //             allowNull: false,
-    //             validate: {
-    //                 notEmpty: true
-    //             }
-    //         },
-    //         displayName: {
-    //             type: DataTypes.STRING,
-    //             allowNull: false,
-    //             validate: {
-    //                 notEmpty: true
-    //             }
-    //         },
-    //         passKey: {
-    //             type: DataTypes.STRING,
-    //             allowNull: false,
-    //             validate: {
-    //                 notEmpty: true
-    //             }
-    //         },
-    //         gravatar: {
-    //             type: DataTypes.STRING,
-    //             allowNull: true //TODO: Gravatar: Change this to false when gravatar is implemented
-    //         }
-    //     });
+    };
 
 
-//     return User;
-// }
+    return User;
+
+}

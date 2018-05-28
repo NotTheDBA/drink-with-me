@@ -1,3 +1,4 @@
+# Application Flow
     /root
         if logged in, dashboard
         if not logged in, sign-in
@@ -6,23 +7,22 @@
         /sign-up
 
         /dashboard
-            - friends
-            - drinks
-            - reviews
-        /friends
-            /add-friend
-        /drinks
-            - find drink
-            /add-drink
-                - reviews
-                - add ingredient
-                - add place
-        /ingredients
-            /add-ingredient
+            /friends
+            - add-friend
+            /drinks (reviews)
+                - find drink
+                 /add-drink
+                    /add-part
+                        /add-ingredient
+                    /add-place
+                    /add-review
+            
         /places
-            -find place
+        -find place
             /add-place
 
         /reviews
-            /add-review
             
+
+- - - 
+[Read Me](ReadMe.md)

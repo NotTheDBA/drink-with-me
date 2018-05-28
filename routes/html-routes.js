@@ -1,5 +1,3 @@
-var place = require("../controllers/place");
-
 // var category = require("../controllers/category");
 var drink = require("../controllers/drink");
 var friend = require("../controllers/friend");
@@ -51,6 +49,20 @@ module.exports = function(app) {
             });
     });
 
+
+    //Get drink by name
+    app.get("/drink/:drink", function(req, res) {
+        drink.findDrink(req.params.drink)
+            .then(function(dbResults) {
+                console.log("drink")
+                console.log(dbResults)
+                var hbsObject = {
+                    drinks: dbResults
+                };
+                res.render("drinks", hbsObject);
+            });
+    });
+
     //Get All friends
     app.get("/friends", function(req, res) {
         friend.findAllByUser(req.user.id)
@@ -86,22 +98,27 @@ module.exports = function(app) {
 
     //Get Place by name
     app.get("/place/:name", function(req, res) {
-        console.log(req.params.name)
-        console.log(unescape(decodeURIComponent(req.params.name)))
+        // console.log(req.params.name)
+        // console.log(unescape(decodeURIComponent(req.params.name)))
         place.findOneByName(req.params.name)
             .then(function(dbResults) {
                 var hbsObject = {
-                    places: dbResults
+                    places: dbResults,
+                    drinks: dbResults2
                 };
                 res.render("show-place", hbsObject);
             });
     });
+
+
     //Get All review
-    app.get("/review/", function(req, res) {
+    app.get("/review", function(req, res) {
+        // console.log("fired")
         review.findAllByUser(req.user.id)
             .then(function(dbResults) {
+                console.log(dbResults)
                 var hbsObject = {
-                    review: dbResults
+                    reviews: dbResults
                 };
                 res.render("reviews", hbsObject);
             });

@@ -1,0 +1,36 @@
+<div class="card w-100">
+    <div class="card-body">
+        <div class="table-container-fluid border">
+            <div class="scroll">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col" id="drink">Drink</th>
+                            <th scope="col" id="location">Where</th>
+                            <th scope="col" id="my-rating">My Rating</th>
+                            <th scope="col" id="avg-rating">Avg Rating</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{#each drinks}}
+                        <tr>
+                            <th scope="row"> ({{drinksName}})</th>
+                            <td> ({{drinksLocation}})</td>
+                            <td>
+                                <div class="rating">
+                                    ({{drinksMyRating}})
+                                </div>
+                            </td>
+                            <td>
+                                <div class="rating">
+                                    ({{drinksAvgRating}})
+                                </div>
+                            </td>
+                        </tr>
+                        {{/each}}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
