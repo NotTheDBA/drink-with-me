@@ -6,124 +6,73 @@ var expect = chai.expect;
 
 chai.use(chaiHttp);
 
-var register_details = {
-    "name": "Jane Doe",
-    "email": "email@email.com",
-    "username": "dummy_name",
-    "password": "123@abc",
-    "repassword": "123@abc",
-    "birthdate": "1/1/1980",
-};
-
-var login_details = {
-    "username": "Jane Doe",
-    "password": "123@abc",
-    "repassword": "123@abc",
-};
-
-
+var req = "dummy";
 //Log in page
 describe("API Routes", function () {
-    //6
-    // describe("POST /api/signup", function () {
-    //     it("should take the input from the email, password, and age certification and send to the database", function () {
-    //         chai.request(app)
-    //             .post("/api/signup")
-    //             .send(register_details)
-    //             .end(function (err, res) {
-    //                 res.should.have.status(404);
-
-    //             })
-    //     })
-    // });
-
-    // //7
-    // describe("POST /api/login", function () {
-    //     it("should login", function () {
-    //         chai.request(app)
-    //             .post("/api/login")
-    //             .send(login_details)
-    //             .end(function (err, res) {
-    //                 res.should.have.status(200);
-
-    //             })
-    //     })
-    // });
-    //4
-    describe("GET /api/username/:username", function () {
-        it("should get the username and information", function () {
+    //1
+    describe("GET /api/category", function () {
+        it("#1 should get a drink category", function () {
             chai.request(app)
-                .get("/api/username:username")
+                .get("/api/category")
                 .then((res) => {
                     res.should.have.status(200);
                     res.should.be.json;
-                })
-        });
-    });
-    //1
-    describe("GET /api/all", function () {
-        it("should get the list of drinks the user has rated", function () {
-            chai.request(app)
-                .get("https://www.thecocktaildb.com/api/json/v1/1/list.php?c=list")
-                .then((res) => {
-                    res.should.have.status(200);
 
                 })
         });
     });
     //2
-    describe("GET /api/drink:drink", function () {
-        it("should get name, location, star rating, and text rating, and ingredient list of drink ", function () {
+    describe("POST /api/category", function () {
+        it("#2 should add a drink category", function () {
             chai.request(app)
-                .get("https://www.thecocktaildb.com/api/json/v1/1/filter.php?c=Cocktail")
+                .post("/api/category")
+                .send(req)
                 .then((res) => {
                     res.should.have.status(200);
+                    res.should.redirect;
 
-                })
-        });
-    });
-    //10
-    describe("GET /api/friend", function () {
-        it("should find a friend for the user to follow", function () {
-            chai.request(app)
-                .get("/api/friend")
-                .then((res) => {
-                    res.should.have.status(200);
-                    res.should.be.json;
-                })
-        });
-    });
-
-
-    // //Add a drink page
-    //8
-    describe("POST api/drink", function () {
-        it("should take the input from the drink name, location, star rating, and text rating and send it to the db", function () {
-            chai.request(app)
-                .post("/api/drink")
-                .then((res) => {
-                    res.should.have.status(200);
-                    res.should.be.json;
                 })
         });
     });
     //3
-    describe(" GET /api/ingredient/:ingredient", function () {
-        it("should get a list of ingredients from the db to add to our drink", function () {
+    describe("GET /api/drink:drink", function () {
+        it("#3 should get name, location, star rating, and text rating, and ingredient list of drink ", function () {
             chai.request(app)
-                .get("https://www.thecocktaildb.com/api/json/v1/1/list.php?i=list")
+                .get("/api/drink/:drink")
                 .then((res) => {
                     res.should.have.status(200);
+                    res.should.be.json;
+
                 })
         });
     });
-
-    // //Update a drink page
-    //12
-    describe("PUT /api/drink", function () {
-        it("should upon click update a drink", function () {
+    //6
+    describe("DELETE /api/friend:id", function () {
+        it("#4 should remove friend", function () {
             chai.request(app)
-                .put("/api/drink")
+                .delete("/api/friend:id")
+                .then((res) => {
+                    res.should.have.status(200);
+                    res.should.be.json;
+                })
+        });
+    });
+    //8
+    describe("POST /api/friend", function () {
+        it("#5 should accept friend", function () {
+            chai.request(app)
+                .post("/api/friend")
+                .then((res) => {
+                    res.should.have.status(200);
+                    res.should.be.json;
+                })
+        });
+    });
+    //7
+    describe("GET /api/friend:friend", function () {
+        it("#6 should find all friend requests", function () {
+            chai.request(app)
+                .post("/api/friend")
                 .then((res) => {
                     res.should.have.status(200);
                     res.should.be.json;
@@ -131,11 +80,57 @@ describe("API Routes", function () {
         });
     });
 
+    // //Add a drink page
+    //4
+    describe("POST api/drink", function () {
+        it("#7 should add a drink", function () {
+            chai.request(app)
+                .post("/api/drink")
+                .then((res) => {
+                    res.should.have.status(200)
+                        .end(err, res)
+                    res.header['location'].should.include('/home')
+                    done()
+                })
+        });
+    });
+    //9
+    describe("POST /api/ingredient", function () {
+        it("#8 should add ingredient", function () {
+            chai.request(app)
+                .post("/api/ingredient")
+                .then((res) => {
+                    res.should.have.status(200);
+                    res.should.be.json;
+                })
+        });
+    });
+    //10
+    describe("GET /api/ingredient", function () {
+        it("#9 should find all ingredientst", function () {
+            chai.request(app)
+                .get("/api/ingredient")
+                .then((res) => {
+                    res.should.have.status(200);
+                    res.should.be.json;
+                })
+        });
+    });
+    //11
+    describe(" GET /api/ingredient/:ingredient", function () {
+        it("#10 should find ingredient by name", function () {
+            chai.request(app)
+                .get("/api/ingredient/:ingredient")
+                .then((res) => {
+                    res.should.have.status(200);
+                    res.should.be.json;
+                })
+        });
+    });
 
-    // //Following list page
     //5
-    describe("GET /api/username/:friend", function () {
-        it("should get a list of friends the user is following from the db and display on the page", function () {
+    describe("GET /api/friend/:user", function () {
+        it("#11 should get a list of friends the user is following from the db and display on the page", function () {
             chai.request(app)
                 .get("/api/username/friend")
                 .then((res) => {
@@ -145,24 +140,66 @@ describe("API Routes", function () {
         });
     });
 
-
-    // //Add a review to a drink page
-    //11
-    describe("PUT /api/review", function () {
-        it("should add an additional text review to a drink", function () {
+     //12
+     describe("GET /api/part/:drink", function () {
+        it("#12 should find all parts by drinkID", function () {
             chai.request(app)
-                .put("/api/review")
+                .get("/api/part/:drink")
                 .then((res) => {
                     res.should.have.status(200);
                     res.should.be.json;
                 })
         });
     });
-    //Post a review of a drink
+     //13
+     describe("POST /api/part", function () {
+        it("#13 should add a drink part", function () {
+            chai.request(app)
+                .post("/api/part")
+                .then((res) => {
+                    res.should.have.status(200);
+                    res.should.be.json;
+                })
+        });
+    });
 
-    //9 
+     //14
+     describe("GET /api/place", function () {
+        it("#14 should get all places", function () {
+            chai.request(app)
+                .get("/api/place")
+                .then((res) => {
+                    res.should.have.status(200);
+                    res.should.be.json;
+                })
+        });
+    });
+     //15
+     describe("POST /api/place", function () {
+        it("#15 should add a place", function () {
+            chai.request(app)
+                .post("/api/place")
+                .then((res) => {
+                    res.should.have.status(200);
+                    res.should.be.json;
+                })
+        });
+    });
+
+    //16
+    // describe("GET /api/review/:parm", function () {
+    //     it("#16 should get all places", function () {
+    //         chai.request(app)
+    //             .get("/api/place")
+    //             .then((res) => {
+    //                 res.should.have.status(200);
+    //                 res.should.be.json;
+    //             })
+    //     });
+    // });
+    //17
     describe("POST /api/review", function () {
-        it("should add a text review to a drink", function () {
+        it("#17 should add a text review to a drink", function () {
             chai.request(app)
                 .post("/api/review")
                 .then((res) => {
