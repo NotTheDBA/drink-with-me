@@ -114,9 +114,9 @@ module.exports = function(app, passport) {
     app.get("/api/user/:id", function(req, res) {
         //Find all returns all entries for a table when used with no options
         user.findById(req.params.id).then(function(dbResults) {
-            console.log(dbResults)
-                // We have access to the user as an argument inside of the callback function
-                // res.json(dbResults);
+            // console.log(dbResults)
+            // We have access to the user as an argument inside of the callback function
+            // res.json(dbResults);
 
             var hbsObject = {
                 user: dbResults,
