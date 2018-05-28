@@ -1,0 +1,39 @@
+<div class="card w-100">
+    <div class="card-body">
+
+        <div class="table-container-fluid border">
+            <div class="scroll">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col"></th>
+                            <th scope="col"></th>
+                            <th scope="col"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{#each friends}}
+                        <tr>
+                            <td scope="col">
+                                <img src="https://www.gravatar.com/avatar/{{gravatar}}?d=wavatar" class="friend-image">
+                            </td>
+                            <td scope="col">
+                                {{firstname}}
+                            </td>
+                            <td scope="col">
+                                {{lastname}}
+                            </td>
+                            <td scope="col">
+                                <form class="form-horizontal" method="GET" action="/api/user/{{id}}">
+                                    <input type="submit" class="btn btn-secondary btn-sm active" role="button" aria-pressed="true" value="View">
+                                </form>
+                            </td>
+                        </tr>
+                        {{/each}}
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+    </div>
+</div>

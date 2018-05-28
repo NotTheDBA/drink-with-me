@@ -1,82 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
+<div class="container">
+    {{#if drinks}} {{>user/drinks}} {{/if}} {{#if showFriends}} {{>user/friends}} {{/if}}
+</div>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-        crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="/assets/styles.css">
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-        crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-        crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-        crossorigin="anonymous"></script>
-
-    <title>My Profile</title>
-</head>
-
-<body>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-3"></div>
-            <div class="col-md-6">
-                <h2 class="neon">Drink With Me!</h2>
-                <hr>
-            </div>
-        </div>
-    </div>
-    <div class="container">
-        <div class="card w-100">
-            <div class="card-body">
-                <h6 class="card-title" id="user-name">{{user.firstname}} {{user.lastname}}</h6>
-                <img src="https://www.gravatar.com/avatar/{{user.gravatar}}?d=https://www.publicdomainpictures.net/pictures/130000/nahled/seamless-cocktails.jpg"
-                    class="profile-image">
-                <div class="link-box">
-                    <div class="link-text">
-                        <a href="/review">DRINKS</a>
-                        <br/>
-                        <a href="/friend/add">FRIENDS</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="table-container border">
-        <div class="scroll">
-            <table class="table table-striped">
-                <thead>
-                    <tr>
-                        <th scope="col" id="drink">Drink</th>
-                        <th scope="col" id="location">Where</th>
-                        <th scope="col" id="my-rating">My Rating</th>
-                        <th scope="col" id="avg-rating">Avg Rating</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {{#each drinks}}
-                    <tr>
-                        <th scope="row"> ({{drinksName}})</th>
-                        <td> ({{drinksLocation}})</td>
-                        <td>
-                            <div class="rating">
-                                ({{drinksMyRating}})
-                            </div>
-                        </td>
-                        <td>
-                            <div class="rating">
-                                ({{drinksAvgRating}})
-                            </div>
-                        </td>
-                    </tr>
-                    {{/each}}
-                </tbody>
-            </table>
-        </div>
-
-    </div>
+<div class="container">
     <form class="form-horizontal" method="GET" action="/drink/add">
         <button class="btn btn-sm" type="submit">Add Drink</button>
     </form>
@@ -93,7 +19,3 @@
         <button class="btn btn-sm" type="submit">Tests</button>
 
     </form>
-
-</body>
-
-</html>
