@@ -4,7 +4,7 @@ exports.signup = function(req, res) {
     if (req.user) {
         res.redirect('/dashboard');
     } else {
-        res.render('signup');
+        res.render('signup', { layout: "register" });
     }
 }
 
@@ -12,14 +12,16 @@ exports.signin = function(req, res) {
     if (req.user) {
         res.redirect('/dashboard');
     } else {
-        res.render('signin');
+        res.render('signin', { layout: "register" });
     }
 }
 
 exports.dashboard = function(req, res) {
 
     var hbsObject = {
-        user: req.user
+        user: req.user,
+        layout: "main",
+        isMe: true
     };
     res.render('user-profile', hbsObject);
 

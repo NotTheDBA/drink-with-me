@@ -12,7 +12,7 @@ module.exports = {
     //TODO: //Find By Email
     // getAll: function() {
 
-    //     var $getAll = db.friend.findAll({}).then(function(dbResults) {
+    //     var $getAll = db.Friend.findAll({}).then(function(dbResults) {
 
     //             return dbResults;
     //         })
@@ -26,15 +26,17 @@ module.exports = {
     //Find all user's friends
     findAllByUser: function(userId) {
 
-        var $findAllByUser = db.Friend.findAll({
-
-                where: {
-                    userId: userId
-                },
-                include: ['user']
-            }).then(function(results) {
-                console.log(results)
-                return results;
+        var $findAllByUser = db.user.findAll(
+                // {
+                //     include: [{
+                //         model: db.Friend,
+                //         through: { 
+                //             where: { userId: userId }
+                //         }
+                //     }]
+                // }
+            ).then(function(dbResults) {
+                return dbResults;
             })
             .catch(function(err) {
 
@@ -70,7 +72,7 @@ module.exports = {
     edit: function(friend, user) {
 
         var $edit =
-            db.friend.update({
+            db.Friend.update({
                 friendName: friend.friendName,
                 //approved:
                 updatedBy: user.id
