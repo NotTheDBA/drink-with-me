@@ -1,5 +1,4 @@
 body {
-    font-size: 25px;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     color: aliceblue;
     background: rgb(247, 243, 237) url(/assets/images/background.jpg);
@@ -8,11 +7,17 @@ body {
     background-size: cover;
 }
 
-input::placeholder {
-    font-size: 10px;
+h1 {
+    text-align: center !important;
 }
 
-a {
+.card {
+    width: 100% !important;
+    background: rgb(240, 213, 157);
+}
+
+input::placeholder {
+    font-size: 15px;
     color: rgb(100, 100, 100);
 }
 
@@ -32,6 +37,12 @@ h6 {
     overflow: auto;
 }
 
+.main {
+    width: 100%;
+    height: 100%; 
+}
+
+
 .table-container-fluid {
     margin: 5px;
     /* background: rgb(240, 213, 157); */
@@ -42,8 +53,7 @@ h6 {
     width: 100px;
     height: 100px;
     background: no-repeat scroll 0 0;
-    float: left;
-    margin-right: 5px;
+    padding: 5px; 
 }
 
 .friend-image {
@@ -55,54 +65,49 @@ h6 {
 }
 
 .card-title {
-    padding-top: 10px;
-    color: rgb(128, 41, 1);
-}
-
-.link-box {
-    height: 100px;
-    width: 100px;
-    margin-left: 5px;
-    float: left;
-    text-align: center;
-    position: relative;
-}
-
-.link-text {
-    position: absolute;
-    bottom: 15px;
-    right: 0;
-    font-size: 19px;
-}
+    font-size: 40px; 
+    color: black;
+} 
 
 .card-body {
     padding: 5px;
     background: rgb(240, 213, 157);
 }
 
+
 td {
     align-content: center;
 }
 
-.form-inline {
-    float: right;
+a, #place {
+    color:rgb(139,69,19);
+}
+
+#place {
+    font-size: 20px; 
 }
 
 button {
-    border: 1px solid black !important;
-    border-radius: 2cm !important;
-    float: left;
-    background: burlywood;
+    border: 1px solid black;
+    color: black;
+    padding: 20px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    margin: 4px 2px;
+    float: left; 
+    cursor: pointer;
+    background-image: linear-gradient(to right, #D6A587 0%, #EAD1C1 51%, #D6A587 100%);
 }
 
-.neon-sm {
-    font-size: 1vw;
-    line-height: 1vw;
-}
-
-.neon-lg {
-    font-size: 5vw;
-    line-height: 5vw;
+.btn {
+    border: 1px solid black;
+    color: black;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    background-image: linear-gradient(to right, #D6A587 0%, #EAD1C1 51%, #D6A587 100%);
+    font-size: 16px;
 }
 
 .neon {
@@ -112,9 +117,11 @@ button {
 }
 
 .neon {
-    animation: neon 1s ease infinite;
-    -moz-animation: neon 1s ease infinite;
-    -webkit-animation: neon 1s ease infinite;
+    animation: neon;
+    -moz-animation: neon;
+    -webkit-animation: neon;
+    animation-duration: 4s; 
+    animation-iteration-count: infinite;
 }
 
 @keyframes neon {
@@ -128,3 +135,39 @@ button {
         color: #806914;
     }
 }
+
+.beta{
+    font-size: 20px; 
+    align-content: center;
+}
+
+.signin {
+    font-size: 15px; 
+}
+
+
+.input-group {
+    width: 75% !important; 
+}
+
+.register {
+    align-content: center;
+    padding: 10px; 
+}
+
+.link {
+    width: 100%;
+    margin: auto; 
+}
+
+.link:hover {
+    color: #F1E1D7; 
+}
+
+.drink-input {
+    width: 100%;
+    margin: auto; 
+    padding: 5px; 
+}
+
+

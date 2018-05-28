@@ -1,20 +1,29 @@
-<form id="place" name="place" method="post" action="/api/drink">
-
-    <label for="drinkName">Name the Drink:</label>
-    <input class="text" name="drinkName" type="text" />
-
-    <label for="placeId">Where did you find it?</label>
-    <!-- //TODO: This should be a drop-down - assume you will have a handlebars help for "places" with "places.placeName" and "places.id"
+<div class="card-body">
+    <form id="place" name="place" method="post" action="/api/drink">
+        <div class="drink-input">
+            <label for="drinkName">Name the Drink:</label>
+            <input class="text" name="drinkName" type="text" />
+        </div>
+     
+        <div class="row drink-input">
+            <label for="placeId">Where did you find it?</label>
+            <!-- //TODO: This should be a drop-down - assume you will have a handlebars help for "places" with "places.placeName" and "places.id"
         -->
-    <input class="text" name="placeId" type="text" />
+            <input class="text" name="placeId" type="text" />
+        </div>
 
-    <label for="isAlcoholic">Is it alcoholic?</label>
-    {{!-- //TODO: This needs to be a checkbox - true/false --}}
-    <input class="text" name="isAlcoholic" type="checkbox" />
+        <div class="drink-input">
+            <label for="isAlcoholic">Is it alcoholic?</label> <span name="isAlcoholic" class="make-switch" data-on-label="<i class='icon-ok icon-white'></i>" data-off-label="<i class='icon-remove'></i>">
+                <input type="checkbox" checked />
+            </span>
+        </div>
+   
+        <div class="drink-input">
+            <label for="isCustom">Is it custom made?</label> <span name="isCustom" class="make-switch" data-on-label="<i class='icon-ok icon-white'></i>" data-off-label="<i class='icon-remove'></i>">
+                <input type="checkbox" checked />
+            </span>
+        </div>
 
-    <label for="isCustom">Is it custom made?</label>
-    {{!-- //TODO: This needs to be a checkbox - true/false --}}
-    <input class="text" name="isCustom" type="checkbox" />
-
-    <input class="btn" type="submit" value="Submit" />
-</form>
+        <input class="btn" type="submit" value="Submit" />
+    </form>
+</div>
