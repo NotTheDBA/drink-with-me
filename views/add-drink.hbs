@@ -4,22 +4,34 @@
             <label for="drinkName">Name the Drink:</label>
             <input class="text" name="drinkName" type="text" />
         </div>
-     
+
         <div class="row drink-input">
             <label for="placeId">Where did you find it?</label>
-            <!-- //TODO: This should be a drop-down - assume you will have a handlebars help for "places" with "places.placeName" and "places.id"
-        -->
-            <input class="text" name="placeId" type="text" />
+            <div class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle" name="places" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false">
+                    Places
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    {{#each places}}
+                    <a class="dropdown-item" href="#">{{places.placeName}}{{places.id}}</a>
+                    {{/each}}
+                </div>
+            </div>
         </div>
 
         <div class="drink-input">
-            <label for="isAlcoholic">Is it alcoholic?</label> <span name="isAlcoholic" class="make-switch" data-on-label="<i class='icon-ok icon-white'></i>" data-off-label="<i class='icon-remove'></i>">
+            <label for="isAlcoholic">Is it alcoholic?</label>
+            <span name="isAlcoholic" class="make-switch" data-on-label="<i class='icon-ok icon-white'></i>"
+                data-off-label="<i class='icon-remove'></i>">
                 <input type="checkbox" checked />
             </span>
         </div>
-   
+
         <div class="drink-input">
-            <label for="isCustom">Is it custom made?</label> <span name="isCustom" class="make-switch" data-on-label="<i class='icon-ok icon-white'></i>" data-off-label="<i class='icon-remove'></i>">
+            <label for="isCustom">Is it custom made?</label>
+            <span name="isCustom" class="make-switch" data-on-label="<i class='icon-ok icon-white'></i>"
+                data-off-label="<i class='icon-remove'></i>">
                 <input type="checkbox" checked />
             </span>
         </div>

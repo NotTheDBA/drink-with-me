@@ -13,7 +13,23 @@ h1 {
 
 .card {
     width: 100% !important;
-    background: rgb(240, 213, 157);
+    background: rgb(240, 213, 157);  
+}
+
+.table {
+    width: 100% !important;
+    background: rgb(240, 213, 157) !important;
+    color:rgb(139,69,19);
+    overflow-y: hidden;
+}
+
+.th, td {
+    width: 25%; 
+
+}
+
+.tf {
+    width: 50%;
 }
 
 input::placeholder {
@@ -64,8 +80,13 @@ h6 {
     margin-right: 5px;
 }
 
+.drink-image {
+    width: 15%; 
+}
+
+
 .card-title {
-    font-size: 40px; 
+    font-size: 35px; 
     color: black;
 } 
 
@@ -158,6 +179,7 @@ button {
 .link {
     width: 100%;
     margin: auto; 
+    font-size: 20px; 
 }
 
 .link:hover {
@@ -168,6 +190,14 @@ button {
     width: 100%;
     margin: auto; 
     padding: 5px; 
+}
+
+label {
+    padding: 5px; 
+}
+
+.btn-secondary {
+    width: 100%;
 }
 
 

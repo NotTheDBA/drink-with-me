@@ -19,14 +19,14 @@
     </div>
     <div class="card-body">
         <div class="link-box">
-            <div class="row link">
+            <div class="row">
                 <div class="col-md-4">
                     {{#unless isMe}}
                     <a class="link" href="/dashboard">Profile</a>{{/unless}} {{#if isMe}}
                     <a class="link" href="">{{user.firstname}} {{user.lastname}}</a>{{/if}}
                 </div>
                 <div class="col-md-4">
-                    <a class="link" href="/review">Drinks</a>
+                    <a class="link" href="/review">Drink Reviews</a>
                 </div>
                 <div class="col-md-4">
                     <a class="link" href="/api/friend/">Friends</a>
