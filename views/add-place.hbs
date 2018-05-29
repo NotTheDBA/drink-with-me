@@ -1,15 +1,35 @@
-<form id="place" name="place" method="post" action="/api/place">
+<div class="card">
+    <form id="place" name="place" method="post" action="/api/place">
+        <div class="drink-input">
+            <label for="placeName">Name the Place:</label>
+            <input class="text" name="placeName" type="text" />
+        </div>
 
-    <label for="placeName">Name the place:</label>
-    <input class="text" name="placeName" type="text" />
+        <div class="row place-input">
+            <div class="typePlace">
+            <label for="placeName">What type of place is it?</label>
+            </div>
+            <div class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle" name="places" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false">
+                    Type
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <a class="dropdown-item" href="#">Bar/Restaurant</a>
+                    <a class="dropdown-item" href="#">Residence</a>
+                    <a class="dropdown-item" href="#">Workplace</a>
+                    <a class="dropdown-item" href="#">Brewpub/Gastropub</a>
+                    <a class="dropdown-item" href="#">Distillery</a>
+                    <a class="dropdown-item" href="#">Tasting Room</a>
+                </div>
+            </div>
+        </div>
 
-    <!-- //TODO: This should be a drop-down - We'll brainstorm and hardcode a list of types:  Bar / Restaurant, Tasting Room, Residence, Workplace, Brewpub / Gastropub, Distillery
-        -->
-    <label for="type">What type of place is it?</label>
-    <input name="type" type="text" />
-
-    <label for="isPrivate">Is this private property?</label>
-    <input name="isPrivate" type="checkbox" />
-
-    <input class="btn" type="submit" value="Submit" />
-</form>
+        <label for="isPrivate">Is this private property?</label>
+        <span name="isPrivate" class="make-switch" data-on-label="<i class='icon-ok icon-white'></i>" data-off-label="<i class='icon-remove'></i>">
+            <input type="checkbox" checked />
+        </span>
+        <br/> 
+        <input class="btn" type="submit" value="Submit" />
+    </form>
+</div>
