@@ -1,24 +1,25 @@
-<div class="table-container-fluid border">
-    <div class="scroll">
-        <table class="table table-striped">
-            <thead>
-                <tr>
-                    <th scope="col" id="location">Location</th>
-                    <th scope="col" id="drinks">Drinks</th>
-                </tr>
-            </thead>
-            <tbody>
-                {{#each places}}
-                <tr>
-                    <th scope="row">{{placeName}}</th>
-                    <th scope="row">{{type}}</th>
-                    <th scope="row">{{isPrivate}}</th>
-                </tr>
-                {{/each}}
-            </tbody>
-        </table>
+<div class="table-responsive">
+    <div class="table border">
+        <div class="scroll">
+            <table class="table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col" id="location">Location</th>
+                        <th scope="col" id="drinks">Drinks</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#each places}}
+                    <tr>
+                        <th scope="row">{{placeName}}</th>
+                        <th scope="row">{{type}}</th>
+                        <th scope="row">{{isPrivate}}</th>
+                    </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+        </div>
     </div>
-
 </div>
 <form class="form-horizontal" method="GET" action="/drink/add">
     <button class="btn btn-sm" type="submit">Add Drink</button>

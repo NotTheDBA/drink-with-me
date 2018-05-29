@@ -1,31 +1,35 @@
-<div class="table-container-fluid border">
-    <div class="scroll">
-        <table class="table table-striped">
-            <thead>
-                <tr>
-                    <th scope="col"></th>
-                    <th scope="col"></th>
-                    <th scope="col"></th>
-                </tr>
-            </thead>
-            <tbody>
-                {{#each friends}}
-                <tr>
-                    <td scope="col">
-                        <img src=( {{gravatar}}) class="friend-image">
-                    </td>
-                    <td scope="col">
-                        ({{friendName}})
-                    </td>
-                    <td scope="col">
-                        <form class="form-horizontal" method="GET" action="/user/({{friendProfile}})">
-                            <a class="btn btn-secondary btn-sm active" role="button" aria-pressed="true">View</a>
-                        </form>
-                    </td>
-                </tr>
-                {{/each}}
-            </tbody>
-        </table>
-    </div>
+<div class="card">
+    <div class="table-responsive">
+        <div class="table border">
+            <div class="scroll card">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col"></th>
+                            <th scope="col"></th>
+                            <th scope="col"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{#each friends}}
+                        <tr>
+                            <td scope="col">
+                                <img src=( {{gravatar}}) class="friend-image">
+                            </td>
+                            <td scope="col">
+                                ({{friendName}})
+                            </td>
+                            <td scope="col">
+                                <form class="form-horizontal" method="GET" action="/user/({{friendProfile}})">
+                                    <a class="btn btn-secondary btn-sm active" role="button" aria-pressed="true">View</a>
+                                </form>
+                            </td>
+                        </tr>
+                        {{/each}}
+                    </tbody>
+                </table>
+            </div>
 
+        </div>
+    </div>
 </div>
