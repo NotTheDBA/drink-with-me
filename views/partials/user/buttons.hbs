@@ -11,12 +11,13 @@
     </form>
     {{/if}}
     <!-- -->
-    {{#unless isFriend }} {{#unless showFriends }}
+    <!-- {{#unless isFriend }} {{#unless showFriends }} -->
+    {{#unless isMe }}
     <form class="form-horizontal" method="GET" action="/friend/add/">
-        <input name="friendId" type="hidden" value={{user.id}} /> {{user.id}}
+        <input name="friendId" type="hidden" value={{user.id}} />
         <button class="btn btn-sm" type="submit">Add Friend</button>
-    </form>
-    {{/unless}} {{/unless}}
+    </form>{{/unless}}
+    <!-- {{/unless}} {{/unless}} -->
     <form class="form-horizontal" method="GET" action="/logout">
         <button class="btn btn-sm" type="submit">Logout</button>
     </form>

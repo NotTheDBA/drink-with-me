@@ -99,12 +99,16 @@ module.exports = function(app) {
         if (typeof req.user == "undefined") {
             res.redirect('/signin');
         } else {
+            console.log("check friends")
             friend.findAllByUser(req.user.id)
                 .then(function(dbResults) {
+                    console.log(dbResults)
                     var hbsObject = {
                         user: req.user,
                         friends: dbResults,
-                        showFriends: true
+                        layout: "main",
+                        showFriends: true,
+                        isMe: true
                     };
                     res.render('user-profile', hbsObject);
                 });
