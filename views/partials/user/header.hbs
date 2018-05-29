@@ -1,8 +1,6 @@
-<div class="card w-100">
+<div class="card text-center">
     <div class="card-body">
-        <div id="search-group">
-            {{>headers/search}}
-        </div>
+
         <h6 class="card-title" id="user-name">{{user.firstname}} {{user.lastname}}</h6>
         {{#if isMe}}
         <img src="https://www.gravatar.com/avatar/{{user.gravatar}}?d=https://www.publicdomainpictures.net/pictures/130000/nahled/seamless-cocktails.jpg"
@@ -19,6 +17,28 @@
                 <br/>
                 <a href="/friends">Friends</a>
             </div>
+            {{!-- //FIXME: This needs to be centered --}}
+            <div class="search-narrow" id="search-group">
+                {{>headers/search}}
+            </div>
+        </div>
+        <!-- <div class="link-box">
+            <div class="row">
+                <div class="col-md-4">
+                    {{#unless isMe}}
+                    <a class="link" href="/dashboard">Profile</a>{{/unless}} {{#if isMe}}
+                    <a class="link" href="">{{user.firstname}} {{user.lastname}}</a>{{/if}}
+                </div>
+                <div class="col-md-4">
+                    <a class="link" href="/review">Drink Reviews</a>
+                </div>
+                <div class="col-md-4">
+                    <a class="link" href="/friends">Friends</a>
+                </div>
+            </div>
+        </div> -->
+
+        <div class="row">
+
         </div>
     </div>
-</div>

@@ -1,14 +1,59 @@
  {{!-- //TODO: Fix fields for Reviews --}}
-<form id="review" name="review" method="post" action="/api/review">
+<form id="review-drink" name="review-form" method="post" action="/api/review">
 
     <!-- //TODO: This should display the found Drink info - assume a handlebars object "drinks" with drinkname, location, and id.
         -->Drink Name here:
     <!-- /TODO: this will hold the handlebars drink.id -->
     <input name="drinkId" type="hidden" value=1 /> {{!-- //TODO: This needs to be a selectable rating scale 1 to 5 stars, numeric values will need to post back --}}
-    <label for="rating">Rating</label>
-    <input class="text" name="rating" type="text" /> {{!-- //TODO: This needs to be larger text box - maybe with min length of 25 and max length of 500 characters --}}
-    <label for="review">Review:</label>
-    <input name="review" type="textbox" />
 
+    <div class="row">
+        <div class="col-md-3 field-label-responsive">
+            <label for="rating">Rating</label>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                    <div class="input-group-addon" style="width: 2.6rem">
+                        <i class="fa fa-at"></i>
+                    </div>
+                    <input type="text" name="rating" class="form-control" id="new-rating" placeholder="1-5" required autofocus>
+
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-control-feedback">
+                <span class="text-danger align-middle" id="rating_error">
+                    <!-- Put rating validation error messages here -->
+                </span>
+            </div>
+        </div>
+    </div>
+
+
+    {{!-- //TODO: Make this bigger --}}
+    <div class="row">
+        <div class="col-md-3 field-label-responsive">
+            <label for="review">Review</label>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                    <div class="input-group-addon" style="width: 2.6rem">
+                        <i class="fa fa-at"></i>
+                    </div>
+                    <input type="textbox" name="review" class="form-control" id="new-review" placeholder="review" required autofocus>
+
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-control-feedback">
+                <span class="text-danger align-middle" id="review_error">
+                    <!-- Put review validation error messages here -->
+                </span>
+            </div>
+        </div>
+    </div>
     <input class="btn" type="submit" value="Submit" />
 </form>
