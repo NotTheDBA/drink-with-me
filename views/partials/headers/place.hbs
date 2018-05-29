@@ -1,0 +1,43 @@
+<div class="card w-100">
+    <div class="card-body">
+        <form class="form-inline">
+            <input class="form-control mr-sm-2" type="search" placeholder="search for thing" aria-label="Search">
+        </form>
+        <h6 class="card-title" id="place-name">{{places.placeName}}</h6>
+        <h6 class="card-title" id="place-type">{{places.type}}</h6>
+
+        <div class="link-box">
+            <div class="link-text">
+
+                <a href="/dashboard">Profile</a>
+                <br/>
+                <a href="/review">Drinks</a>
+                <br/>
+                <a href="/friends">Friends</a>
+            </div>
+        </div>
+
+
+        <div class="row">
+            <form id="find-place" name="find" method="post" action="/api/place">
+                <div class="col-md-3 field-label-responsive">
+
+                    <label for="place">Lookup Place:</label>
+                </div>
+                <div class="col-md-6">
+
+                    <div class="form-group">
+                        <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                            <div class="input-group-addon" style="width: 2.6rem">
+                                <i class="fa fa-user"></i>
+                            </div>
+                            <input type="text" name="place" class="form-control" id="find-place" placeholder="Some place..." required autofocus>
+                        </div>
+                    </div>
+                </div>
+
+                <input class="btn" type="submit" value="Find Friend">
+            </form>
+        </div>
+    </div>
+</div>

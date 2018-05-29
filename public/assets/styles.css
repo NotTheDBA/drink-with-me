@@ -13,19 +13,19 @@ h1 {
 
 .card {
     width: 100% !important;
-    background: rgb(240, 213, 157);  
+    background: rgb(240, 213, 157);
 }
 
 .table {
     width: 100% !important;
     background: rgb(240, 213, 157) !important;
-    color:rgb(139,69,19);
+    color: rgb(139, 69, 19);
     overflow-y: hidden;
 }
 
-.th, td {
-    width: 25%; 
-
+.th,
+td {
+    width: 25%;
 }
 
 .tf {
@@ -55,9 +55,12 @@ h6 {
 
 .main {
     width: 100%;
-    height: 100%; 
+    height: 100%;
 }
 
+.search-narrow {
+    max-width: 250px;
+}
 
 .table-container-fluid {
     margin: 5px;
@@ -69,7 +72,7 @@ h6 {
     width: 100px;
     height: 100px;
     background: no-repeat scroll 0 0;
-    padding: 5px; 
+    padding: 5px;
 }
 
 .friend-image {
@@ -81,34 +84,33 @@ h6 {
 }
 
 .drink-image {
-    width: 15%; 
+    width: 15%;
 }
 
-
 .card-title {
-    font-size: 35px; 
+    font-size: 35px;
     color: black;
-} 
+}
 
 .card-body {
     padding: 5px;
     background: rgb(240, 213, 157);
 }
 
-
 td {
     align-content: center;
 }
 
-a, #drink, #place {
-    color:rgb(139,69,19);
+a,
+#drink,
+#place {
+    color: rgb(139, 69, 19);
 }
 
-#place, #drink {
-    font-size: 20px; 
+#place,
+#drink {
+    font-size: 20px;
 }
-
-
 
 button {
     border: 1px solid black;
@@ -118,7 +120,7 @@ button {
     text-decoration: none;
     font-size: 16px;
     margin: 4px 2px;
-    float: left; 
+    float: left;
     cursor: pointer;
     background-image: linear-gradient(to right, #D6A587 0%, #EAD1C1 51%, #D6A587 100%);
 }
@@ -143,7 +145,7 @@ button {
     animation: neon;
     -moz-animation: neon;
     -webkit-animation: neon;
-    animation-duration: 4s; 
+    animation-duration: 4s;
     animation-iteration-count: infinite;
 }
 
@@ -159,47 +161,45 @@ button {
     }
 }
 
-.beta{
-    font-size: 20px; 
+.beta {
+    font-size: 20px;
     align-content: center;
 }
 
 .signin {
-    font-size: 15px; 
+    font-size: 15px;
 }
 
-
 .input-group {
-    width: 75% !important; 
+    width: 75% !important;
 }
 
 .register {
     align-content: center;
-    padding: 10px; 
+    padding: 10px;
 }
 
 .link {
     width: 100%;
-    margin: auto; 
-    font-size: 20px; 
+    margin: auto;
+    font-size: 20px;
 }
 
 .link:hover {
-    color: #F1E1D7; 
+    color: #F1E1D7;
 }
 
-.drink-input, .place-input {
+.drink-input,
+.place-input {
     width: 100%;
-    margin: auto; 
-    padding: 5px; 
+    margin: auto;
+    padding: 5px;
 }
 
 label {
-    padding: 5px; 
+    padding: 5px;
 }
 
 .btn-secondary {
     width: 100%;
 }
-
-
