@@ -28,13 +28,13 @@ module.exports = function(app) {
         }
     });
 
-    app.get('/friend/add', function(req, res) {
-        if (typeof req.user == "undefined") {
-            res.redirect('/signin');
-        } else {
-            res.render('add-friend');
-        }
-    });
+    // app.get('/friend/add', function(req, res) {
+    //     if (typeof req.user == "undefined") {
+    //         res.redirect('/signin');
+    //     } else {
+    //         res.render('add-friend');
+    //     }
+    // });
 
     app.get('/ingredient/add', function(req, res) {
         if (typeof req.user == "undefined") {
@@ -122,7 +122,7 @@ module.exports = function(app) {
             var hbsObject = {
                 user: dbResults[0],
                 layout: "main",
-                isFriend: true
+                isFriend: false
             };
             res.render('user-profile', hbsObject);
         });

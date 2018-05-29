@@ -118,17 +118,24 @@ module.exports = function(app, passport) {
             .then(function(user) {
                 // console.log(user)
                 console.log(user[0].id)
-                    // res.json(user);
-                    // console.log(found)
-                    // console.log(found.id)
-                    // var hbsObject = {
-                    //     user: dbResults
-                    // };
-                    // console.log(hbsObject)
                 res.redirect('/friends/' + encodeURIComponent(user[0].id));
             });
     });
 
+
+    // Add a friend
+    // app.post("/api/friend/:id", function(req, res) {
+    app.get("/friend/add/", function(req, res) {
+        console.log(req.params)
+        console.log(req.body)
+            // console.log(req.body.email)
+            // friend.add(req.params.id, req.user.id)
+            //     .then(function(results) {
+            //         // console.log(user)
+            //         // console.log(user[0].id)
+            //         res.redirect('/friends');
+            //     });
+    });
 
     // GET route for retrieving user by username
     app.get("/friends/:id", function(req, res) {

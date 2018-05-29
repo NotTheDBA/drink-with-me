@@ -6,8 +6,8 @@
         <h6 class="card-title" id="user-name">{{user.firstname}} {{user.lastname}}</h6>
         {{#if isMe}}
         <img src="https://www.gravatar.com/avatar/{{user.gravatar}}?d=https://www.publicdomainpictures.net/pictures/130000/nahled/seamless-cocktails.jpg"
-            class="profile-image"> {{/if}} {{#if isFriend}}
-        <img src="https://www.gravatar.com/avatar/{{user.gravatar}}?d=wavatar" class="profile-image"> {{/if}}
+            class="profile-image"> {{/if}} {{#unless isMe}}
+        <img src="https://www.gravatar.com/avatar/{{user.gravatar}}?d=wavatar" class="profile-image"> {{/unless}}
 
         <div class="link-box">
             <div class="link-text">
@@ -19,11 +19,6 @@
                 <br/>
                 <a href="/friends">Friends</a>
             </div>
-        </div>
-
-
-        <div class="row">
-
         </div>
     </div>
 </div>
