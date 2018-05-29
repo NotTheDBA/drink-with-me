@@ -69,7 +69,14 @@ module.exports = {
     //Find all user's friends
     findAllByUser: function(userId) {
 
-        var $findAllByUser = db.user.findAll(
+        var $findAllByUser = db.user.findAll({
+                    // where: { userId: userId }
+                    // where: {
+                    //     userId: {
+                    //         $not: userId
+                    //     }
+                    // }
+                }
                 // {
                 //     include: [{
                 //         model: db.Friend,

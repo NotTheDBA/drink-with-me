@@ -1,0 +1,27 @@
+<div class="row">
+    {{#if isMe }}
+    <form class="form-horizontal" method="GET" action="/drink/add">
+        <button class="btn btn-sm" type="submit">Add Drink</button>
+    </form>
+    <form class="form-horizontal" method="GET" action="/place/add">
+        <button class="btn btn-sm" type="submit">Add Place</button>
+    </form>
+    <form class="form-horizontal" method="GET" action="/review/add">
+        <button class="btn btn-sm" type="submit">Add Review</button>
+    </form>
+    {{/if}}
+    <!-- -->
+    {{#unless isFriend }} {{#unless showFriends }}
+    <form class="form-horizontal" method="GET" action="/friend/add/">
+        <input name="friendId" type="hidden" value={{user.id}} /> {{user.id}}
+        <button class="btn btn-sm" type="submit">Add Friend</button>
+    </form>
+    {{/unless}} {{/unless}}
+    <form class="form-horizontal" method="GET" action="/logout">
+        <button class="btn btn-sm" type="submit">Logout</button>
+    </form>
+    <form class="form-horizontal" method="GET" action="/testlink">
+        <button class="btn btn-sm" type="submit">Tests</button>
+    </form>
+
+</div>
