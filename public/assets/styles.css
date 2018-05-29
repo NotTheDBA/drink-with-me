@@ -100,13 +100,15 @@ td {
     align-content: center;
 }
 
-a, #place {
+a, #drink, #place {
     color:rgb(139,69,19);
 }
 
-#place {
+#place, #drink {
     font-size: 20px; 
 }
+
+
 
 button {
     border: 1px solid black;
@@ -186,7 +188,7 @@ button {
     color: #F1E1D7; 
 }
 
-.drink-input {
+.drink-input, .place-input {
     width: 100%;
     margin: auto; 
     padding: 5px; 
