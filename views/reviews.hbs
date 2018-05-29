@@ -1,40 +1,44 @@
-<div class="table-container-fluid border">
-    <div class="scroll">
-        <table class="table table-striped">
-            <thead>
-                <tr>
-                    <th scope="col" id="drink-image"></th>
-                    <th scope="col">Drink Name</th>
-                    <th scope="col">Place</th>
-                    <th scope="col">Average Rating</th>
-                    <th scope="col">Reviews</th>
-                </tr>
-            </thead>
-            <tbody>
-                {{#each reviews}}
-                <tr>
-                    <!--
+<div class="card">
+    <div class="table-responsive">
+        <div class="table border scroll">
+            <div class="scroll">
+                <table class="table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col" id="drink-image"></th>
+                            <th class="th" scope="col">Drink Name</th>
+                            <th class="th" scope="col">Place</th>
+                            <th class="th" scope="col">Average Rating</th>
+                            <th class="th" scope="col">Reviews</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{#each reviews}}
+                        <tr>
+                            <!--
                         <td scope="col">
                             <img src=({{drinkImage}}) class="friend-image">
                         </td> -->
-                    <td scope="col">
-                        {{drinkId}}
-                        <a href={{drinkName}}> {{drinkName}}</a>
-                        <td scope="col">
-                            {{placeDrinks}}
-                        </td>
-                    </td>
-                    <td scope="col">
-                        {{drinksAvgRating}}
-                    </td>
-                    <td scope="col">
-                        {{drinksReviews}}
-                    </td>
-                </tr>
-                {{/each}}
+                            <td scope="col">
+                                {{drinkId}}
+                                <a href={{drinkName}}> {{drinkName}}</a>
+                                <td scope="col">
+                                    {{placeDrinks}}
+                                </td>
+                            </td>
+                            <td scope="col">
+                                {{drinksAvgRating}}
+                            </td>
+                            <td scope="col">
+                                {{drinksReviews}}
+                            </td>
+                        </tr>
+                        {{/each}}
 
-            </tbody>
-        </table>
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
     </div>
-
 </div>

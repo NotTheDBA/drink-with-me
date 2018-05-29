@@ -22,6 +22,7 @@ var review = require("../controllers/review");
 
 
 module.exports = function(app, passport) {
+//1
 
     //TODO:  Incoporate these into the front end
     //   app.get("/api/all", function (request, response) {
@@ -57,7 +58,7 @@ module.exports = function(app, passport) {
                 res.json(dbResults);
             });
     });
-
+//2
     //TODO: // add category
     app.post("/api/category", function(req, res) {
         // console.log(req.body[0]);
@@ -72,6 +73,16 @@ module.exports = function(app, passport) {
     //#endregion Category Functions
 
     //#region Drink Functions
+//3
+    //  find drink
+    app.get("/api/drink/:drink", function(req, res) {
+        drink.findDrink(req.params.drink)
+            .then(function(dbResults) {
+                // We have access to the results as an argument inside of the callback function
+                res.json(dbResults);
+            });
+    });
+//4
 
 
     // add drink
@@ -95,7 +106,7 @@ module.exports = function(app, passport) {
     //     });
 
     //#endregion Drink Functions
-
+//5
     //#region Friend Functions
     // app.get("/api/friend/:user", function(req, res) {
     //     friend.findAllByUser(req.params.user)
@@ -119,8 +130,8 @@ module.exports = function(app, passport) {
 
             });
     });
-
-    //TBD: // Remove Friend
+//6
+    //TODO: // Remove Friend
     app.delete("/api/friend/:id", function(req, res) {
 
         friend.Remove(req.params.id)
@@ -130,6 +141,17 @@ module.exports = function(app, passport) {
             });
 
     });
+//7
+    //TODO: // Find all pending friend requests
+    app.get("/api/friend/:friend", function(req, res) {
+        friend.findAllPendingByUser(req.params.drink)
+            .then(function(dbResults) {
+                // We have access to the results as an argument inside of the callback function
+                res.json(dbResults);
+            });
+    });
+//8
+    //TODO: // Accept Friend
 
 
     // GET route for retrieving user by username
@@ -180,7 +202,7 @@ module.exports = function(app, passport) {
     //         });
     // });
     //#endregion Friend Functions
-
+//9
     //#region Ingredient Functions
     // Add ingredient
     app.post("/api/ingredient", function(req, res) {
@@ -193,7 +215,7 @@ module.exports = function(app, passport) {
                 res.redirect('/drink/' + encodeURIComponent(dbResults.ignredientName));
             });
     });
-
+//10
     // Find All ingredients
     app.get("/api/ingredient/", function(req, res) {
         ingredient.getAll({})
@@ -202,7 +224,7 @@ module.exports = function(app, passport) {
                 res.json(dbResults);
             });
     });
-
+//11
     // Find ingredient by name
     app.get("/api/ingredient/:ingredient", function(req, res) {
         ingredient.findOneByIngredient(req.params.ingredient)
@@ -225,7 +247,7 @@ module.exports = function(app, passport) {
     // });
 
     //#endregion Ingredient Functions
-
+//12
     //#region Part (drink ingredients) Functions
     // Find all parts by drinkID
     app.get("/api/part/:drink", function(req, res) {
@@ -235,8 +257,7 @@ module.exports = function(app, passport) {
                 res.json(dbResults);
             });
     });
-
-    // Add drink part
+//13    // Add drink part
     app.post("/api/part", function(req, res) {
         //Find all returns all entries for a table when used with no options
         part.add(req.body[0])
@@ -261,7 +282,7 @@ module.exports = function(app, passport) {
     // });
 
     //#endregion Part Functions
-
+//14
     //#region Place Functions
     //Get All Places
     app.get("/api/place/", function(req, res) {
@@ -272,7 +293,7 @@ module.exports = function(app, passport) {
 
             });
     });
-
+//15
     // Add place
     app.post("/api/place/",
         function(req, res) {
@@ -308,7 +329,7 @@ module.exports = function(app, passport) {
     // });
 
     // #endregion Place Functions
-
+//16
     //#region Review Functions
     app.get("/api/review/:parm", function(req, res) {
         var parm = req.params.parm;
@@ -350,7 +371,7 @@ module.exports = function(app, passport) {
         });
 
     });
-
+//17
     //Add Review
     app.post("/api/review", function(req, res) {
         // console.log(req.body[0]);

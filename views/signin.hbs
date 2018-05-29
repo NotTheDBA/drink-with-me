@@ -1,55 +1,57 @@
-<div class="row">
-    <div class="col-md-2"></div>
-    <div class="col-md-8 field-label-responsive">
-        <strong>Note:</strong> During beta, you can test the service by logging in with "test@account.com" and "test" as the credentials.
-    </div>
-    <div class="col-md-2"></div>
-</div>
-<form class="form-horizontal" role="form" id="signin" name="signin" method="post" action="signin">
     <div class="row">
-        <div class="col-md-3 field-label-responsive">
-            <label for="email">Email</label>
+        <div class="col-md-2"></div>
+        <div class="col-md-8 field-label-responsive beta">
+            <strong>Note:</strong> During beta, you can test the service by logging in with "test@account.com" and "test" as the
+            credentials.
         </div>
-        <div class="col-md-6">
-            <div class="form-group">
-                <div class="input-group mb-2 mr-sm-2 mb-sm-0">
-                    <div class="input-group-addon" style="width: 2.6rem">
-                        <i class="fa fa-user"></i>
+        <div class="col-md-2"></div>
+    </div>
+    <form class="form-horizontal" role="form" id="signin" name="signin" method="post" action="signin">
+        <div class="row">
+            <div class="col-md-3 field-label-responsive">
+                <label for="email">Email</label>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                        <div class="input-group-addon">
+                            <i class="fa fa-user"></i>
+                        </div>
+                        <input type="text" name="email" class="form-control" id="email" placeholder="test@account.com" required autofocus>
                     </div>
-                    <input type="text" name="email" class="form-control" id="email" placeholder="test@account.com" required autofocus>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="row">
-        <div class="col-md-3 field-label-responsive">
-            <label for="password">Password</label>
-        </div>
-        <div class="col-md-6">
-            <div class="form-group has-danger">
-                <div class="input-group mb-2 mr-sm-2 mb-sm-0">
-                    <div class="input-group-addon" style="width: 2.6rem">
-                        <i class="fa fa-key"></i>
+        <div class="row">
+            <div class="col-md-3 field-label-responsive">
+                <label for="password">Password</label>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group has-danger">
+                    <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                        <div class="input-group-addon">
+                            <i class="fa fa-key"></i>
+                        </div>
+                        <input type="password" name="password" class="form-control" id="password" placeholder="test" required>
                     </div>
-                    <input type="password" name="password" class="form-control" id="password" placeholder="test" required>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="row">
-        <div class="col-md-4"></div>
+        <div class="row">
+            <div class="col-md-4"></div>
 
-        <div class="col-md-4">
-            <p>Not a member?
-                <a class="neon neon-sm" href="/signup" style="color:rgb(97, 50, 23)">SIGN UP</a>
-            </p>
+            <div class="col-md-4 beta">
+                <p>Not a member?
+                    <a class="neon" href="/signup">SIGN UP</a>
+                </p>
+            </div>
+
+            <div class="col-md-4">
+                <button type="submit" id="submit" class="btn">
+                    <i class="fa fa-user-plus"></i>Sign In</button>
+            </div>
+
         </div>
 
-        <div class="col-md-4">
-            <button type="submit" id="submit" class="btn btn-success">
-                <i class="fa fa-user-plus"></i>Sign In</button>
-        </div>
+    </form>
 
-    </div>
-
-</form>

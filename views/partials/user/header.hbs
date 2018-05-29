@@ -1,26 +1,38 @@
-<div class="card w-100">
-    <div class="card-body">
-        <form class="form-inline">
-            <input class="form-control mr-sm-2" type="search" placeholder="search for thing" aria-label="Search">
-        </form>
-        <h6 class="card-title" id="user-name">{{user.firstname}} {{user.lastname}}</h6>
-        {{#if isMe}}
-        <img src="https://www.gravatar.com/avatar/{{user.gravatar}}?d=https://www.publicdomainpictures.net/pictures/130000/nahled/seamless-cocktails.jpg"
-            class="profile-image"> {{/if}} {{#if isFriend}}
-        <img src="https://www.gravatar.com/avatar/{{user.gravatar}}?d=wavatar" class="profile-image"> {{/if}}
-
-        <div class="link-box">
-            <div class="link-text">
-                {{#unless isMe}}
-                <a href="/dashboard">Profile</a>{{/unless}} {{#if isMe}}
-                <a href="">{{user.firstname}} {{user.lastname}}</a>{{/if}}
-                <br/>
-                <a href="/review">Drinks</a>
-                <br/>
-                <a href="/api/friend/">Friends</a>
+<div class="card text-center">
+    <div class="card-header">
+        <div class="row">
+            <div class="col-md-4">
+                <form class="form-inline">
+                    <input class="form-control mr-sm-2" type="search" placeholder="search for thing" aria-label="Search">
+                </form>
+            </div>
+            <div class="col-md-4">
+                {{#if isMe}}
+                <img src="https://www.gravatar.com/avatar/{{user.gravatar}}?d=https://www.publicdomainpictures.net/pictures/130000/nahled/seamless-cocktails.jpg"
+                    class="profile-image"> {{/if}} {{#if isFriend}}
+                <img src="https://www.gravatar.com/avatar/{{user.gravatar}}?d=wavatar" class="profile-image"> {{/if}}
+            </div>
+            <div class="col-md-4">
+                <h6 class="card-title" id="user-name">{{user.firstname}} {{user.lastname}}</h6>
             </div>
         </div>
-
+    </div>
+    <div class="card-body">
+        <div class="link-box">
+            <div class="row">
+                <div class="col-md-4">
+                    {{#unless isMe}}
+                    <a class="link" href="/dashboard">Profile</a>{{/unless}} {{#if isMe}}
+                    <a class="link" href="">{{user.firstname}} {{user.lastname}}</a>{{/if}}
+                </div>
+                <div class="col-md-4">
+                    <a class="link" href="/review">Drink Reviews</a>
+                </div>
+                <div class="col-md-4">
+                    <a class="link" href="/api/friend/">Friends</a>
+                </div>
+            </div>
+        </div>
 
         <div class="row">
             {{#if isFriend}} {{!-- //TODO: figure out how to pass friend ID to api search--}}
