@@ -1,24 +1,28 @@
 <div class="card text-center">
-    <div class="card-header">
-        <div class="row">
-            <div class="col-md-4">
-                <form class="form-inline">
-                    <input class="form-control mr-sm-2" type="search" placeholder="search for thing" aria-label="Search">
-                </form>
+    <div class="card-body">
+
+        <h6 class="card-title" id="user-name">{{user.firstname}} {{user.lastname}}</h6>
+        {{#if isMe}}
+        <img src="https://www.gravatar.com/avatar/{{user.gravatar}}?d=https://www.publicdomainpictures.net/pictures/130000/nahled/seamless-cocktails.jpg"
+            class="profile-image"> {{/if}} {{#unless isMe}}
+        <img src="https://www.gravatar.com/avatar/{{user.gravatar}}?d=wavatar" class="profile-image"> {{/unless}}
+
+        <div class="link-box">
+            <div class="link-text">
+                {{#unless isMe}}
+                <a href="/dashboard">Profile</a>{{/unless}} {{#if isMe}}
+                <a href="">{{user.firstname}} {{user.lastname}}</a>{{/if}}
+                <br/>
+                <a href="/review">Drinks</a>
+                <br/>
+                <a href="/friends">Friends</a>
             </div>
-            <div class="col-md-4">
-                {{#if isMe}}
-                <img src="https://www.gravatar.com/avatar/{{user.gravatar}}?d=https://www.publicdomainpictures.net/pictures/130000/nahled/seamless-cocktails.jpg"
-                    class="profile-image"> {{/if}} {{#if isFriend}}
-                <img src="https://www.gravatar.com/avatar/{{user.gravatar}}?d=wavatar" class="profile-image"> {{/if}}
-            </div>
-            <div class="col-md-4">
-                <h6 class="card-title" id="user-name">{{user.firstname}} {{user.lastname}}</h6>
+            {{!-- //FIXME: This needs to be centered --}}
+            <div class="search-narrow" id="search-group">
+                {{>headers/search}}
             </div>
         </div>
-    </div>
-    <div class="card-body">
-        <div class="link-box">
+        <!-- <div class="link-box">
             <div class="row">
                 <div class="col-md-4">
                     {{#unless isMe}}
@@ -29,34 +33,12 @@
                     <a class="link" href="/review">Drink Reviews</a>
                 </div>
                 <div class="col-md-4">
-                    <a class="link" href="/api/friend/">Friends</a>
+                    <a class="link" href="/friends">Friends</a>
                 </div>
             </div>
-        </div>
+        </div> -->
 
         <div class="row">
-            {{#if isFriend}} {{!-- //TODO: figure out how to pass friend ID to api search--}}
-            <form id="place" name="place" method="post" action="/api/friend">
-                <div class="col-md-3 field-label-responsive">
-                    {{#if isFriend}}
-                    <label for="email">Lookup friend:</label> {{/if}}
-                </div>
-                <div class="col-md-6">
-                    {{#if isFriend}}
-                    <div class="form-group">
-                        <div class="input-group mb-2 mr-sm-2 mb-sm-0">
-                            <div class="input-group-addon" style="width: 2.6rem">
-                                <i class="fa fa-user"></i>
-                            </div>
-                            <input type="text" name="email" class="form-control" id="find-friend-email" placeholder="friend@email.val" required autofocus>
-                        </div>
-                    </div>
-                    {{/if}}
-                </div>
 
-                <input class="btn" type="submit" value="Find Friend">
-            </form>
-            {{/if}}
         </div>
     </div>
-</div>

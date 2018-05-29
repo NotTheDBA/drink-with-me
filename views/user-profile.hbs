@@ -2,20 +2,6 @@
     {{#if drinks}} {{>user/drinks}} {{/if}} {{#if showFriends}} {{>user/friends}} {{/if}}
 </div>
 
-<div class="container">
-    <form class="form-horizontal" method="GET" action="/drink/add">
-        <button class="btn btn-sm" type="submit">Add Drink</button>
-    </form>
-    <form class="form-horizontal" method="GET" action="/place/add">
-        <button class="btn btn-sm" type="submit">Add Place</button>
-    </form>
-    <form class="form-horizontal" method="GET" action="/review/add">
-        <button class="btn btn-sm" type="submit">Add Review</button>
-    </form>
-    <form class="form-horizontal" method="GET" action="/logout">
-        <button class="btn btn-sm" type="submit">Logout</button>
-    </form>
-    <form class="form-horizontal" method="GET" action="/testlink">
-        <button class="btn btn-sm" type="submit">Tests</button>
-
-    </form>
+<div id="button-group" class="container">
+    {{>user/buttons}}
+</div>

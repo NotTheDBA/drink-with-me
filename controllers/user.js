@@ -62,26 +62,6 @@ module.exports = {
     //     return $findall;
     // },
 
-    findById: function(id) {
-        console.log(id)
-            // functionName does something
-        var $findById = db.user.findAll({
-                where: {
-                    id: id
-                }
-            }).then(function(results) {
-                // return our results from the function
-                return results;
-            })
-            .catch(function(err) {
-                // Whenever a validation or flag fails, an error is thrown
-                // We can "catch" the error to prevent it from being "thrown", which could crash our node app
-                return err;
-            });
-        // This returns a promise to the external code, so it can access our results
-        return $findById;
-    },
-
     // login: function(username, passkey) {
     //     // // //This authenticates the password when the user logs in
     //     // // User.prototype.validatePassKey = function(passKey) {

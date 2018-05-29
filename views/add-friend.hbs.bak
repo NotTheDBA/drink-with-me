@@ -1,0 +1,9 @@
+
+<form id="place" name="place" method="post" action="/api/friend">
+
+        -->Friend Name here:
+
+    <input class="hidden" name="friendId" type="text" value="this will be handlebars friend.id" />
+
+    <input class="btn" type="submit" value="Add Friend">
+</form>
