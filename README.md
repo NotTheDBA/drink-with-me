@@ -15,11 +15,9 @@ With the rise in popularity of craft cocktails, every bar and restaurant has the
 
 ## Project Intent
 
-Drink With Me is a sample project built from concept to presentation in a 2-week sprint with a team of 4 developers.
+Drink With Me was originally a sample project built from concept to presentation in a 2-week sprint with a team of 4 developers.  The project concept was to create a social review and rating application to find where the best mixed drinks are made.
 
-The project concept was to create a social review and rating application to find where the best mixed drinks are made.
-
-A demo of the application is hosted <a href="https://shielded-springs-87968.herokuapp.com/">here</a>.
+This fork will serve as a launching point for addressing the issue in the original sprint, and bring the project to completion as I originally envisioned it.
 
 ## Technology Used
 * HTML5 / CSS
