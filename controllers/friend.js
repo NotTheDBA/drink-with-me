@@ -72,7 +72,7 @@ module.exports = {
         SELECT Users.* FROM Friends \
         INNER JOIN Users ON Users.id = Friends.friendid \
         WHERE Friends.userId = \
-        ' + userId, null, { raw: false }, {
+        ' + userId + ' OR Friends.friendId = ' + userId, null, { raw: false }, {
                 userId: userId
             }).then(function(dbResults) {
                 return dbResults;
