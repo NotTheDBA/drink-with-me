@@ -39,9 +39,9 @@ module.exports = {
 
     //     return $findByReview;
     // },
-    findAllByUser: function(userId) {
-        // findAllByUser does something
-        var $findAllByUser = db.Review.findAll({
+    getAllByUser: function(userId) {
+        // getAllByUser does something
+        var $getAllByUser = db.Review.findAll({
                 where: {
                     createdBy: userId
                 },
@@ -57,13 +57,13 @@ module.exports = {
                 return err;
             });
         // This returns a promise to the external code, so it can access our results
-        return $findAllByUser;
+        return $getAllByUser;
     },
 
-    findAllByDrink: function(drinkId) {
+    getAllByDrink: function(drinkId) {
 
-        // findAllByDrink does something
-        var $findAllByDrink = db.Review.findAll({
+        // getAllByDrink does something
+        var $getAllByDrink = db.Review.findAll({
                 where: {
                     drinkId: drinkId
                 },
@@ -78,7 +78,7 @@ module.exports = {
                 return err;
             });
         // This returns a promise to the external code, so it can access our results
-        return $findAllByDrink;
+        return $getAllByDrink;
     },
 
     add: function(review, user) {
@@ -120,10 +120,10 @@ module.exports = {
     },
 
     //TODO: Figure out how to find by related table Place
-    findAllByPlace: function(placeId) {
+    getAllByPlace: function(placeId) {
 
-        // findAllByPlace does something
-        var $findAllByPlace = db.Review.findAll({
+        // getAllByPlace does something
+        var $getAllByPlace = db.Review.findAll({
                 where: {
                     placeId: placeId
                 },
@@ -139,7 +139,7 @@ module.exports = {
                 return err;
             });
         // This returns a promise to the external code, so it can access our results
-        return $findAllByPlace;
+        return $getAllByPlace;
     }
 
 }

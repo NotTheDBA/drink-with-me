@@ -10,8 +10,8 @@ module.exports = {
 
     getAll: function() {
 
-        // findAll returns all entries for a table when used with no options
-        var $findall = db.Place.findAll({}).then(function(dbResults) {
+        // getAll returns all entries for a table when used with no options
+        var $getAll = db.Place.findAll({}).then(function(dbResults) {
                 // return our results from the function
                 return dbResults;
             })
@@ -21,7 +21,7 @@ module.exports = {
                 return err;
             });
         // This returns a promise to the external code, so it can access our results
-        return $findall;
+        return $getAll;
     },
 
     findOneByName: function(name) {

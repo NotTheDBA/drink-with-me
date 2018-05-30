@@ -66,7 +66,7 @@ module.exports = function(app) {
             res.redirect('/signin');
         } else {
 
-            drink.getAll()
+            drink.getAllByUser(req.user.id)
                 .then(function(dbResults) {
                     var hbsObject = {
                         drinks: dbResults
@@ -100,7 +100,7 @@ module.exports = function(app) {
             res.redirect('/signin');
         } else {
             console.log("check friends")
-            friend.findAllByUser(req.user.id)
+            friend.getAllByUser(req.user.id)
                 .then(function(dbResults) {
                     console.log(dbResults)
                     var hbsObject = {
@@ -174,7 +174,7 @@ module.exports = function(app) {
                         places: dbResults,
                         place: true
                     };
-                    drink.findAllByPlace(dbResults.placeId)
+                    drink.getAllByPlace(dbResults.placeId)
                         .then(function(results) {
                             hbsObject.drinks = results;
                             res.render("show-place", hbsObject);
@@ -191,7 +191,7 @@ module.exports = function(app) {
             res.redirect('/signin');
         } else {
             // console.log("fired")
-            review.findAllByUser(req.user.id)
+            review.getAllByUser(req.user.id)
                 .then(function(dbResults) {
                     console.log(dbResults)
                     var hbsObject = {

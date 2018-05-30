@@ -67,36 +67,46 @@ module.exports = {
 
 
     //Find all user's friends
-    findAllByUser: function(userId) {
+    getAllByUser: function(userId) {
 
         console.log(userId)
-            // var $findAllByUser = db.user.findAll(
-            //         // {
-            //         // where: { userId: userId }
-            //         // where: {
-            //         //     userId: {
-            //         //         $not: userId
-            //         //     }
-            //         // }
-            //         // }
-            //         {
-            //             include: [{
-            //                 model: db.Friend,
-            //                 through: {
-            //                     where: { userId: userId }
-            //                 }
-            //             }]
-            //         }
+        var $getAllByUser = db.Friend.findAll({
+                    where: {
+                        userId: userId
+                    }
 
-        var $findAllByUser = db.Friend.findAll({
-                    include: [{
-                        model: db.user,
-                        through: {
-                            where: { userId: userId }
-                        },
-                        as: 'isFriend'
-                    }]
                 }
+
+                // var $getAllByUser = db.user.findAll({
+                //             include: [{
+                //                 model: db.Friend,
+                //                 through: {
+                //                     where: { friendId: userId }
+                //                 },
+                //                 as: 'Friends'
+                //             }]
+                //         }
+
+                // var $getAllByUser = db.Friend.findAll({
+                //             attributes: ['friendId'],
+                //             where: {
+                //                 friendId: userId
+                //             },
+                //             include: [{
+                //                 model: db.user,
+                //                 attributes: ['firstname', 'id'],
+                //                 as: 'isFriend'
+                //             }]
+                //         }
+                // var $getAllByUser = db.Friend.findAll({
+                //             include: [{
+                //                 model: db.user,
+                //                 through: {
+                //                     where: { friendId: userId }
+                //                 },
+                //                 as: 'isFriend'
+                //             }]
+                //         }
 
             ).then(function(dbResults) {
                 // console.log(dbResults)
@@ -107,7 +117,7 @@ module.exports = {
                 return err;
             });
 
-        return $findAllByUser;
+        return $getAllByUser;
     },
 
     //TBD: //Confirm whether friend userID or friendName needs to be saved

@@ -24,5 +24,5 @@ SELECT `Friend`.`id`,
 FROM `Friends` AS `Friend`
 LEFT OUTER JOIN (
 	`Friends` AS `isFriend - > Friend` INNER JOIN `users` AS `isFriend` ON `isFriend`.`id` = `isFriend - > Friend`.`userId`
-		AND `isFriend - > Friend`.`userId` = 2
+		AND `isFriend - > Friend`.`friendId` = 2
 	) ON `Friend`.`id` = `isFriend - > Friend`.`friendId`;

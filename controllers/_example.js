@@ -48,7 +48,7 @@ module.exports = {
         return $findByProperty;
     },
 
-    findAllByProperty: function(property) {
+    getAllByProperty: function(property) {
 
         // findByProperty does something
         var $findByProperty = db.Model.findAll({

@@ -47,8 +47,8 @@ module.exports = {
 
     // getAll: function() {
 
-    //     // findAll returns all entries for a table when used with no options
-    //     var $findall = db.User.findAll({})
+    //     // getAll returns all entries for a table when used with no options
+    //     var $getAll = db.User.findAll({})
     //         .then(function(dbUser) {
     //             // return our results from the function
     //             return dbUser;
@@ -59,7 +59,7 @@ module.exports = {
     //             return err;
     //         });
     //     // This returns a promise to the external code, so it can access our results
-    //     return $findall;
+    //     return $getAll;
     // },
 
     // login: function(username, passkey) {
