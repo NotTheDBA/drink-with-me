@@ -102,13 +102,7 @@ module.exports = function(app) {
             console.log("check friends")
             friend.getAllByUser(req.user.id)
                 .then(function(dbResults) {
-                    // console.log(dbResults)
 
-                    // console.log(dbResults[0])
-
-                    console.log(dbResults[0][0])
-
-                    console.log(dbResults[0][0].firstname)
                     var hbsObject = {
                         user: req.user,
                         friends: dbResults[0],
