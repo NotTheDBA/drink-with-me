@@ -3,13 +3,7 @@
 
 With the rise in popularity of craft cocktails, every bar and restaurant has their own fancy cocktail lists - which ones are good, which ones are a waste of good alcohol?
 
-#### Team:
-* Kushagra Bhavsar
-* Jonathan Dowd
-* Adeline Johnson
-* Randy Reitz
-
-##### Host: https://shielded-springs-87968.herokuapp.com/
+##### Host: https://obscure-plateau-83552.herokuapp.com//
 
 - - - 
 
