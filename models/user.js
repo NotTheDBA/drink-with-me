@@ -62,8 +62,8 @@ module.exports = function(sequelize, Sequelize) {
 
         // models.Friend.belongsTo(User)
 
-        User.belongsToMany(models.Friend, { as: 'hasFriend', foreignKey: 'friendId', through: 'Friend' });
-        // models.Friend.belongsToMany(User, { as: 'isFriend', foreignKey: 'friendId', through: 'Friend' });
+        // User.belongsToMany(models.Friend, { as: 'hasFriend', foreignKey: 'friendId', through: 'Friend' });
+        models.Friend.belongsToMany(User, { as: 'isFriend', foreignKey: 'friendId', through: 'Friend' });
 
     };
 
