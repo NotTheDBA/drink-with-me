@@ -130,7 +130,7 @@ module.exports = function(app) {
             // We have access to the user as an argument inside of the callback function
             // res.json(dbResults);
             var hbsObject = {
-                user: dbResults[0],
+                user: dbResults,
                 layout: "main",
                 isFriend: false
             };
