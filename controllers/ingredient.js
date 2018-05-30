@@ -3,8 +3,8 @@ var db = require("../models");
 module.exports = {
     getAll: function() {
 
-        // findAll returns all entries for a table when used with no options
-        var $findall = db.Ingredient.findAll({}).then(function(dbResults) {
+        // getAll returns all entries for a table when used with no options
+        var $getAll = db.Ingredient.findAll({}).then(function(dbResults) {
                 // return our results from the function
                 return dbResults;
             })
@@ -14,7 +14,7 @@ module.exports = {
                 return err;
             });
         // This returns a promise to the external code, so it can access our results
-        return $findall;
+        return $getAll;
     },
     findOneByIngredient: function(ingredient) {
 
@@ -35,8 +35,8 @@ module.exports = {
         // This returns a promise to the external code, so it can access our results
         return $findByIngredient;
     },
-    //TODO: Flesh out findAllByCategory
-    findAllByCategory: function(Category) {
+    //TODO: Flesh out getAllByCategory
+    getAllByCategory: function(Category) {
 
         // findByCategory does something
         var $findByCategory = db.Ingredient.findAll({

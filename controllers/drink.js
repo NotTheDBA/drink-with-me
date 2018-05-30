@@ -8,18 +8,18 @@ module.exports = {
 
     getAll: function() {
 
-        var $findall = db.Drink.findAll({}).then(function(dbResults) {
+        var $getAll = db.Drink.findAll({}).then(function(dbResults) {
                 return dbResults;
             })
             .catch(function(err) {
                 return err;
             });
-        return $findall;
+        return $getAll;
     },
 
-    findAllByPlace: function(placeId) {
+    getAllByPlace: function(placeId) {
 
-        var $findall = db.Drink.findAll({
+        var $getAll = db.Drink.findAll({
             where: {
                 placeId: placeId
             }
@@ -28,7 +28,21 @@ module.exports = {
         }).catch(function(err) {
             return err;
         });
-        return $findall;
+        return $getAll;
+    },
+
+    getAllByUser: function(userId) {
+
+        var $getAll = db.Drink.findAll({
+            where: {
+                userId: userId
+            }
+        }).then(function(dbResults) {
+            return dbResults;
+        }).catch(function(err) {
+            return err;
+        });
+        return $getAll;
     },
 
     findDrink: function(drink) {
