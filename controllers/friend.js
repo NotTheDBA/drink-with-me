@@ -68,48 +68,13 @@ module.exports = {
 
     //Find all user's friends
     getAllByUser: function(userId) {
-
-        console.log(userId)
-        var $getAllByUser = db.Friend.findAll({
-                    where: {
-                        userId: userId
-                    }
-
-                }
-
-                // var $getAllByUser = db.user.findAll({
-                //             include: [{
-                //                 model: db.Friend,
-                //                 through: {
-                //                     where: { friendId: userId }
-                //                 },
-                //                 as: 'Friends'
-                //             }]
-                //         }
-
-                // var $getAllByUser = db.Friend.findAll({
-                //             attributes: ['friendId'],
-                //             where: {
-                //                 friendId: userId
-                //             },
-                //             include: [{
-                //                 model: db.user,
-                //                 attributes: ['firstname', 'id'],
-                //                 as: 'isFriend'
-                //             }]
-                //         }
-                // var $getAllByUser = db.Friend.findAll({
-                //             include: [{
-                //                 model: db.user,
-                //                 through: {
-                //                     where: { friendId: userId }
-                //                 },
-                //                 as: 'isFriend'
-                //             }]
-                //         }
-
-            ).then(function(dbResults) {
-                // console.log(dbResults)
+        var $getAllByUser = db.sequelize.query(' \
+        SELECT users.* FROM friends \
+        INNER JOIN users ON users.id = friends.friendid \
+        WHERE friends.userId = \
+        ' + userId, null, { raw: false }, {
+                userId: userId
+            }).then(function(dbResults) {
                 return dbResults;
             })
             .catch(function(err) {
