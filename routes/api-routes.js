@@ -115,7 +115,7 @@ module.exports = function(app, passport) {
     //5
     //#region Friend Functions
     // app.get("/api/friend/:user", function(req, res) {
-    //     friend.findAllByUser(req.params.user)
+    //     friend.getAllByUser(req.params.user)
     //         .then(function(dbResults) {
     //             // We have access to the results as an argument inside of the callback function
     //             res.json(dbResults);
@@ -159,7 +159,7 @@ module.exports = function(app, passport) {
         //7
         //TODO: // Find all pending friend requests
     app.get("/api/friend/:friend", function(req, res) {
-        friend.findAllPendingByUser(req.params.drink)
+        friend.getAllPendingByUser(req.params.drink)
             .then(function(dbResults) {
                 // We have access to the results as an argument inside of the callback function
                 res.json(dbResults);
@@ -200,7 +200,7 @@ module.exports = function(app, passport) {
 
     //TBD: // Find all pending friend requests
     // app.get("/api/friend/:friend", function(req, res) {
-    //     friend.findAllPendingByUser(req.params.drink)
+    //     friend.getAllPendingByUser(req.params.drink)
     //         .then(function(dbResults) {
     //             // We have access to the results as an argument inside of the callback function
     //             res.json(dbResults);
@@ -279,7 +279,7 @@ module.exports = function(app, passport) {
     //#region Part (drink ingredients) Functions
     // Find all parts by drinkID
     app.get("/api/part/:drink", function(req, res) {
-        part.findAllByDrink(req.params.drink)
+        part.getAllByDrink(req.params.drink)
             .then(function(dbResults) {
                 // We have access to the results as an argument inside of the callback function
                 res.json(dbResults);
@@ -370,7 +370,7 @@ module.exports = function(app, passport) {
                 case "user":
                     id = element.split('=')[1];
 
-                    review.findAllByUser(id)
+                    review.getAllByUser(id)
                         .then(function(dbResults) {
                             // We have access to the results as an argument inside of the callback function
                             res.json(dbResults);
@@ -380,7 +380,7 @@ module.exports = function(app, passport) {
                     //FindReviews by drink
                 case "drink":
                     id = parseFloat(element.split('=')[1]);
-                    review.findAllByDrink(id)
+                    review.getAllByDrink(id)
                         .then(function(dbResults) {
                             // We have access to the results as an argument inside of the callback function
                             res.json(dbResults);
@@ -390,7 +390,7 @@ module.exports = function(app, passport) {
                     //TODO: //FindReviews by place
                 case "place":
                     id = parseFloat(element.split('=')[1]);
-                    review.findAllByPlace(id)
+                    review.getAllByPlace(id)
                         .then(function(dbResults) {
                             // We have access to the results as an argument inside of the callback function
                             res.json(dbResults);

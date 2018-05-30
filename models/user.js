@@ -60,13 +60,12 @@ module.exports = function(sequelize, Sequelize) {
 
         User.hasMany(models.Friend)
 
-        // models.Friend.hasMany(User)
+        // models.Friend.belongsTo(User)
 
-        //         // User.belongsToMany(User, );
+        // User.belongsToMany(models.Friend, { as: 'hasFriend', foreignKey: 'friendId', through: 'Friend' });
         models.Friend.belongsToMany(User, { as: 'isFriend', foreignKey: 'friendId', through: 'Friend' });
 
     };
-
 
     return User;
 

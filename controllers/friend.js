@@ -67,39 +67,14 @@ module.exports = {
 
 
     //Find all user's friends
-    findAllByUser: function(userId) {
-
-        console.log(userId)
-            // var $findAllByUser = db.user.findAll(
-            //         // {
-            //         // where: { userId: userId }
-            //         // where: {
-            //         //     userId: {
-            //         //         $not: userId
-            //         //     }
-            //         // }
-            //         // }
-            //         {
-            //             include: [{
-            //                 model: db.Friend,
-            //                 through: {
-            //                     where: { userId: userId }
-            //                 }
-            //             }]
-            //         }
-
-        var $findAllByUser = db.Friend.findAll({
-                    include: [{
-                        model: db.user,
-                        through: {
-                            where: { userId: userId }
-                        },
-                        as: 'isFriend'
-                    }]
-                }
-
-            ).then(function(dbResults) {
-                // console.log(dbResults)
+    getAllByUser: function(userId) {
+        var $getAllByUser = db.sequelize.query(' \
+        SELECT users.* FROM friends \
+        INNER JOIN users ON users.id = friends.friendid \
+        WHERE friends.userId = \
+        ' + userId, null, { raw: false }, {
+                userId: userId
+            }).then(function(dbResults) {
                 return dbResults;
             })
             .catch(function(err) {
@@ -107,7 +82,7 @@ module.exports = {
                 return err;
             });
 
-        return $findAllByUser;
+        return $getAllByUser;
     },
 
     //TBD: //Confirm whether friend userID or friendName needs to be saved

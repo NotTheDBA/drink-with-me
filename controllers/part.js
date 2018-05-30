@@ -2,10 +2,10 @@ var db = require("../models");
 
 module.exports = {
 
-    findAllByDrink: function(drink) {
+    getAllByDrink: function(drink) {
 
-        // findAllByDrink does something
-        var $findAllByDrink = db.Part.findAll({
+        // getAllByDrink does something
+        var $getAllByDrink = db.Part.findAll({
                 where: {
                     drinkId: drink
                 }
@@ -19,7 +19,7 @@ module.exports = {
                 return err;
             });
         // This returns a promise to the external code, so it can access our results
-        return $findAllByDrink;
+        return $getAllByDrink;
     },
     //Adds new ingredient "part" to drink.
     add: function(part) {
