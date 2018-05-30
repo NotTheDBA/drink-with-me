@@ -11,48 +11,19 @@
         "dev": "sequelize db:migrate:undo && sequelize db:migrate && sequelize db:seed:undo:all && sequelize db:seed:all",
         "start": "sequelize db:migrate && sequelize db:seed:undo:all && sequelize db:seed:all && node server.js"
     },
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/Addie27/drink-with-me.git"
-    },
     "keywords": [
         "cocktail",
         "node",
         "express",
         "sequelize"
     ],
-    "author": "Team Restless Dust",
-    "contributors": [
-        {
-            "name": "Kushagra Bhavsar",
-            "email": "kushagra.8866@gmail.com",
-            "url": "https://github.com/kushbhavsar",
-            "hireable": true
-        },
-        {
-            "name": "Jonathan Dowd",
-            "email": "jdowd20@gmail.com",
-            "url": "https://github.com/Jokedo",
-            "hireable": true
-        },
-        {
-            "name": "Adeline Johnson",
-            "email": "groblewski.adeline@gmail.com",
-            "url": "https://github.com/Addie27",
-            "hireable": true
-        },
-        {
-            "name": "Randy Reitz",
-            "email": "notthedba@outlook.com",
-            "url": "https://github.com/NotTheDBA",
-            "hireable": true
-        }
-    ],
-    "license": "ISC",
-    "bugs": {
-        "url": "https://github.com/Addie27/drink-with-me/issues"
+    "author": {
+        "name": "Randy Reitz",
+        "email": "notthedba@outlook.com",
+        "url": "https://github.com/NotTheDBA",
+        "hireable": true
     },
-    "homepage": "https://github.com/Addie27/drink-with-me#readme",
+    "license": "ISC",
     "devDependencies": {
         "chai": "^4.1.2",
         "chai-http": "^4.0.0",
