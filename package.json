@@ -44,6 +44,6 @@
         "passport-local": "^1.0.0",
         "request": "^2.86.0",
         "sequelize": "^4.37.8",
-        "sequelize-cli": "^4.0.0"
+        "sequelize-cli": "^5.5.0"
     }
 }
