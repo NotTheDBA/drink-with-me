@@ -27,7 +27,7 @@
     "devDependencies": {
         "chai": "^4.2.0",
         "chai-http": "^4.3.0",
-        "mocha": "^6.2.0"
+        "mocha": "^7.0.0"
     },
     "dependencies": {
         "animate.css": "^3.7.2",
